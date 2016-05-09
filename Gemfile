@@ -24,7 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
-# gem 'unicorn'
+gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
@@ -32,10 +32,12 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'pry'
   gem 'byebug'
   gem 'faker'
   gem 'mocha'
   gem 'shoulda'
+  gem 'rspec-rails'
 end
 
 group :development do
