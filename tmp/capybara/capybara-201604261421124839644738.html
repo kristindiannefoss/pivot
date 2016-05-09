@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nachomoms Paleo Store</title>
+  <link rel="stylesheet" media="screen" href="/assets/application-ebd3699b4046ca35e411b266023d50b8b9d55054f1b7fe87a3d5db2f563af694.css" />
+<script src="/assets/application-3d8662a67810220b9b618e747a088b4230083af693dac495f5e21f04e955a64a.js"></script>
+<link href="bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (Bootstrap's JavaScript plugins) -->
+<script src="jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Nachomom, Paleo, Paleo Diet, Dinosaurs, Dinosaur Meat" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+<!--webfont-->
+<!-- dropdown -->
+<script src="jquery.easydropdown.js"></script>
+<link href="nav.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="scripts.js" type="text/javascript"></script>
+<!--js-->
+<!---- start-smoth-scrolling---->
+		<script type="text/javascript" src="move-top.js"></script>
+		<script type="text/javascript" src="easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+		</script>
+<!---- start-smoth-scrolling---->
+
+</head>
+<body>
+  <div id="pagewrap">
+    <!--banner-->
+
+<div class="banner-bg banner-sec">
+  <div class="container">
+   <div class="header">
+         <div class="logo">
+         <a href="/"><img src="/assets/logo-1cf8420a31c6471d55dd7af1e85aa39d98d9b650ef5dfb61736fe88e49acadf9.png" alt="Logo" /></a>
+       </div>
+      <div class="top-nav">
+        <ul class="nav">
+          <li><a class="morebtn" href="/admin/items">Items</a></li>
+          <li><a class="morebtn" rel="nofollow" data-method="delete" href="/logout">Logout</a></li>
+    </ul>
+     </div>
+     <div class="clearfix"></div>
+   </div>
+</div>
+
+</div>
+<!--/banner-->
+
+    <div id="main_body">
+      <h1>Edit Item Page</h1>
+
+<h3>Edit Information:</h3>
+
+<form class="edit_item" id="edit_item_7" action="/admin/items/7" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" />
+  <p><input placeholder="Name" type="text" value="Gorgeous Wool Hat" name="item[name]" id="item_name" /></p>
+  <p><input placeholder="Description" type="text" value="Shoreditch hashtag bitters kinfolk tattooed cray swag green juice godard." name="item[description]" id="item_description" /></p>
+  <p><input placeholder="Image Url" type="text" value="https://placehold.it/150x150.png/000" name="item[image_url]" id="item_image_url" /></p>
+  <p><input step="any" placeholder="Price" type="number" value="82.77" name="item[price]" id="item_price" /></p>
+  <p><input placeholder="Category ID" type="number" value="5" name="item[category_id]" id="item_category_id" /></p>
+  <p><label for="item_retired">Retired</label></p>
+  <p><input type="radio" value="true" name="item[retired]" id="item_retired_true" /></p>
+  <p><label for="item_not_retired">Not Retired</label></p>
+  <p><input type="radio" value="false" checked="checked" name="item[retired]" id="item_retired_false" /></p>
+  <p><input type="submit" name="commit" value="Update Item" /></p>
+</form>
+    
+<div class="footer">
+	 <div class="container wrap">
+		<div class="logo2">
+			 <a href="/"><img src="/assets/logo2-63067a13a3b0f1f4f3a01cace6ba6ddfb4b5960848793cd74ac9cf78f6d18706.png" alt="Logo2" /></a>
+		</div>
+		<div class="ftr-menu">
+			 <ul>
+				 <li><a href="/meats">DINOSAUR MEAT</a></li>
+				 <li><a href="/eggs">DINOSAUR EGGS</a></li>
+				 <li><a href="/fruitsveggies">FRUITS &amp; VEGGIES</a></li>
+			 </ul>
+		</div>
+		<div class="clearfix"></div>
+	 </div>
+</div>
+
+  </div>
+
+</body>
+</html>
