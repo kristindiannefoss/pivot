@@ -13,6 +13,7 @@
 
 </head>
 <body>
+  <%= render partial: "shared/navbar" %>
   <div id="pagewrap">
     <% flash.each do |type, message| %>
     <%= content_tag :div, message.html_safe, class: type %>
@@ -22,6 +23,8 @@
     </div>
     </div>
   <footer>
+    <br>
+    <center>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -46,6 +49,7 @@
         </div>
       </div>
     </div>
+  </center>
   </footer>
 
 </body>
