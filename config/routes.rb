@@ -39,4 +39,8 @@ Rails.application.routes.draw do
   get "/admin/dashboard", to: "admin/users#show"
   get "/:category", to: "categories#show"
   get "/*page", to: "errors#not_found"
+
+  # resources :needs, only: [:index]
+  resources :filters, only: [:index]
+
 end

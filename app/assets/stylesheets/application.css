@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+
+ img.overlayer {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    max-width: 100%;
+    height: auto;
+ }
+
+ .centered{
+    margin: 0 auto;
+    float: none;
+}
+
+#pagewrap{
+  text-align: center;
+}

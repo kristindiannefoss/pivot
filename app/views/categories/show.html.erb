@@ -1,6 +1,175 @@
-<div class="bikes">
-  <div class="mountain-sec">
-    <h2><%= @category.name.capitalize %></h2>
-      <%= render partial: 'shared/items', locals: {all_items: @items} %>
-  </div>
+<title>Goats and Soda Landing Page</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">Goats and Soda</a><%= image_tag "GoatFace.png", height: "50px" %>
+            </div>
+   </a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#services">Giving Catalog</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Header -->
+<center>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <br>
+    <br>
+        <div class="container">
+
+            <div class="row">
+              <center>
+
+
+<div class="centered">
+                <div class="col-md-9">
+
+                    <div class="row carousel-holder">
+
+                        <div class="col-md-12">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <%= image_tag "girl_and_goat.jpg", width: "900px", padding: "10px" %>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+<h2> <%= @category.name %> </h2>
+<br>
+                    <div class="row">
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">$24.99</h4>
+                                    <h4><a href="#">First Product</a>
+                                    </h4>
+                                    <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">$64.99</h4>
+                                    <h4><a href="#">Second Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">$74.99</h4>
+                                    <h4><a href="#">Third Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">$84.99</h4>
+                                    <h4><a href="#">Fourth Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">$94.99</h4>
+                                    <h4><a href="#">Fifth Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">$94.99</h4>
+                                    <h4><a href="#">Fifth Product</a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+
+                            </div>
+                        </div>
 </div>
+</div>
+</center>
