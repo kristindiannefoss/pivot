@@ -7,10 +7,6 @@ class User < ActiveRecord::Base
   validates :last_name,      presence: true
   validates :email,          presence: true, uniqueness: true
   validates :email,          format: { with: VALID_EMAIL_REGEX }
-  validates :city,           presence: true
-  validates :state,          presence: true
-  validates :zipcode,        presence: true,
-                             length: { minimum: 5 }
 
   enum role: ["default", "admin"]
 end

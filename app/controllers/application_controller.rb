@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   def set_redirect
     if request.referrer == "/login"
-      session[:redirect] = dashboard_path
+      session[:redirect] = root_path
     else
-      session[:redirect] = request.referrer || dashboard_path
+      session[:redirect] = request.referrer || root_path
     end
   end
 

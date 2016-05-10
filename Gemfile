@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
@@ -29,6 +30,7 @@ gem 'unicorn'
 # gem 'capistrano-rails', group: :development
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "factory_girl_rails", "~>4.0"
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
@@ -36,11 +38,12 @@ group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'mocha'
-  gem 'shoulda'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem "spring"
   gem 'web-console', '~> 2.0'
 end
