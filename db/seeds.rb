@@ -19,3 +19,5 @@ Category.create([{ name: "meats" },
     category_id: Category.all.sample.id,
     retired: false)
 end
+
+end

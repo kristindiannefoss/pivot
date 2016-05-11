@@ -31,8 +31,8 @@ h6 {
 }
 
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
+    padding-top: 0px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 0px;
     text-align: center;
     color: #f8f8f8;
     background-image: url("goat2.jpg") no-repeat center center;
@@ -40,8 +40,8 @@ h6 {
 }
 
 .splash {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
+    padding-top: 0px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 0px;
     text-align: center;
     color: #f8f8f8;
     background-image: url("goat2.jpg") no-repeat center center;
@@ -170,7 +170,8 @@ h6 {
 }
 
 footer {
-    padding: 50px 0;
+    padding: 10px 0;
+    margin: 10px 0;
     background-color: #f8f8f8;
 }
 
