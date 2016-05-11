@@ -7,7 +7,5 @@ feature "visitor can view splash page" do
 
     expect(page).to have_content("Goats and Soda")
     expect(page).to have_link("Donate")
-    save_and_open_page
-    # expect(page).to have_css("img[src=\"#{splash_image_path}\"]")
   end
 end

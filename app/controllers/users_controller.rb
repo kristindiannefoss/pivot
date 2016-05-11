@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @recipients = User.where(role: 1)
+  end
+
   def new
     set_redirect
     @user = User.new
