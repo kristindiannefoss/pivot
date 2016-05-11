@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     @orders = @user.orders
   end
 
+  def recipient
+    @recipient = User.find_by(username: params[:username])
+  end
+
 
   private
 

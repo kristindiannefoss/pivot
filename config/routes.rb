@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "/recipients", to: "users#index", as: :users
 
-  get "/:category", to: "categories#show"
+  get "/:username", to: "users#recipient", as: :user
   get "/*page", to: "errors#not_found"
 
 
