@@ -35,12 +35,14 @@ group :development, :test do
   gem 'pry'
   gem 'byebug'
   gem 'faker'
+  gem "factory_girl_rails", "~>4.0"
   gem 'mocha'
-  gem 'shoulda'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'rspec-rails'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'spring'
 end

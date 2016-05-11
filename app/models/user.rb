@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   validates :username,       presence: true, uniqueness: true
   validates :email,          presence: true, uniqueness: true
   validates :email,          format: { with: VALID_EMAIL_REGEX }
+  validates :image_url,      presence: true
   validates :country,        presence: true
-  validates :city
 
   enum role: ["default", "recipient", "admin"]
 end
