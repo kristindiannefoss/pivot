@@ -12,4 +12,12 @@ class User < ActiveRecord::Base
   validates :country,        presence: true
 
   enum role: ["default", "recipient", "admin"]
+
+  def total
+    needs.pluck(:cost).sum
+  end
+
+  def raised
+    needs.pluck(:donated).sum
+  end
 end

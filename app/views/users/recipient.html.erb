@@ -1,0 +1,12 @@
+<h2><%= "#{@recipient.first_name} #{@recipient.last_name}" %></h2>
+<ul>
+  <li><%= @recipient.country %></li>
+  <li><%= @recipient.total %></li>
+  <li><%= @recipient.description %></li>
+</ul>
+
+<ul>
+  <% @recipient.needs.each do |need| %>
+    <li>need.name</li>
+  <% end %>
+</ul>
