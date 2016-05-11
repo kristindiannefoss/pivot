@@ -4,7 +4,8 @@ class CreateNeeds < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :cost
-      t.integer :raised
+      t.integer :raised, default: 0
+      t.text :image_url
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

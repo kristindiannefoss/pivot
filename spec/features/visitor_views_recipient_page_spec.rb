@@ -3,6 +3,8 @@ require "rails_helper"
 feature "visitor views recipient page" do
   scenario "successfully" do
     recipient = create(:user, role: 1)
+    need = create(:need)
+    recipient.needs = [need]
 
     visit user_path(recipient.username)
 
