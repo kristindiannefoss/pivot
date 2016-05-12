@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-    @orders = @user.orders
+    @donations = @user.donations
   end
 
   def recipient

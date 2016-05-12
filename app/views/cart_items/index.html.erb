@@ -48,10 +48,10 @@
 				<% if current_user %>
 				<% if @cart.contents.empty? %>
 				<% else %>
-				<%= button_to "Place Order", orders_path, class: "order" %>
+				<%= button_to "Place Donation", donations_path, class: "donation" %>
 				<% end %>
 				<% else %>
-				<%= button_to "Login to Checkout", login_path, method: :get, class:"order" %>
+				<%= button_to "Login to Checkout", login_path, method: :get, class:"donation" %>
 				<% end %>
 
 			</div>
