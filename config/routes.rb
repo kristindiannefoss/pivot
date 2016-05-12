@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
+  get "/needs", to: "needs#index"
   get "/needs/:slug", to: "needs#show", as: :need
 
   get "/recipients", to: "users#index", as: :users
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   patch "/:username/needs/:slug", to: "needs#donate", as: :donate_user_need
 
   get "/*page", to: "errors#not_found"
-
 
   # get "/items", to: "items#index"
   # get "/items/:id", to: "items#show", as: "item"

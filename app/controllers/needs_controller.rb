@@ -1,4 +1,8 @@
 class NeedsController < ApplicationController
+  def index
+    @needs = Need.all
+  end
+
   before_action :set_need
 
   def show
@@ -19,7 +23,7 @@ private
     @need = recipient.needs.find_by(slug: params[:slug])
   end
 
-  def need_params
-    params.require(:need).permit(:name, :description, :cost, :raised)
+  def needs_params
+    params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url )
   end
 end
