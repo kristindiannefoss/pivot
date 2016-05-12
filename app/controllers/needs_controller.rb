@@ -1,18 +1,29 @@
 class NeedsController < ApplicationController
-  # def new
-  #   @need = Need.new
-  # end
-  #
-  # def create
-  #   @need = Need.create(needs_params)
-  # end
-
   def index
-    # @category = Category.find(params [:name])
     @needs = Need.all
   end
-  #
-  # def needs_params
-  #   params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url )
-  # end
+
+  before_action :set_need
+
+  def show
+  end
+
+  def donate
+    @need.add_donation(params[:need][:raised])
+    redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
+  end
+
+  def update
+  end
+
+private
+
+  def set_need
+    recipient = User.find_by(username: params[:username])
+    @need = recipient.needs.find_by(slug: params[:slug])
+  end
+
+  def needs_params
+    params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url )
+  end
 end

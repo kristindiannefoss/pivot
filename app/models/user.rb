@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :orders
+  has_many :needs
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :first_name,     presence: true
@@ -18,6 +19,6 @@ class User < ActiveRecord::Base
   end
 
   def raised
-    needs.pluck(:donated).sum
+    needs.pluck(:raised).sum
   end
 end

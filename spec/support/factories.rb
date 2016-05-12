@@ -1,11 +1,4 @@
 FactoryGirl.define do
-#  factory :coder do |n|
-#    sequence(:name) {|n| "name #{n}" }
-#    sequence(:experience) {|n| "experience #{n}"}
-#    sequence(:cost) {|n| n}
-#    sequence(:image_url) {|n| "image_#{n}.png"}
-#  end
-#
   factory :category do |n|
     sequence(:name) {|n| "name #{n}" }
   end
@@ -19,5 +12,13 @@ FactoryGirl.define do
     sequence(:image_url) {|n| "image_#{n}.png"}
     sequence(:country) {|n| "country #{n}"}
     sequence(:city) {|n| "city #{n}"}
+  end
+
+  factory :need do |n|
+    sequence(:name) {|n| "Need#{n}" }
+    sequence(:description) {|n| "Need description #{n}" }
+    sequence(:cost) {|n| n + 10 }
+    sequence(:raised) {|n| n }
+    sequence(:image_url) {|n| "image_#{n}.png"}
   end
 end
