@@ -26,7 +26,11 @@
           <%= link_to "Basket: #{@cart.count_all}", cart_path%>
         </li>
         <li>
-          <a href="/login">Login or Create Acount</a>
+          <% unless current_user %>
+            <a href="/login">Login or Create Acount</a>
+          <% else %>
+            <%= link_to "Logout #{current_user.first_name}", logout_path %>
+          <% end %>
         </li>
       </ul>
     </div>
