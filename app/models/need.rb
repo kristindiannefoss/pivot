@@ -9,4 +9,6 @@ class Need < ActiveRecord::Base
   def add_donation(num)
     update_attributes(raised: num.to_i + raised)
   end
+
+
 end
