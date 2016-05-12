@@ -9,10 +9,9 @@ class User < ActiveRecord::Base
   validates :username,       presence: true, uniqueness: true
   validates :email,          presence: true, uniqueness: true
   validates :email,          format: { with: VALID_EMAIL_REGEX }
-  validates :image_url,      presence: true
   validates :country,        presence: true
 
-  enum role: %w(default recipient admin)
+  enum role: %w(Donor Recipient Admin)
 
   def total
     needs.pluck(:cost).sum

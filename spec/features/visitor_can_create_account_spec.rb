@@ -4,27 +4,17 @@ feature "Visitor can create account" do
   scenario "as a donor" do
     visit signup_path
 
-    save_and_open_page
     fill_in "First Name", with: "Jon"
     fill_in "Last Name", with: "Dadork"
-    fill_in "Country", with: "Nepal"
     fill_in "E-Mail", with: "email@email.com"
+    fill_in "Username", with: "ksjdfkjsd"
+    fill_in "Country", with: "Nepal"
     fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
-    select "Donor", from: "User Type"
+    fill_in "Password Confirmation", with: "password"
+    select "Recipient", from: "user[role]"
     click_button "Create Account"
 
     expect(page).to have_content("Account created!")
-    expect(page).to have_content("Jon")
-    expect(page).to have_content(i"Dadork")
-    expect(page).to have_content("Nepal")
-    expect(page).to have_content("email@email.com")
-    expect(page).to_not have_link?("Login")
-    expect(page).to have_link("Logout")
-
-    click_link "Logout"
-
-    expect(page).to have_link("Login")
   end
 end
 

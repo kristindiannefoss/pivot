@@ -1,21 +1,19 @@
 <div class="container form-spacing">
     <div class="vertical-center-row">
       <div align="center">
-      <h1>Create an account</h1>
-
-      <%= form_for @user do |f| %>
-      <%= f.text_field :first_name, placeholder: "First Name", class:"form-control" %><br>
-      <%= f.text_field :last_name, placeholder: "Last Name", class:"form-control" %><br>
-      <%= f.text_field :username, placeholder: "Username", class:"form-control" %><br>
-      <%= f.text_field :email, placeholder: "E-Mail", class:"form-control" %><br>
-      <%= f.text_field :city, placeholder: "City", class:"form-control" %><br>
-      <%= f.text_field :country, placeholder: "Country", class:"form-control" %><br>
-      <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br>
-      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"form-control" %><br>
-      <%= f.select :password_confirmation, placeholder: "Password Confirmation", class:"form-control" %><br>
-      <%= f.submit "Create Account", class:"btn btn-primary"%>
-
-      <% end %>
-    </div>
+        <h1>Create an account</h1>
+        <%= form_for @user do |f| %>
+          <%= f.text_field :first_name, placeholder: "First Name", class:"form-control" %><br>
+          <%= f.text_field :last_name, placeholder: "Last Name", class:"form-control" %><br>
+          <%= f.text_field :username, placeholder: "Username", class:"form-control" %><br>
+          <%= f.text_field :email, placeholder: "E-Mail", class:"form-control" %><br>
+          <%= f.text_field :country, placeholder: "Country", class:"form-control" %><br>
+          <%= f.text_field :city, placeholder: "City (optional)", class:"form-control" %><br>
+          <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br>
+          <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"form-control" %><br>
+          <%= f.collection_select :role, @roles, :last, :first, include_blank: "Choose Account Type" %>
+          <%= f.submit "Create Account", class: "btn btn-primary"%>
+        <% end %>
+      </div>
     </div>
 </div>
