@@ -1,6 +1,6 @@
 class NeedsController < ApplicationController
   def index
-    @needs = Need.all
+    @needs = NeedType.all
   end
 
   # before_action :set_need
