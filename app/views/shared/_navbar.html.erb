@@ -11,7 +11,6 @@
         <span class="icon-bar"></span>
       </button>
       <%#= image_tag "GoatFace.png", height: "50px" %>
-
       <a class="brand" style="margin: 0; float: none;" href="/"><%= image_tag "wholelogo.png", height: "60px", padding: "10px" %></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,6 +21,9 @@
         </li>
         <li>
           <a href="/needs">Giving Catalog</a>
+        </li>
+        <li>
+          <%= link_to "Basket: #{@cart.count_all}", cart_path%>
         </li>
         <li>
           <% unless current_user %>

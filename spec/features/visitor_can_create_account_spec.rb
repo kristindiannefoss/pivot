@@ -11,18 +11,9 @@ feature "Visitor can create account" do
     fill_in "Country", with: "Nepal"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
-    select "Recipient", from: "user[role]"
+    select "recipient", from: "user[role]"
     click_button "Create Account"
 
     expect(page).to have_content("Account created!")
   end
 end
-
-#As a visitor, who is looking to sign as a donor or recipient
-#I can go to the sign up page
-#Fill in required information
-#Sign up as a donor or recipient
-#Click Sign up for an account
-#And I will see a message "Account created as donor or recipient"
-#And be redirected to the rootpath
-#

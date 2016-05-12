@@ -5,12 +5,15 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
-  get "/signup", to: "users#new", as: :signup
+  resource :cart, only: [:create, :show, :delete, :update]
+
+  get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy", as: :logout
 
-  get "/needs", to: "needs#index", as: :needs
+  get "/needs", to: "needs#index"
+  post "/needs", to: "needs#create"
   get "/needs/:slug", to: "needs#show", as: :need
 
   get "/recipients", to: "users#index", as: :users
