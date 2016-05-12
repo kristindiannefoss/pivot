@@ -7,7 +7,8 @@ class Cart
 
   def mapped_values
     contents.map do |id, qty|
-      CartNeed.new(id.to_i, qty)
+      name = NeedType.find(id.to_i).name
+      CartNeed.new(name, qty)
     end
   end
 

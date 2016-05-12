@@ -1,8 +1,8 @@
 class CartNeed < SimpleDelegator
   attr_reader :need, :quantity
 
-  def initialize(id, qty)
-    @need = Need.find_by(id: id)
+  def initialize(name, qty)
+    @need = NeedType.find_by(name: name)
     @quantity = qty
     super(@need)
   end
