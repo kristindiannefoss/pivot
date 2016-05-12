@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
+  get "/signup", to: "users#new", as: :signup
   get "/needs/:slug", to: "needs#show", as: :need
 
   get "/recipients", to: "users#index", as: :users
