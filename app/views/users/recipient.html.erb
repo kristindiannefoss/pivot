@@ -5,8 +5,15 @@
   <li><%= @recipient.description %></li>
 </ul>
 
-<ul>
-  <% @recipient.needs.each do |need| %>
-    <li><%= need.name %></li>
-  <% end %>
-</ul>
+<% @recipient.needs.each do |need| %>
+  <div id="<%= need.id %>">
+    <p><%= link_to need.name, need_path(need) %></p>
+    <p>Cost: $<%= need.cost %></p>
+    <p>Raised: $<%= need.raised %></p>
+    <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>
+      <%= f.label :raised, "Amount" %>
+      <%= f.text_field :raised %>
+      <%= f.submit "Donate" %>
+    <% end %>
+  </div>
+<% end %>

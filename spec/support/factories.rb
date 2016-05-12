@@ -15,9 +15,9 @@ FactoryGirl.define do
   end
 
   factory :need do |n|
-    sequence(:name) {|n| "name #{n}" }
-    sequence(:description) {|n| "description #{n}" }
-    sequence(:cost) {|n| n }
+    sequence(:name) {|n| "Need#{n}" }
+    sequence(:description) {|n| "Need description #{n}" }
+    sequence(:cost) {|n| n + 10 }
     sequence(:raised) {|n| n }
     sequence(:image_url) {|n| "image_#{n}.png"}
   end
