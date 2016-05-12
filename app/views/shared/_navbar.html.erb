@@ -18,13 +18,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-        <a href="#about">About</a>
+          <a href="#about">About</a>
         </li>
         <li>
-        <a href="/needs">Giving Catalog</a>
+          <a href="/needs">Giving Catalog</a>
         </li>
         <li>
-        <a href="/login">Login or Create Acount</a>
+          <% unless current_user %>
+            <a href="/login">Login or Create Acount</a>
+          <% else %>
+            <%= link_to "Logout #{current_user.first_name}", logout_path %>
+          <% end %>
         </li>
       </ul>
     </div>

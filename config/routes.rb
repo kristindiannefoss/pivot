@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new", as: :signup
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  get "/logout", to: "sessions#destroy", as: :logout
 
   get "/needs", to: "needs#index", as: :needs
   get "/needs/:slug", to: "needs#show", as: :need
