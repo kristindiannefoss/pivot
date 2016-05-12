@@ -11,20 +11,22 @@
         <span class="icon-bar"></span>
       </button>
       <%#= image_tag "GoatFace.png", height: "50px" %>
-
       <a class="brand" style="margin: 0; float: none;" href="/"><%= image_tag "wholelogo.png", height: "60px", padding: "10px" %></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-        <a href="#about">About</a>
+          <a href="#about">About</a>
         </li>
         <li>
-        <a href="/needs">Giving Catalog</a>
+          <a href="/needs">Giving Catalog</a>
         </li>
         <li>
-        <a href="/login">Login or Create Acount</a>
+          <%= link_to "Basket: #{@cart.count_all}", cart_path%>
+        </li>
+        <li>
+          <a href="/login">Login or Create Acount</a>
         </li>
       </ul>
     </div>

@@ -1,1 +1,5 @@
-<h1>Dashboard</h1>
+<% if current_user.recipient? %>
+  <%= render "recipient_show" %>
+<% else %>
+  <%= render "donor_show" %>
+<% end %>

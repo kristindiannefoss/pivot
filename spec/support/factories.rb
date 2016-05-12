@@ -21,4 +21,11 @@ FactoryGirl.define do
     sequence(:raised) {|n| n }
     sequence(:image_url) {|n| "image_#{n}.png"}
   end
+
+  factory :need_type do |n|
+    sequence(:name) {|n| "Need#{n}" }
+    sequence(:description) {|n| "Need description #{n}" }
+    sequence(:cost) {|n| n + 10 }
+    sequence(:image_url) {|n| "image_#{n}.png"}
+  end
 end
