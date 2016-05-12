@@ -1,5 +1,7 @@
 class NeedsController < ApplicationController
   include ActionView::Helpers::TextHelper
+  include NeedsHelper
+  
   def index
     @needs = NeedType.all
   end
@@ -19,17 +21,7 @@ class NeedsController < ApplicationController
   end
 
   def create
-    session[:cart].each do |id, qty|
-      need_type = NeedType.find(id)
-
-      current_user.needs.create( name: pluralize(qty, need_type.name),
-                              description: need_type.description,
-                              cost: need_type.cost * qty,
-                              image_url: need_type.image_url,
-                              slug: need_type.slug,
-                              category: need_type.category
-                              )
-    end
+    populate_needs
     redirect_to user_path
   end
 
