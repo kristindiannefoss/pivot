@@ -6,7 +6,7 @@ feature "visitor views recipient page" do
     need = create(:need)
     recipient.needs = [need]
 
-    visit user_path(recipient.username)
+    visit recipient_path(recipient.username)
 
     expect(page).to have_content recipient.first_name
     expect(page).to have_content recipient.last_name
