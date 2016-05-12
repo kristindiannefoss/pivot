@@ -1,23 +1,21 @@
 class NeedsController < ApplicationController
   include ActionView::Helpers::TextHelper
   include NeedsHelper
-  
+
+  before_action :set_need, only: [:show, :donate, :update]
   def index
     @needs = NeedType.all
   end
 
   def show
-    set_need
   end
 
   def donate
-    set_need
     @need.add_donation(params[:need][:raised])
     redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
   end
 
   def update
-    set_need
   end
 
   def create
