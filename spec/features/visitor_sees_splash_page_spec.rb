@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "visitor can view splash page" do
   scenario "lands on root and views aspects of splash page" do

@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
-  get "/needs", to: "needs#index"
+  get "/needs", to: "needs#index", as: :needs
   get "/needs/:slug", to: "needs#show", as: :need
 
   get "/recipients", to: "users#index", as: :users
+  get "/profile", to: "users#show", as: :user
+
   get "/:username", to: "users#recipient", as: :recipient
   patch "/:username/needs/:slug", to: "needs#donate", as: :donate_user_need
 

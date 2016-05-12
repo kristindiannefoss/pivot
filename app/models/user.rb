@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :image_url,      presence: true
   validates :country,        presence: true
 
-  enum role: ["default", "recipient", "admin"]
+  enum role: %w(default recipient admin)
 
   def total
     needs.pluck(:cost).sum
