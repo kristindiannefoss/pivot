@@ -1,7 +1,7 @@
-class Order < ActiveRecord::Base
+class Donation < ActiveRecord::Base
   belongs_to :user
-  has_many :order_items
-  has_many :items, through: :order_items
+  has_many :donation_items
+  has_many :items, through: :donation_items
   validates :user_id, presence: true
 
   def self.format_time(time)
@@ -13,13 +13,12 @@ class Order < ActiveRecord::Base
   end
 
   def total_price
-    order_items.map{ |oi| oi.subtotal }.sum
+    donation_items.map{ |oi| oi.subtotal }.sum
   end
 
-  def order_confirmed(cart)
+  def donation_confirmed(cart)
     cart.contents.each_pair do |id, qty|
-      order_items.create(item_id: id, quantity: qty)
-      update(status: "ordered")
+      donation_items.create(item_id: id, quantity: qty)
     end
   end
 end

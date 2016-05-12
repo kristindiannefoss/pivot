@@ -2,17 +2,18 @@
 ## Built with Ruby on Rails
 
 ### Authors
-[Mark Miranda](http://github.com/notmarkmiranda), [Kris Foss](https://github.com/kristindiannefoss), [Deb Hamel](https://github.com/deborahleehamel)
+[Hedy Woo](https://github.com/thePaulista), [Kris Foss](https://github.com/kristindiannefoss), [Jon Liss](https://github.com/jdliss), [Jared Roth](https://github.com/JaredRoth)
+
 
 This project was created as a part of the curriculum for the [Turing School of Software & Design](http://turing.io).
 
 ### Overview
 
-This Rails application is a store for specialty food items(paleo-friendly dinosaur products). A user can create an account and purchase available items. An admin can create items and manage retired status for items.
+This Rails application is a microdonation site. A user can create an account and donate available items to multiple recipients. A recipient is an "admin" user for their "store", they can select predetermined needs from the catalog to request specific donations.  A master admin user can edit information with recipients and donors.   
 
 ### Live Version
 
-You can find a live version of this application on Heroku at: [https://nachomomspaleo.herokuapp.com/](https://nachomomspaleo.herokuapp.com/)
+You can find a live version of this application on Heroku at: [https://goatsandsoda.herokuapp.com/](https://goatsandsoda.herokuapp.com/)
 
 ### Setup
 
@@ -32,21 +33,17 @@ Some of the main features of the app include:
 
 #### Users
 
-Users can browse the items by category. Each item has a name, description, image, and price associated with it. Users can add any items that are not retired to their cart. Users do not need to be signed in to browse items or add them to their cart. However, upon checkout, if a user is not signed in they will be asked to create an account or login before being allowed to check out. A user cannot add any items, but can choose to change their account to an "artist" account at any point. However, once they are signed up as an artist, they cannot change back to a default user. Users can also view any of their past orders and the order status.
+Users can browse the items by category. Each item has a name, description, image, and price associated with it. Users can add any items to their cart. Users do not need to be signed in to browse items or add them to their cart. However, upon checkout, if a user is not signed in they will be asked to create an account or login before being allowed to check out. A user cannot add any items.  However, once they are signed up as a recipient, they cannot change back to a default user. Users can also view any of their past donations and the donation status.
 
 #### Admins
 
-Admins can create and edit items. This includes managing each item's retired status. 
-
-#### Other Features
-
-The app implements Paperclip and uses Amazon Web Services S3 to store and host any image uploads.
+Admins can add requested items from the catalog.
 
 ### Test Suite
 
-The test suite tests the application on multiple levels. To run all of the tests, run `rake test` from the terminal in the main directory of the project. The feature tests (integration tests) rely mainly on the [capybara gem](https://github.com/jnicklas/capybara) for navigating the various application views.
+The test suite tests the application on multiple levels. To run all of the tests, run `rake spec` from the terminal in the main directory of the project. The feature tests (integration tests) rely mainly on the [capybara gem](https://github.com/jnicklas/capybara) for navigating the various application views.
 
-The project also utilizes leverages a bootstrap theme called 'bikeshop'.
+The project also utilizes leverages a bootstrap template.
 
 ### Dependencies
 
