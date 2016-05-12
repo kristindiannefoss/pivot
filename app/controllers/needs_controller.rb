@@ -16,6 +16,7 @@ class NeedsController < ApplicationController
   def update
   end
 
+
 private
   #
   # def set_need
@@ -27,4 +28,5 @@ private
   def needs_params
     params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url )
   end
+
 end
