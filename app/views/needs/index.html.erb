@@ -1,0 +1,41 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <center>
+      <div class="centered">
+        <div class="col-md-12">
+          <div class="row carousel-holder">
+            <div class="col-md-12">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <%= image_tag "girl_and_goat.jpg", width: "900px", padding: "10px" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3> <%#= @category.name %> </h3>
+          <br>
+
+          <% @needs.each do |need| %>
+          <div class="row">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+                <%= image_tag "#{need.image_url}", width: "300px" %>
+                <div class="caption">
+                  <h4 class="pull-right"><%= need.cost %></h4>
+                  <h4><a href="#"><%= need.name.upcase %></a></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </center>
+  </div>
+</div>

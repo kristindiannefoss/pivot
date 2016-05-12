@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "visitor sees the recipients page" do
   scenario "clicks donate and sees recipients" do
