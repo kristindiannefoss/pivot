@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
+  get "/needs", to: "needs#index"
   get "/recipients", to: "users#index", as: :users
 
   get "/:username", to: "users#recipient", as: :user
   get "/*page", to: "errors#not_found"
-
 
   # get "/items", to: "items#index"
   # get "/items/:id", to: "items#show", as: "item"
