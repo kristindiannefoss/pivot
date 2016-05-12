@@ -25,6 +25,9 @@
                         <a href="#services">Giving Catalog</a>
                     </li>
                     <li>
+                        <%= link_to "Basket: #{@cart.count_all}", cart_path%>
+                    </li>
+                    <li>
                         <a href="#contact">Login</a>
                     </li>
                 </ul>

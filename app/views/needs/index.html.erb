@@ -21,19 +21,22 @@
           <h3> <%#= @category.name %> </h3>
           <br>
 
-          <% @needs.each do |need| %>
           <div class="row">
-            <div class="col-sm-4 col-lg-4 col-md-4">
-              <div class="thumbnail">
-                <%= image_tag "#{need.image_url}", width: "300px" %>
-                <div class="caption">
-                  <h4 class="pull-right"><%= need.cost %></h4>
-                  <h4><a href="#"><%= need.name.upcase %></a></h4>
+            <% @needs.each do |need| %>
+              <div class="col-sm-4 col-lg-4 col-md-4" id="<%= need.name %>">
+                <div class="thumbnail">
+                  <h4><%= need.name.upcase %></h4>
+                  <%= image_tag "#{need.image_url}", width: "300px" %>
+                  <div class="caption">
+                    <h4 class="pull-right"><%= need.cost %></h4>
+                    <%= button_to cart_path(need_id: need.id), class: "btn btn-primary" do %>
+                      Add to Basket
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
       </div>
     </center>

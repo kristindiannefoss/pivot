@@ -22,8 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-    @orders = @user.orders
+    @recipient = User.find(current_user.id)
   end
 
   def recipient
@@ -34,6 +33,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :address, :password, :city, :state, :zipcode)
+    params.require(:user).permit( :first_name,
+                                  :last_name,
+                                  :username,
+                                  :email,
+                                  :password,
+                                  :city,
+                                  :image_url,
+                                  :country,
+                                  :description
+                                  )
   end
 end
