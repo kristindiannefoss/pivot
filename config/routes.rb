@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new", as: :signup
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
   get "/needs", to: "needs#index", as: :needs
   get "/needs/:slug", to: "needs#show", as: :need
@@ -49,7 +50,6 @@ Rails.application.routes.draw do
   #
   # get "/donation", to: "donations#show"
   # get "/dashboard", to: "users#show"
-  # delete "/logout", to: "sessions#destroy"
   # get "/cart", to: "cart_items#index"
   # get "/admin/dashboard", to: "admin/users#show"
 
