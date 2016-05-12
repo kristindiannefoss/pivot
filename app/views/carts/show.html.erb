@@ -11,8 +11,8 @@
           <div class="cart-sec">
             <div class="cart-need-info">
               <h3><%= need.name %></h3>
-              <div class="cart-remove"><%= button_to "X", cart_need_path(need), method: :delete %></div>
-              <h4>Unit Price: <%= number_to_currency(need.price) %></h4>
+              <div class="cart-remove"><%= button_to "X", cart_path(need), method: :delete %></div>
+              <h4>Unit Price: <%= number_to_currency(need.cost) %></h4>
               <h4>Subtotal: <%= number_to_currency(need.subtotal) %></h4>
               <%= form_for :session, url: cart_need_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
                 <%= f.number_field :quantity, value: need.quantity, min: 1, class: "form-control input-small" %>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
-  resource :cart, only: [:create, :show]
+  resource :cart, only: [:create, :show, :delete]
 
   get "/needs", to: "needs#index", as: :needs
   get "/needs/:slug", to: "needs#show", as: :need
