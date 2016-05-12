@@ -56,7 +56,6 @@ basic_needs_list = ["auto_maintenance.png",
 
 animal_needs_list = [
   "alpaca.png",
-  "animals_head.jpg",
   "bull.png",
   "camel.png",
   "capybara.png",

@@ -3,7 +3,7 @@ class NeedsController < ApplicationController
     @needs = Need.all
   end
 
-  before_action :set_need
+  # before_action :set_need
 
   def show
   end
@@ -17,11 +17,12 @@ class NeedsController < ApplicationController
   end
 
 private
-
-  def set_need
-    recipient = User.find_by(username: params[:username])
-    @need = recipient.needs.find_by(slug: params[:slug])
-  end
+  #
+  # def set_need
+  #   recipient = User.find_by(username: params[:username])
+  #   byebug
+  #   @need = recipient.needs.find_by(slug: params[:slug])
+  # end
 
   def needs_params
     params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url )

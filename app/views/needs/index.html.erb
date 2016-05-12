@@ -21,19 +21,19 @@
           <h3> <%#= @category.name %> </h3>
           <br>
 
+        <div class="row">
           <% @needs.each do |need| %>
-          <div class="row">
             <div class="col-sm-4 col-lg-4 col-md-4">
               <div class="thumbnail">
-                <%= image_tag "#{need.image_url}", width: "300px" %>
+                <%= image_tag "#{need.image_url}", class: "img-rounded catalog" %>
                 <div class="caption">
                   <h4 class="pull-right"><%= need.cost %></h4>
                   <h4><a href="#"><%= need.name.upcase %></a></h4>
                 </div>
               </div>
             </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
       </div>
     </center>
