@@ -5,10 +5,17 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
+  get "/signup", to: "users#new", as: :signup
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
   get "/needs", to: "needs#index", as: :needs
   get "/needs/:slug", to: "needs#show", as: :need
 
   get "/recipients", to: "users#index", as: :users
+  post "/recipients", to: "users#create"
+
   get "/profile", to: "users#show", as: :user
 
   get "/:username", to: "users#recipient", as: :recipient
@@ -43,9 +50,6 @@ Rails.application.routes.draw do
   #
   # get "/donation", to: "donations#show"
   # get "/dashboard", to: "users#show"
-  # get "/login", to: "sessions#new"
-  # post "/login", to: "sessions#create"
-  # delete "/logout", to: "sessions#destroy"
   # get "/cart", to: "cart_items#index"
   # get "/admin/dashboard", to: "admin/users#show"
 
