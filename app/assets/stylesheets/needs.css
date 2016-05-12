@@ -4,11 +4,14 @@
 */
 
 .img-rounded {
-  background: no-repeat center center;
+  /*background: no-repeat center center;
     width: 100px;
-    height: 100px;
+    height: 100px;*/
 }
 
+
 .catalog {
-  
+  background: no-repeat center center;
+    width: 150px;
+    height: 150px;
 }

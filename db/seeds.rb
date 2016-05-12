@@ -85,7 +85,6 @@ farming_needs_list = [
   "corn_mill.png",
   "corn_seeds.png",
   "family_farm.png",
-  "farming_head.jpg",
   "flower_seeds.png",
   "gardening_supplies.png",
   "guava_seeds.png",
