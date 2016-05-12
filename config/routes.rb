@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root to: "pages#splash"
 
   get "/recipients", to: "users#index", as: :users
+  get "/profile", to: "users#show", as: :user
 
-  get "/:username", to: "users#recipient", as: :user
+  get "/:username", to: "users#recipient", as: :recipient
   get "/*page", to: "errors#not_found"
 
 
