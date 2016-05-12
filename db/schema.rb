@@ -25,15 +25,12 @@ ActiveRecord::Schema.define(version: 20160511233424) do
     t.text     "description"
     t.integer  "cost"
     t.integer  "raised",      default: 0
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.string   "image_url"
-    t.string   "category"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "slug"
+    t.string   "category"
   end
-
-  add_index "needs", ["user_id"], name: "index_needs_on_user_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
@@ -54,9 +51,7 @@ ActiveRecord::Schema.define(version: 20160511233424) do
     t.string  "country"
     t.string  "username"
     t.string  "image_url"
-    t.text    "description"
   end
 
-  add_foreign_key "needs", "users"
   add_foreign_key "orders", "users"
 end

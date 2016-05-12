@@ -5,8 +5,9 @@ class CreateNeeds < ActiveRecord::Migration
       t.text :description
       t.integer :cost
       t.integer :raised, default: 0
-      t.text :image_url
+      t.string :image_url
       t.timestamps null: false
+      t.text :description
     end
   end
 end
