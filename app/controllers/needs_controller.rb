@@ -3,17 +3,18 @@ class NeedsController < ApplicationController
     @needs = NeedType.all
   end
 
-  before_action :set_need
-
   def show
+    set_need
   end
 
   def donate
+    set_need
     @need.add_donation(params[:need][:raised])
     redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
   end
 
   def update
+    set_need
   end
 
 private
