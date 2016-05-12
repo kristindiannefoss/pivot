@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @recipient = User.find(current_user.id)
+    @user = User.find(current_user.id)
+    @donations = @user.donations
   end
 
   def recipient

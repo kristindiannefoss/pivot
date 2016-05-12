@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   # put "/cart_items/:id", to: "cart_items#update"
   # delete "/cart_items/:id", to: "cart_items#destroy"
   #
-  # get "/orders", to: "orders#index"
-  # post "/orders", to: "orders#create"
+  # get "/donations", to: "donations#index"
+  # post "/donations", to: "donations#create"
   #
   # get "/admin/items", to: "admin/items#index"
   # post "/admin/items", to: "admin/items#create"
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   #
   # get "admin/users/:id", to: "admin/users#show", as: "admin_user"
   #
-  # get "/order", to: "orders#show"
+  # get "/donation", to: "donations#show"
   # get "/dashboard", to: "users#show"
   # get "/login", to: "sessions#new"
   # post "/login", to: "sessions#create"
