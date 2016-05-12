@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
-  resource :cart, only: [:create, :show, :delete]
+  resource :cart, only: [:create, :show, :delete, :update]
+
 
   get "/needs", to: "needs#index", as: :needs
   get "/needs/:slug", to: "needs#show", as: :need
+  post "/needs", to: "needs#create"
 
   get "/recipients", to: "users#index", as: :users
   get "/profile", to: "users#show", as: :user

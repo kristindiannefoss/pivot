@@ -8,6 +8,6 @@ class CartNeed < SimpleDelegator
   end
 
   def subtotal
-    need.price * quantity
+    need.cost * quantity
   end
 end

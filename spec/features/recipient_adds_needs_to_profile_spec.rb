@@ -16,9 +16,9 @@ feature "visitor sees the recipients page" do
 
     click_link "Basket: 1"
 
-    
 
-    click_link "Approve Needs"
+
+    click_button "Approve Needs"
 
     expect(page).to have_content("loom")
   end

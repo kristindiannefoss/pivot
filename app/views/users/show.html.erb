@@ -1,2 +1,5 @@
-<% if current_user %>
-  <%= render donor_show %>
+<% if current_user.recipient? %>
+  <%= render "recipient_show" %>
+<% else %>
+  <%= render "donor_show" %>
+<% end %>

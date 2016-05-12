@@ -33,7 +33,7 @@ class Cart
     contents[need_id.to_s] = qty
   end
 
-  def total_price
+  def total_cost
     if contents.empty?
       return 0
     else

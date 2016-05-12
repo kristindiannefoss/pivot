@@ -17,6 +17,11 @@ class NeedsController < ApplicationController
     set_need
   end
 
+  def create
+    require 'pry'; binding.pry
+    redirect_to @user
+  end
+
 private
 
   def set_need
