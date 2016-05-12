@@ -121,41 +121,37 @@ health_needs_list = [
   "RV_shot.png" ]
 
 basic_needs_list.each do |a|
-  Need.create(
+  NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  raised: "$0.00",
   category: "basic needs",
   image_url: a )
 end
 
 animal_needs_list.each do |a|
-  Need.create(
+  NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  raised: "$0.00",
   category: "animals",
   image_url: a )
 end
 
 farming_needs_list.each do |a|
-  Need.create(
+  NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  raised: "$0.00",
   category: "farming",
   image_url: a )
 end
 
 health_needs_list.each do |a|
-  Need.create(
+  NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  raised: "$0.00",
   category: "health",
   image_url: a )
 end
