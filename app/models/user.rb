@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email,          format: { with: VALID_EMAIL_REGEX }
   validates :country,        presence: true
 
-  enum role: %w(Donor Recipient Admin)
+  enum role: %w(donor recipient admin)
 
   def total
     needs.pluck(:cost).sum

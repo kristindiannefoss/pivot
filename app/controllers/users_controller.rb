@@ -46,6 +46,6 @@ private
 
   def set_roles_for_dropdown
     @roles = User.roles.dup
-    @roles.delete("Admin")
+    @roles.delete("admin")
   end
 end
