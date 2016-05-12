@@ -1,4 +1,5 @@
 class NeedsController < ApplicationController
+  include ActionView::Helpers::TextHelper
   def index
     @needs = NeedType.all
   end
@@ -18,8 +19,18 @@ class NeedsController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
-    redirect_to @user
+    session[:cart].each do |id, qty|
+      need_type = NeedType.find(id)
+
+      current_user.needs.create( name: pluralize(qty, need_type.name),
+                              description: need_type.description,
+                              cost: need_type.cost * qty,
+                              image_url: need_type.image_url,
+                              slug: need_type.slug,
+                              category: need_type.category
+                              )
+    end
+    redirect_to user_path
   end
 
 private
@@ -30,6 +41,6 @@ private
   end
 
   def needs_params
-    params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url )
+    params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url)
   end
 end

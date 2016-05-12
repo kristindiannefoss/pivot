@@ -3,8 +3,7 @@ class CartsController < ApplicationController
   def create
     set_redirect
     need = NeedType.find(params[:need_id])
-    @cart.add_need(need.id)
-    flash[:notice] = "Successfully added to basket!"
+    flash[:notice] = @cart.add_need(need.id, need.max)
     session[:cart] = @cart.contents
     redirect_to session[:redirect]
   end

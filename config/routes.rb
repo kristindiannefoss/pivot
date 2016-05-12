@@ -7,14 +7,14 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:create, :show, :delete, :update]
 
-  get "/signup", to: "users#new", as: :signup
+  get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  get "/needs", to: "needs#index", as: :needs
-  get "/needs/:slug", to: "needs#show", as: :need
+  get "/needs", to: "needs#index"
   post "/needs", to: "needs#create"
+  get "/needs/:slug", to: "needs#show", as: :need
 
   get "/recipients", to: "users#index", as: :users
   post "/recipients", to: "users#create"

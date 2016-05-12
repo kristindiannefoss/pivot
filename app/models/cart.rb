@@ -12,9 +12,14 @@ class Cart
     end
   end
 
-  def add_need(need_id)
+  def add_need(need_id, need_max)
     contents[need_id.to_s] ||= 0
-    contents[need_id.to_s] += 1
+    if contents[need_id.to_s] < need_max
+      contents[need_id.to_s] += 1
+      "Successfully added to cart!"
+    else
+      "You can only request #{need_max} of that item."
+    end
   end
 
   def count_all

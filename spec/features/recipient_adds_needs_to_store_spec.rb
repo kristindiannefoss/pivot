@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature "visitor sees the recipients page" do
-  scenario "clicks donate and sees recipients" do
+feature "Recipient adds needs to store" do
+  scenario "needs are visible in profile" do
     recipient = create(:user, role: 1)
     need = create(:need_type, name: "loom")
 
@@ -19,6 +19,7 @@ feature "visitor sees the recipients page" do
 
 
     click_button "Approve Needs"
+    expect(current_path).to eq "/profile"
 
     expect(page).to have_content("loom")
   end

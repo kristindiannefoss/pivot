@@ -1,3 +1,7 @@
 <h1>Dashboard for <%= @user.first_name %></h1>
 
+<% @user.needs.each do |need| %>
+  <%= need.name %>
+<% end %>
+
 <%= link_to "Add Needs", needs_path, class: "btn btn-primary"%>

@@ -15,7 +15,7 @@
               <h4>Unit Price: <%= number_to_currency(need.cost) %></h4>
               <h4>Subtotal: <%= number_to_currency(need.subtotal) %></h4>
               <%= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
-                <%= f.number_field :quantity, value: need.quantity, min: 1, max: 5, class: "form-control input-small" %>
+                <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>
                 <%= f.submit "Update Quantity", class:"cart-update" %>
               <% end %>
             </div>
@@ -35,7 +35,7 @@
       <% if current_user %>
         <% if @cart.contents.empty? %>
         <% else %>
-          <%= button_to "Approve Needs", need_path, class: "order" %>
+          <%= button_to "Approve Needs", needs_path, class: "order" %>
         <% end %>
       <% else %>
         <%= button_to "Login to Approve Needs", login_path, method: :get, class:"order" %>
