@@ -2,12 +2,14 @@ class NeedsController < ApplicationController
   include ActionView::Helpers::TextHelper
   include NeedsHelper
 
-  before_action :set_need, only: [:show, :donate, :update]
+  before_action :set_need, only: [:donate, :update]
+
   def index
     @needs = NeedType.all
   end
 
   def show
+    @need = NeedType.find_by(slug: params[:slug])
   end
 
   def donate
