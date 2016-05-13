@@ -10,12 +10,11 @@ RSpec.describe NeedType, type: :model do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:cost) }
     it { is_expected.to validate_presence_of(:image_url) }
-    #it { is_expected.to validate_presence_of(:max) }
+  end
 
   it "generates a slug when it's created" do
-    need  = create(:need, name:  "Goats And Soda")
+    need  = create(:need, name: "Goats And Soda")
 
     expect(need.slug).to eq("goats-and-soda")
   end
-
 end

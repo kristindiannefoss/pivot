@@ -21,5 +21,4 @@ RSpec.describe Need, type: :model do
 
     expect(need.slug).to eq("goats-and-soda")
   end
-
 end
