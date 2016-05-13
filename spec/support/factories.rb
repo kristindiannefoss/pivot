@@ -12,6 +12,7 @@ FactoryGirl.define do
     sequence(:image_url) {|n| "image_#{n}.png"}
     sequence(:country) {|n| "country #{n}"}
     sequence(:city) {|n| "city #{n}"}
+    sequence(:description) { "need help"}
   end
 
   factory :need do |n|
