@@ -1,32 +1,23 @@
 class Admin::NeedsController < Admin::BaseController
   include ActionView::Helpers::TextHelper
-  include NeedsHelper
-
-  before_action :set_need, only: [:donate, :update]
 
   def index
-    @needs = NeedType.all
+    @need_types = NeedType.all
     @recipient_needs = Need.all
   end
 
   def show
-    @need = NeedType.find_by(slug: params[:slug])
-    @recipient_need = Need.find_by(slug: params[:slug])
-  end
-
-  def donate
-    @need.add_donation(params[:need][:raised])
-    redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
+    @need_type = NeedType.find(params[:id])
   end
 
   def edit
-    @need = NeedType.find_by(slug: params[:slug])
+    @need_type = NeedType.find(params[:id])
   end
 
   def update
-    @need = NeedType.find_by(slug: params[:slug])
+    @need_type = NeedType.find(params[:id])
 
-    if @need.update(needs_params)
+    if @need_type.update(needs_params)
       flash[:notice] = "Need Type has been updated"
       redirect_to admin_needs_path
     else
@@ -35,29 +26,29 @@ class Admin::NeedsController < Admin::BaseController
   end
 
   def new
-    @need = NeedType.new
+    @need_type = NeedType.new
   end
-  
-  def create
-    populate_needs
 
-    flash[:notice] = "Successfully created a new Need Item"
-    redirect_to admin_needs_path
+  def create
+    @need_type = NeedType.create(needs_params)
+
+    if @need_type.save
+      flash[:notice] = "Successfully created a new need"
+      redirect_to admin_needs_path
+    else
+      flash.now[:error] = @need_type.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   def destroy
-    need = NeedType.find(params[:id])
-    need.destroy
+    need_type = NeedType.find(params[:id])
+    need_type.destroy
   end
 
 private
 
-  def set_need
-    recipient = User.find_by(username: params[:username])
-    @need = recipient.needs.find_by(slug: params[:slug])
-  end
-
   def needs_params
-    params.require(:need).permit(:name, :description, :cost, :raised, :category, :image_url)
+    params.require(:need_type).permit(:name, :description, :cost,  :category, :image_url)
   end
 end

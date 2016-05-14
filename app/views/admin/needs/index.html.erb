@@ -12,7 +12,7 @@
           <th>Cost</th>
           <th>Action</th>
         </tr>
-        <% @needs.each do |need| %>
+        <% @need_types.each do |need| %>
           <tr class="need<%= need.id %>">
             <td><%= link_to need.name, "needs/:id" %></td>
             <td><%= need.description %></td>

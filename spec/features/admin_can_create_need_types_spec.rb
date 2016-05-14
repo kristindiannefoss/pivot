@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Admin can edit need types" do
+feature "Admin can create need types" do
   scenario "as a global admin" do
     need_url = "https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg"
 
@@ -8,24 +8,19 @@ feature "Admin can edit need types" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
-    visit admin_profile_path(admin.id)
-# save_and_open_page
-    click_link "Create Need"
+    visit admin_profile_path
+    click_link "Add Needs"
 
     fill_in "Name", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"
     fill_in "Cost", with: "100"
-    fill_in "Raised", with: "0"
     fill_in "Category", with: "Animals" #changing this with Category table
     fill_in "Image Url", with: need_url
 
     click_button "Create Need"
 
-    expect(page).to have_content("Account created!")
     expect(page).to have_content("Cow")
     expect(page).to have_content("Bovine Lactation")
     expect(page).to have_content("100")
-    expect(page).to have_content("Animals")
-    expect(page).to have_css("img[src=\"#{need_url}\"]")
   end
 end

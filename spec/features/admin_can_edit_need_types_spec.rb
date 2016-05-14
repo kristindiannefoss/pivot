@@ -1,38 +1,43 @@
-# require "rails_helper"
-#
-# feature "Admin can edit need types" do
-#   scenario "as a global admin" do
-#     visit admin_dasboard_path
-#
-#     click_link "Edit Need"
-#
-#     fill_in "First Name", with: "Jon"
-#     fill_in "Last Name", with: "Dadork"
-#     fill_in "E-Mail", with: "email@email.com"
-#     fill_in "Username", with: "ksjdfkjsd"
-#     fill_in "Country", with: "Nepal"
-#     fill_in "Password", with: "password"
-#     fill_in "Password Confirmation", with: "password"
-#     select "recipient", from: "user[role]"
-#     click_button "Create Account"
-#
-#     expect(page).to have_content("Account created!")
-#
-# RSpec.feature "User submits a new artist" do
-#   scenario "they see the page for the individual artist" do
-#     artist_name       = "Bob Marley"
-#     artist_image_path = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
-#
-#     visit artists_path
-#     click_on "New artist"
-#     fill_in "artist_name", with: artist_name
-#     fill_in "artist_image_path", with: artist_image_path
-#     click_on "Create Artist"
-#
-#     expect(page).to have_content artist_name
-#     expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
-#   end
-# end
-#
-#   end
-# end
+require "rails_helper"
+
+feature "Admin can edit need types" do
+  scenario "as a global admin" do
+    need_url1 = "https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg"
+    need_url2 = "https://www.google.com/imgres?imgurl=https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg&imgrefurl=https://en.wikipedia.org/wiki/Cattle&h=2912&w=2912&tbnid=Ye7bnTUqTVLDCM:&tbnh=186&tbnw=186&docid=bQHwC8Dr7qayRM&itg=1&usg=__X7W4mSq_SACi9jA2PMPbjS5T7gI=#h=2912&imgdii=Ye7bnTUqTVLDCM%3A%3BYe7bnTUqTVLDCM%3A%3BaZfjOshtTr0NfM%3A&tbnh=186&tbnw=186&w=2912"
+
+    admin = User.create(first_name: "Kris", last_name: "Foss", email: "kris.foss@gmail.com", password: "password", role: 1, username: "Kris", country: "US")
+
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
+
+    visit admin_profile_path
+    click_link "Add Needs"
+
+    fill_in "Name", with: "Cow"
+    fill_in "Description", with: "Bovine Lactation"
+    fill_in "Cost", with: "100"
+    fill_in "Image Url", with: need_url1
+
+    click_button "Create Need"
+
+    visit admin_profile_path
+    click_link "View All Needs"
+
+    # within('tr', :text => 'Cow') do
+      click_link "Edit"
+    # end
+# save_and_open_page
+
+    fill_in "Name", with: "Cows"
+    fill_in "Description", with: "Milk"
+    fill_in "Cost", with: "1000"
+    fill_in "Image Url", with: need_url2
+
+    click_button "Update Need"
+
+    expect(page).to have_content("Cow")
+    expect(page).to have_content("Bovine Lactation")
+    expect(page).to have_content("100")
+
+  end
+end
