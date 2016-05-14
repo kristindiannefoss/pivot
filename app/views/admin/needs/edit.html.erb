@@ -3,7 +3,7 @@
     <div align="center">
       <h1>Edit Need</h1>
 
-        <%= form_for @need_type, url: admin_need_path(@need_type) do |f| %>
+        <%= form_for @need_type, , url: {:controller=>'admin/need_type', :action=>'update'} do |f| %>
 
         <p><%= f.text_field :name, placeholder: "Name" %></p>
         <p><%= f.text_field :description, placeholder: "Description" %></p>

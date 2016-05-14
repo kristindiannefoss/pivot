@@ -1,9 +1,8 @@
-class Admin::NeedsController < Admin::BaseController
+class Admin::NeedTypesController < Admin::BaseController
   include ActionView::Helpers::TextHelper
 
   def index
     @need_types = NeedType.all
-    @recipient_needs = Need.all
   end
 
   def show
@@ -19,7 +18,7 @@ class Admin::NeedsController < Admin::BaseController
 
     if @need_type.update(needs_params)
       flash[:notice] = "Need Type has been updated"
-      redirect_to admin_needs_path
+      redirect_to admin_need_types_path
     else
       render :edit
     end
@@ -34,7 +33,7 @@ class Admin::NeedsController < Admin::BaseController
 
     if @need_type.save
       flash[:notice] = "Successfully created a new need"
-      redirect_to admin_needs_path
+      redirect_to admin_need_types_path
     else
       flash.now[:error] = @need_type.errors.full_messages.join(", ")
       render :new

@@ -24,17 +24,17 @@ Rails.application.routes.draw do
   get "/:username", to: "users#recipient", as: :recipient
   patch "/:username/needs/:slug", to: "needs#donate", as: :donate_user_need
 
-  get "/admin/needs", to: "admin/needs#index"
-  post "/admin/needs", to: "admin/needs#create"
-  get "/admin/needs/new", to: "admin/needs#new", as: "new_admin_need"
-  get "/admin/needs/:id/edit", to: "admin/needs#edit", as: "edit_admin_need"
-  get "/admin/needs/:id", to: "admin/needs#show", as: "admin_need"
-  patch "/admin/needs/:id", to: "admin/needs#update"
-  put "/admin/needs/:id", to: "admin/needs#update"
-  delete "/admin/needs/:id", to: "admin/needs#destroy"
+  # get "/admin/need_types", to: "admin/need_types#index"
+  # post "/admin/need_types", to: "admin/need_types#create"
+  # get "/admin/need_types/new", to: "admin/need_types#new"
+  # get "/admin/need_types/:id/edit", to: "admin/need_types#edit", as: "admin/need"
+  # get "/admin/need_types/:id", to: "admin/need_types#show"
+  # patch "/admin/need_types/:id", to: "admin/need_types#update"
+  # put "/admin/need_types/:id", to: "admin/need_types#update"
+  # delete "/admin/need_types/:id", to: "admin/need_types#destroy"
 
   namespace "admin" do
-    resources :needs
+    resources :need_types
     resources :users
   end
 

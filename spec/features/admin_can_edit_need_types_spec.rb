@@ -9,11 +9,10 @@ feature "Admin can edit need types" do
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
-
-    visit admin_profile_path
+    visit "/admin/profile"
     click_link "Add Needs"
-
-    fill_in "Name", with: "Cow"
+# save_and_open_page
+    fill_in "need_type[name]", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"
     fill_in "Cost", with: "100"
     fill_in "Image Url", with: need_url1
@@ -23,21 +22,18 @@ feature "Admin can edit need types" do
     visit admin_profile_path
     click_link "View All Needs"
 
-    # within('tr', :text => 'Cow') do
-      click_link "Edit"
-    # end
-# save_and_open_page
+    click_link "Edit"
 
-    fill_in "Name", with: "Cows"
+    fill_in "need_type[name]", with: "Cows"
     fill_in "Description", with: "Milk"
     fill_in "Cost", with: "1000"
     fill_in "Image Url", with: need_url2
 
     click_button "Update Need"
 
-    expect(page).to have_content("Cow")
-    expect(page).to have_content("Bovine Lactation")
-    expect(page).to have_content("100")
+    expect(page).to have_content("Cows")
+    expect(page).to have_content("Milk")
+    expect(page).to have_content("$1,000")
 
   end
 end

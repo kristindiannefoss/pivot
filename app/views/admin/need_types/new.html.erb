@@ -4,9 +4,7 @@
       <h1>Need Creation Page</h1>
       <h3>Enter New Need Information:</h3>
 
-      <%= form_for @need_type, , url: {:controller=>'admin/need_type', :action=>'create'}  do |f| %>
-
-
+      <%= form_for @need_type, url: {:controller=>'admin/need_types', :action=>'create'} do |f| %>
         <p><%= f.text_field :name, placeholder: "Name" %></p>
         <p><%= f.text_field :description, placeholder: "Description" %></p>
         <p><%= f.number_field :cost, step: "any", placeholder: "Cost" %></p>
