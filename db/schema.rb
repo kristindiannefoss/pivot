@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514050938) do
+ActiveRecord::Schema.define(version: 20160514072900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20160514050938) do
   end
 
   add_index "categories", ["need_id"], name: "index_categories_on_need_id", using: :btree
+
+  create_table "donation_amount", force: :cascade do |t|
+    t.integer "donation_id"
+    t.integer "need_id"
+    t.integer "quantity"
+  end
+
+  add_index "donation_amount", ["donation_id"], name: "index_donation_amount_on_donation_id", using: :btree
+  add_index "donation_amount", ["need_id"], name: "index_donation_amount_on_need_id", using: :btree
 
   create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
@@ -74,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160514050938) do
   end
 
   add_foreign_key "categories", "needs"
+  add_foreign_key "donation_amount", "donations"
+  add_foreign_key "donation_amount", "needs"
   add_foreign_key "donations", "users"
   add_foreign_key "needs", "categories"
   add_foreign_key "needs", "users"

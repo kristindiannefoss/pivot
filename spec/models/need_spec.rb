@@ -26,6 +26,10 @@ describe Need, type: :model do
   end
 
   it "can add donation amount to needs" do
+    need = create(:need)
+    num = 10
+    donation = need.add_donation(num)
 
+    expect(donation).to eq(true)
   end
 end

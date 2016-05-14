@@ -26,15 +26,17 @@ RSpec.describe User, type: :model do
   end
 
   it "can add total cost" do
-    need1, need2 = create_list(:need, 2)
+    need1 = create(:need, cost: 10)
+    need2 = create(:need, cost: 10)
     user = create(:user)
     user.needs << [need1, need2]
 
-    expect(user.total).to eq(33)
+    expect(user.total).to eq(20)
   end
 
   it "can add raised amount" do
-    need1, need2 = create_list(:need, 2)
+    need1 = create(:need, raised: 8)
+    need2 = create(:need, raised: 9)
     user = create(:user)
     user.needs << [need1, need2]
 
