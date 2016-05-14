@@ -56,7 +56,6 @@ basic_needs_list = ["auto_maintenance.png",
 
 animal_needs_list = [
   "alpaca.png",
-  "animals_head.jpg",
   "bull.png",
   "camel.png",
   "capybara.png",
@@ -86,7 +85,6 @@ farming_needs_list = [
   "corn_mill.png",
   "corn_seeds.png",
   "family_farm.png",
-  "farming_head.jpg",
   "flower_seeds.png",
   "gardening_supplies.png",
   "guava_seeds.png",

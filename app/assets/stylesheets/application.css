@@ -14,8 +14,25 @@
  *= require_self
  */
 
+img.now {
+  height: 290px;
+  width: 290px;
+  /*position: absolute;*/
+  clip: rect(0px,290px,290px,0px);
+  overflow: hidden;
 
- img.overlayer {
+}
+
+#flash_notice {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  /*border: 2px solid #00b200;*/
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+ /*img.overlayer {
     position: absolute;
     top: 200px;
     left: 0;
@@ -31,3 +48,7 @@
 #pagewrap{
   text-align: center;
 }
+
+.special {
+  height: 400px;
+}*/

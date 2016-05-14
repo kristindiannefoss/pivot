@@ -1,3 +1,10 @@
+<div class="row">
+  <div class="kris">
+
+  </div>
+
+</div>
+
 <div class="container">
   <div class="row">
     <center>
@@ -16,13 +23,14 @@
           </div>
           <br>
           <div class="row">
-            <% @needs.each do |need| %>
-              <div class="col-sm-4 col-lg-4 col-md-4" id="<%= need.name %>">
-                <div class="thumbnail">
-                  <h4><%= need.name.upcase %></h4>
-                  <%= image_tag "#{need.image_url}", width: "300px" %>
+            <% @needs.each_slice(3).to_a.each do |need| %>
+              <% need.each do |need| %>
+              <div class="col-sm-4 special" id="<%= need.name %>, "style="height: 420px">
+                <div class="thumbnail", style="height: 420px">
+                    <%= image_tag("#{need.image_url}", class: "img-rounded now") %>
+                    <h4><%= need.name.upcase %></h4>
+                    <h4><%= number_to_currency(need.cost) %></h4>
                   <div class="caption">
-                    <h4 class="pull-right"><%= number_to_currency(need.cost) %></h4>
                     <%= button_to cart_path(need_id: need.id), class: "btn btn-primary" do %>
                       Add to Basket
                     <% end %>
@@ -30,6 +38,7 @@
                 </div>
               </div>
             <% end %>
+          <% end %>
           </div>
         </div>
       </div>
