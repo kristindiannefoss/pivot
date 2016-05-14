@@ -43,6 +43,7 @@ class Admin::NeedTypesController < Admin::BaseController
   def destroy
     need_type = NeedType.find(params[:id])
     need_type.destroy
+    redirect_to admin_need_types_path
   end
 
 private

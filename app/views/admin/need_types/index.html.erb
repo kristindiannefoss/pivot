@@ -10,14 +10,16 @@
           <th>Name</th>
           <th>Description</th>
           <th>Cost</th>
-          <th>Action</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
         <% @need_types.each do |need| %>
           <tr class="need<%= need.id %>">
             <td><%= link_to need.name, "needs/:id" %></td>
             <td><%= need.description %></td>
             <td><%= number_to_currency(need.cost) %></td>
-            <td><%= link_to "Edit", edit_admin_need_type_path(need) %></td>
+            <td><%= button_to "Edit", edit_admin_need_type_path(need) %></td>
+            <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, confirm: "Are you sure?" %></td>
           </tr>
         <% end %>
         <tr>

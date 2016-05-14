@@ -11,7 +11,6 @@ feature "Admin can edit need types" do
 
     visit "/admin/profile"
     click_link "Add Needs"
-# save_and_open_page
     fill_in "need_type[name]", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"
     fill_in "Cost", with: "100"
@@ -22,7 +21,7 @@ feature "Admin can edit need types" do
     visit admin_profile_path
     click_link "View All Needs"
 
-    click_link "Edit"
+    click_button "Edit"
 
     fill_in "need_type[name]", with: "Cows"
     fill_in "Description", with: "Milk"

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   # get "/admin/need_types/:id", to: "admin/need_types#show"
   # patch "/admin/need_types/:id", to: "admin/need_types#update"
   # put "/admin/need_types/:id", to: "admin/need_types#update"
-  # delete "/admin/need_types/:id", to: "admin/need_types#destroy"
+  delete "/admin/need_types/:id", to: "admin/need_types#destroy", as: "admin/need_type/delete"
 
   namespace "admin" do
     resources :need_types
