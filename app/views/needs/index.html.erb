@@ -1,7 +1,10 @@
-<br>
-<br>
-<br>
-<br>
+<div class="row">
+  <div class="kris">
+
+  </div>
+
+</div>
+
 <div class="container">
   <div class="row">
     <center>
@@ -12,30 +15,30 @@
               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="item active">
-                    <%= image_tag "girl_and_goat.jpg", width: "900px", padding: "10px" %>
+                    <%= image_tag "girl_and_goat.jpg", width: "1000px", padding: "10px", id: "roundy" %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <h3> <%#= @category.name %> </h3>
           <br>
-
           <div class="row">
-            <% @needs.each do |need| %>
-              <div class="col-sm-4 col-lg-4 col-md-4" id="<%= need.name %>">
-                <div class="thumbnail">
-                  <h4><%= need.name.upcase %></h4>
-                  <%= image_tag "#{need.image_url}", width: "300px" %>
-                  <div class="caption">
-                    <h4 class="pull-right"><%= need.cost %></h4>
+            <% @needs.each_slice(3).to_a.each do |need| %>
+              <% need.each do |need| %>
+              <div class="col-sm-4 special mine" id="<%= need.name %>" style="height: 400px">
+                <div class="thumbnail kris", style="height: 400px">
+                    <%= image_tag("#{need.image_url}", class: "img-rounded now") %>
+                    <h4><%= need.name %></h4>
+                    <h5><%= number_to_currency(need.cost) %></h5>
                     <%= button_to cart_path(need_id: need.id), class: "btn btn-primary" do %>
                       Add to Basket
                     <% end %>
+                    <div class="caption">
                   </div>
                 </div>
               </div>
             <% end %>
+          <% end %>
           </div>
         </div>
       </div>
