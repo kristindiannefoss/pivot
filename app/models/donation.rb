@@ -13,12 +13,12 @@ class Donation < ActiveRecord::Base
   end
 
   def total_cost
-    donation_amount.map{ |oi| oi.subtotal }.sum
+    donation_amounts.map{ |oi| oi.subtotal }.sum
   end
 
   def donation_confirmed(cart)
     cart.contents.each_pair do |id, qty|
-      donation_amount.create(need_id: id, quantity: qty)
+      donation_amounts.create(need_id: id, quantity: qty)
     end
   end
 end

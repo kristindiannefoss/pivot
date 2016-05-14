@@ -21,7 +21,6 @@ class CartsController < ApplicationController
   def destroy
     need = Need.find(params[:id])
     @cart.remove_need(params[:id])
-    require "pry"; binding.pry
     flash[:notice] = "Successfully removed <a href=\"/items/#{item.id}\">#{item.name}</a>!"
     redirect_to cart_path
   end
