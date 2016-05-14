@@ -7,9 +7,13 @@ class User < ActiveRecord::Base
   validates :first_name,     presence: true
   validates :last_name,      presence: true
   validates :username,       presence: true, uniqueness: true
-  validates :email,          presence: true, uniqueness: true
+  validates :email,          presence: true, uniqueness: { case_sensitive: false }
   validates :email,          format: { with: VALID_EMAIL_REGEX }
-  validates :country,        presence: true
+
+  validates :password_digest, presence: true,
+                              length: {minimum: 5,
+                              allow_blank: true }
+  validates :country,         presence: true
 
   enum role: %w(donor recipient admin)
 

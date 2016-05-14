@@ -1,43 +1,29 @@
 class NeedsController < ApplicationController
   include ActionView::Helpers::TextHelper
+  include NeedsHelper
+
+  before_action :set_need, only: [:donate, :update]
+
   def index
     @needs = NeedType.all
   end
 
   def show
-    set_need
+    @need = NeedType.find_by(slug: params[:slug])
   end
 
   def donate
-    set_need
     @need.add_donation(params[:need][:raised])
     redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
   end
 
   def update
-    set_need
   end
 
   def create
-    rejected = []
-    approved = []
-    session[:cart].each do |id, qty|
-      need_type = NeedType.find(id)
-      if current_user.needs.exists?(slug: need_type.slug)
-        rejected << need_type.name
-      else
-        current_user.needs.create(name: pluralize(qty, need_type.name),
-                                  description: need_type.description,
-                                  cost: need_type.cost * qty,
-                                  image_url: need_type.image_url,
-                                  slug: need_type.slug,
-                                  category: need_type.category
-                                  )
-        approved << need_type.name
-      end
-    end
-    flash[:notice] = "The following needs were added to your profile: #{approved.join(', ')}." unless approved.nil?
-    flash[:error] = "At least one of each of the following needs has already been requested: #{rejected.join(', ')}. Please modify existing requests from your profile." unless rejected.nil?
+    results = populate_needs
+    flash[:notice] = "The following needs were added to your profile: #{results.first.join(', ')}." unless approved.nil?
+    flash[:error] = "At least one of each of the following needs has already been requested: #{results.last.join(', ')}. Please modify existing requests from your profile." unless rejected.nil?
     session[:cart] = {}
     redirect_to user_path
   end

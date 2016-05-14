@@ -3,52 +3,28 @@
   <head>
     <title>Goats and Soda</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'landing-page', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-  </head>
-  <body>
-    <%= render partial: "shared/navbar" %>
-    <div id="pagewrap">
-      <%= render "layouts/flashes" %>
-      <div id="main_body">
-        <%= yield %>
-      </div>
+</head>
+<body>
+  <%= render partial: "shared/navbar" %>
+  <div id="pagewrap", style="padding-top: 10px;">
+    <div class="flashy">
+      <% flash.each do |type, message| %>
+      <%= content_tag :div, message.html_safe, class: type, id: "flash_notice" %>
+      <% end %>
     </div>
-    <footer>
-      <br>
-      <center>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <ul class="list-inline">
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li class="footer-menu-divider">&sdot;</li>
-                <li>
-                  <a href="#about">About</a>
-                </li>
-                <li class="footer-menu-divider">&sdot;</li>
-                <li>
-                  <a href="#services">Services</a>
-                </li>
-                <li class="footer-menu-divider">&sdot;</li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
-              </ul>
-              <p class="copyright text-muted small">Copyright &copy; Goats and Soda 2016. All Rights Reserved</p>
-            </div>
-          </div>
-        </div>
-      </center>
-    </footer>
-
+    <div id="main_body">
+      <%= yield %>
+    </div>
+    </div>
   </body>
 </html>
