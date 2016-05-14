@@ -21,7 +21,10 @@ class NeedsController < ApplicationController
   end
 
   def create
-    populate_needs
+    results = populate_needs
+    flash[:notice] = "The following needs were added to your profile: #{results.first.join(', ')}." unless results.first.nil?
+    flash[:error] = "At least one of each of the following needs has already been requested: #{results.last.join(', ')}. Please modify existing requests from your profile." unless results.last.nil?
+    session[:cart] = {}
     redirect_to user_path
   end
 
