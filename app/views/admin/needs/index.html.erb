@@ -9,19 +9,15 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
-          <th>Image</th>
-          <th>Price</th>
-          <th>Retired?</th>
+          <th>Cost</th>
           <th>Action</th>
         </tr>
-        <% @items.each do |item| %>
-          <tr class="item<%= item.id %>">
-            <td><%= link_to item.name, "items/:id" %></td>
-            <td><%= item.description %></td>
-            <td><%= image_tag item.avatar.url(:square) %></td>
-            <td><%= number_to_currency(item.price) %></td>
-            <td><%= item.retired %></td>
-            <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
+        <% @needs.each do |need| %>
+          <tr class="need<%= need.id %>">
+            <td><%= link_to need.name, "needs/:id" %></td>
+            <td><%= need.description %></td>
+            <td><%= number_to_currency(need.cost) %></td>
+            <td><%= link_to "Edit", edit_admin_need_path(need) %></td>
           </tr>
         <% end %>
         <tr>

@@ -24,6 +24,22 @@ Rails.application.routes.draw do
   get "/:username", to: "users#recipient", as: :recipient
   patch "/:username/needs/:slug", to: "needs#donate", as: :donate_user_need
 
+  get "/admin/needs", to: "admin/needs#index"
+  post "/admin/needs", to: "admin/needs#create"
+  get "/admin/needs/new", to: "admin/needs#new", as: "new_admin_need"
+  get "/admin/needs/:id/edit", to: "admin/needs#edit", as: "edit_admin_need"
+  get "/admin/needs/:id", to: "admin/needs#show", as: "admin_need"
+  patch "/admin/needs/:id", to: "admin/needs#update"
+  put "/admin/needs/:id", to: "admin/needs#update"
+  delete "/admin/needs/:id", to: "admin/needs#destroy"
+
+  namespace "admin" do
+    resources :needs
+    resources :users
+  end
+
+  get "/admin/profile", to: "admin/users#show"
+
   get "/*page", to: "errors#not_found"
 
   # get "/items", to: "items#index"
@@ -40,26 +56,12 @@ Rails.application.routes.draw do
   # get "/donations", to: "donations#index"
   # post "/donations", to: "donations#create"
   #
-  get "/admin/needs", to: "admin/needs#index"
-  post "/admin/needs", to: "admin/needs#create"
-  get "/admin/needs/new", to: "admin/needs#new", as: "new_admin_need"
-  get "/admin/needs/:id/edit", to: "admin/needs#edit", as: "edit_admin_need"
-  get "/admin/needs/:id", to: "admin/needs#show", as: "admin_need"
-  patch "/admin/needs/:id", to: "admin/needs#update"
-  put "/admin/needs/:id", to: "admin/needs#update"
-  delete "/admin/needs/:id", to: "admin/needs#destroy"
-
-  namespace "admin" do
-    resources :needs
-    resources :users
-  end
   #
   # get "admin/users/:id", to: "admin/users#show", as: "admin_user"
   #
   # get "/donation", to: "donations#show"
   # get "/dashboard", to: "users#show"
   # get "/cart", to: "cart_items#index"
-  # get "/admin/dashboard", to: "admin/users#show"
 
   # resources :needs, only: [:index]
 end

@@ -34,6 +34,10 @@ class Admin::NeedsController < Admin::BaseController
     end
   end
 
+  def new
+    @need = NeedType.new
+  end
+  
   def create
     populate_needs
 
@@ -42,7 +46,8 @@ class Admin::NeedsController < Admin::BaseController
   end
 
   def destroy
-
+    need = NeedType.find(params[:id])
+    need.destroy
   end
 
 private

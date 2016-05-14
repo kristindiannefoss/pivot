@@ -1,10 +1,1 @@
-<%= form_for(need), url:{:controller=>'admin/needs', :action=>'create'} do |f| %>
-  <p><%= f.text_field :name, placeholder: "Name" %></p>
-  <p><%= f.text_field :description, placeholder: "Description" %></p>
-  <p><%= f.number_field :cost, step: "any", placeholder: "Cost" %></p>
-  <p><%= f.number_field :raised, step: "any", placeholder: "Raised" %></p>
-  <p><%= f.number_field :category, placeholder: "Category" %></p>
-  <p><%= f.text_field :image_url, placeholder: "Image Url" %></p>
 
-  <p><%= f.submit  %></p>
-<% end %>

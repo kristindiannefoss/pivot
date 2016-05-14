@@ -2,7 +2,7 @@
 #
 # feature "Admin can edit need types" do
 #   scenario "as a global admin" do
-#     visit admin_profile_path
+#     visit admin_dasboard_path
 #
 #     click_link "Edit Need"
 #

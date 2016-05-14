@@ -14,7 +14,7 @@ class AdminCanCreateItemsTest < ActionDispatch::IntegrationTest
    ApplicationController.any_instance.stubs(:current_user).returns(admin)
    create_categories(3)
 
-   visit admin_profile_path
+   visit admin_dasboard_path
    click_on "Create New Items"
 
    assert page.has_content?("Item Creation Page")

@@ -4,7 +4,16 @@
       <h1>Need Creation Page</h1>
       <h3>Enter New Need Information:</h3>
 
-      <%= render partial: "form", locals: (need: @need) %>
+      <%= form_for @need, url:{:controller=>'admin/needs', :action=>'create'} do |f| %>
+        <p><%= f.text_field :name, placeholder: "Name" %></p>
+        <p><%= f.text_field :description, placeholder: "Description" %></p>
+        <p><%= f.number_field :cost, step: "any", placeholder: "Cost" %></p>
+        <p><%= f.number_field :category, placeholder: "Category" %></p>
+        <p><%= f.text_field :image_url, placeholder: "Image Url" %></p>
+
+        <p><%= f.submit  %></p>
+      <% end %>
+
     </div>
   </div>
 </div>
