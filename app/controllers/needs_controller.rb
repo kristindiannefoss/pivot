@@ -6,6 +6,7 @@ class NeedsController < ApplicationController
 
   def index
     @needs = NeedType.all
+    @categories = @needs.pluck(:category).uniq
   end
 
   def show
