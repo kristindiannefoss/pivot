@@ -7,7 +7,7 @@ module NeedsHelper
                                 cost: need.cost * qty,
                                 image_url: need.image_url,
                                 slug: need.slug,
-                                category: need.category
+                                category_id: need.category_id
                                 )
     end
   end
