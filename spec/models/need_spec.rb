@@ -24,4 +24,8 @@ describe Need, type: :model do
 
     expect(need.slug).to eq("goats-and-soda")
   end
+
+  it "can add donation amount to needs" do
+
+  end
 end

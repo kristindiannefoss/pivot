@@ -16,6 +16,7 @@ class Need < ActiveRecord::Base
   end
 
   def add_donation(num)
+    require "pry"; binding.pry
     update_attributes(raised: num.to_i + raised)
   end
 end
