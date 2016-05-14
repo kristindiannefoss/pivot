@@ -16,7 +16,7 @@
 #    create_items(2)
 #    item1 = Item.first
 #    item2 = Item.last
-#    visit admin_dashboard_path
+#    visit admin_profile_path
 #    click_on "Items"
 #    assert_equal "/admin/items", current_path
 #

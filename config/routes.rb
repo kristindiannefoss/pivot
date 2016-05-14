@@ -40,14 +40,19 @@ Rails.application.routes.draw do
   # get "/donations", to: "donations#index"
   # post "/donations", to: "donations#create"
   #
-  # get "/admin/items", to: "admin/items#index"
-  # post "/admin/items", to: "admin/items#create"
-  # get "/admin/items/new", to: "admin/items#new", as: "new_admin_item"
-  # get "/admin/items/:id/edit", to: "admin/items#edit", as: "edit_admin_item"
-  # get "/admin/items/:id", to: "admin/items#show", as: "admin_item"
-  # patch "/admin/items/:id", to: "admin/items#update"
-  # put "/admin/items/:id", to: "admin/items#update"
-  # delete "/admin/items/:id", to: "admin/items#destroy"
+  get "/admin/needs", to: "admin/needs#index"
+  post "/admin/needs", to: "admin/needs#create"
+  get "/admin/needs/new", to: "admin/needs#new", as: "new_admin_need"
+  get "/admin/needs/:id/edit", to: "admin/needs#edit", as: "edit_admin_need"
+  get "/admin/needs/:id", to: "admin/needs#show", as: "admin_need"
+  patch "/admin/needs/:id", to: "admin/needs#update"
+  put "/admin/needs/:id", to: "admin/needs#update"
+  delete "/admin/needs/:id", to: "admin/needs#destroy"
+
+  namespace "admin" do
+    resources :needs
+    resources :users
+  end
   #
   # get "admin/users/:id", to: "admin/users#show", as: "admin_user"
   #
