@@ -13,13 +13,20 @@
  *= require_tree .
  *= require_self
  */
-
+ .navbar.spexial {
+  background-color: #EBEBEB;
+  border-color: #e7e7e7;
+}
+div.kris  {
+  height: 400px;
+  width: 320px;
+}
 img.now {
-  height: 290px;
-  width: 290px;
-  /*position: absolute;*/
-  clip: rect(0px,290px,290px,0px);
-  overflow: hidden;
+  height: 290px !important;
+  width: 290px !important;
+  /*position: absolute !important; */
+  clip: rect(0px,290px,290px,0px) !important;
+  overflow: hidden !important;
 
 }
 
@@ -30,6 +37,11 @@ img.now {
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
+  text-align: center;
+}
+
+img#roundy {
+  border-radius: 6px;
 }
 
  /*img.overlayer {
