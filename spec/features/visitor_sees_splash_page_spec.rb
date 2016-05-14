@@ -5,7 +5,7 @@ feature "visitor can view splash page" do
     splash_image_path = "Boy-and-goat_wide_web.jpg"
     visit root_path
 
-    expect(page).to have_content("Goats and Soda")
+    expect(page).to have_css('img[alt="Wholelogo"]')
     expect(page).to have_link("Donate")
   end
 end
