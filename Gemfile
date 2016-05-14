@@ -37,6 +37,7 @@ group :development, :test do
   gem 'mocha'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'rspec-rails'
+  gem 'shoulda-callback-matchers', '~> 1.1', '>= 1.1.3'
 end
 
 group :development do

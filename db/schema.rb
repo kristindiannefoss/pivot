@@ -11,14 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512213700) do
+ActiveRecord::Schema.define(version: 20160514181341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "need_id"
   end
+
+  add_index "categories", ["need_id"], name: "index_categories_on_need_id", using: :btree
+
+  create_table "donation_amount", force: :cascade do |t|
+    t.integer "donation_id"
+    t.integer "need_id"
+    t.integer "quantity"
+  end
+
+  add_index "donation_amount", ["donation_id"], name: "index_donation_amount_on_donation_id", using: :btree
+  add_index "donation_amount", ["need_id"], name: "index_donation_amount_on_need_id", using: :btree
+
+  create_table "donation_amounts", force: :cascade do |t|
+    t.integer "need_id"
+    t.integer "donation_id"
+    t.integer "quantity"
+  end
+
+  add_index "donation_amounts", ["donation_id"], name: "index_donation_amounts_on_donation_id", using: :btree
+  add_index "donation_amounts", ["need_id"], name: "index_donation_amounts_on_need_id", using: :btree
 
   create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,10 +71,11 @@ ActiveRecord::Schema.define(version: 20160512213700) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "slug"
-    t.string   "category"
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
+  add_index "needs", ["category_id"], name: "index_needs_on_category_id", using: :btree
   add_index "needs", ["user_id"], name: "index_needs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +91,12 @@ ActiveRecord::Schema.define(version: 20160512213700) do
     t.text    "description"
   end
 
+  add_foreign_key "categories", "needs"
+  add_foreign_key "donation_amount", "donations"
+  add_foreign_key "donation_amount", "needs"
+  add_foreign_key "donation_amounts", "donations"
+  add_foreign_key "donation_amounts", "needs"
   add_foreign_key "donations", "users"
+  add_foreign_key "needs", "categories"
   add_foreign_key "needs", "users"
 end
