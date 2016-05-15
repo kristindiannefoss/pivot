@@ -1,4 +1,4 @@
-# NachomomsPaleo
+# Goats and Soda
 ## Built with Ruby on Rails
 
 ### Authors
@@ -9,7 +9,7 @@ This project was created as a part of the curriculum for the [Turing School of S
 
 ### Overview
 
-This Rails application is a microdonation site. A user can create an account and donate available items to multiple recipients. A recipient is an "admin" user for their "store", they can select predetermined needs from the catalog to request specific donations.  A master admin user can edit information with recipients and donors.   
+This Rails application is a microdonation site. A user can create an account and donate available items to multiple recipients. A recipient is an "admin" user for their "store", they can select predetermined needs from the catalog to request specific donations.  A master admin user can edit information with recipients and donors.  The code is "pivoted" off of a module 2 little shop to practice multi-tenancy.  
 
 ### Live Version
 
