@@ -1,0 +1,66 @@
+<div class="cart">
+  <div class="container">
+    <div class="cart-top">
+      <h1>All Users</h1>
+    </div>
+    <div class="cart-conclusion">
+
+      <table>
+        <tr>
+          <th>Role</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Username</th>
+          <th>Description</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        <% @admins.each do |user| %>
+          <tr class="user<%= user.id %>">
+            <td><%= user.role %></td>
+            <td><%= link_to user.first_name, "users/:id" %> <%= link_to user.last_name, "users/:id" %></td>
+            <td><%= user.email %></td>
+            <td><%= user.city %></td>
+            <td><%= user.country %></td>
+            <td><%= user.username %></td>
+            <td><%= user.description %></td>
+            <td><%= button_to "Edit", edit_admin_user_path(user), method: :get %></td>
+            <td><%= button_to "Delete", admin_user_delete_path(user), method: :delete, confirm: "Are you sure?" %></td>
+          </tr>
+        <% end %>
+
+        <% @recipients.each do |user| %>
+          <tr class="user<%= user.id %>">
+            <td><%= user.role %></td>
+            <td><%= link_to user.first_name, "users/:id" %> <%= link_to user.last_name, "users/:id" %></td>
+            <td><%= user.email %></td>
+            <td><%= user.city %></td>
+            <td><%= user.country %></td>
+            <td><%= user.username %></td>
+            <td><%= user.description %></td>
+            <td><%= button_to "Edit", edit_admin_user_path(user), method: :get %></td>
+            <td><%= button_to "Delete", admin_user_delete_path(user), method: :delete, confirm: "Are you sure?" %></td>
+          </tr>
+        <% end %>
+
+        <% @donors.each do |user| %>
+          <tr class="user<%= user.id %>">
+            <td><%= user.role %></td>
+            <td><%= link_to user.first_name, "users/:id" %> <%= link_to user.last_name, "users/:id" %></td>
+            <td><%= user.email %></td>
+            <td><%= user.city %></td>
+            <td><%= user.country %></td>
+            <td><%= user.username %></td>
+            <td><%= user.description %></td>
+            <td><%= button_to "Edit", edit_admin_user_path(user), method: :get %></td>
+            <td><%= button_to "Delete", admin_user_delete_path(user), method: :delete, confirm: "Are you sure?" %></td>
+          </tr>
+        <% end %>
+        <tr>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

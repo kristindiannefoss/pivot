@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   # put "/admin/need_types/:id", to: "admin/need_types#update"
   delete "/admin/need_types/:id", to: "admin/need_types#destroy", as: "admin/need_type/delete"
 
+  delete "/admin/users/:id", to: "admin/users#destroy", as: "admin/user/delete"
+
   namespace "admin" do
     resources :need_types
     resources :users

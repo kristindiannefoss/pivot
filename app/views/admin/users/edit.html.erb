@@ -1,0 +1,22 @@
+<div class="container form-spacing">
+  <div class="vertical-center-row">
+    <div align="center">
+      <h1>User Edit Page</h1>
+      <h3>Update User Information:</h3>
+
+      <%= form_for @user, url: {:controller=>'admin/users', :action=>'update'} do |f| %>
+        <%= f.text_field :first_name, placeholder: "First Name", class:"form-control" %><br>
+        <%= f.text_field :last_name, placeholder: "Last Name", class:"form-control" %><br>
+        <%= f.text_field :username, placeholder: "Username", class:"form-control" %><br>
+        <%= f.text_field :email, placeholder: "E-Mail", class:"form-control" %><br>
+        <%= f.text_field :country, placeholder: "Country", class:"form-control" %><br>
+        <%= f.text_field :city, placeholder: "City (optional)", class:"form-control" %><br>
+        <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br>
+        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"form-control" %><br>
+        <%= f.collection_select :role, @roles, :last, :first, include_blank: "Choose Account Type" %>
+        <%= f.submit "Update User Account", class: "btn btn-primary"%>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
