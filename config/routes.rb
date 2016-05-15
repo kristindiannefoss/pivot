@@ -24,6 +24,22 @@ Rails.application.routes.draw do
   get "/:username", to: "users#recipient", as: :recipient
   patch "/:username/needs/:slug", to: "needs#donate", as: :donate_user_need
 
+  # get "/admin/need_types", to: "admin/need_types#index"
+  # post "/admin/need_types", to: "admin/need_types#create"
+  # get "/admin/need_types/new", to: "admin/need_types#new"
+  # get "/admin/need_types/:id/edit", to: "admin/need_types#edit", as: "admin/need"
+  # get "/admin/need_types/:id", to: "admin/need_types#show"
+  # patch "/admin/need_types/:id", to: "admin/need_types#update"
+  # put "/admin/need_types/:id", to: "admin/need_types#update"
+  delete "/admin/need_types/:id", to: "admin/need_types#destroy", as: "admin/need_type/delete"
+
+  namespace "admin" do
+    resources :need_types
+    resources :users
+  end
+
+  get "/admin/profile", to: "admin/users#show"
+
   get "/*page", to: "errors#not_found"
 
   # get "/items", to: "items#index"
@@ -40,21 +56,12 @@ Rails.application.routes.draw do
   # get "/donations", to: "donations#index"
   # post "/donations", to: "donations#create"
   #
-  # get "/admin/items", to: "admin/items#index"
-  # post "/admin/items", to: "admin/items#create"
-  # get "/admin/items/new", to: "admin/items#new", as: "new_admin_item"
-  # get "/admin/items/:id/edit", to: "admin/items#edit", as: "edit_admin_item"
-  # get "/admin/items/:id", to: "admin/items#show", as: "admin_item"
-  # patch "/admin/items/:id", to: "admin/items#update"
-  # put "/admin/items/:id", to: "admin/items#update"
-  # delete "/admin/items/:id", to: "admin/items#destroy"
   #
   # get "admin/users/:id", to: "admin/users#show", as: "admin_user"
   #
   # get "/donation", to: "donations#show"
   # get "/dashboard", to: "users#show"
   # get "/cart", to: "cart_items#index"
-  # get "/admin/dashboard", to: "admin/users#show"
 
   # resources :needs, only: [:index]
 end

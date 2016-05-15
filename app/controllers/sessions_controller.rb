@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:notice] = "Logged in as #{user.first_name}"
       if current_admin?
-        redirect_to admin_dashboard_path
+        redirect_to admin_profile_path
       else
         redirect_to session[:redirect]
       end
