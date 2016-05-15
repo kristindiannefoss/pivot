@@ -25,9 +25,9 @@ feature "Recipient can remove needs from cart" do
 
     first(".cart-remove").click_link("Remove")
 
-    expect(page).to have_content("Successfully removed goat from cart")
+    expect(page).to have_content("Successfully removed from cart")
 
-#    expect(page).to_not have_content("goat")
-#    expect(page).to have_content("Basket: 1")
+    expect(page).to_not have_content("goat")
+    expect(page).to have_content("Basket: 1")
   end
 end

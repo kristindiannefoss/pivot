@@ -22,7 +22,7 @@ class CartsController < ApplicationController
   def destroy
     @cart.remove_need(params[:id])
     session[:cart] = @cart.contents
-    flash.now[:notice] = "Successfully removed #{need.name} from cart"
+    flash[:notice] = "Successfully removed from cart"
     redirect_to cart_path
   end
 end

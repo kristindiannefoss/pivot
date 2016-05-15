@@ -31,7 +31,7 @@ class Cart
   end
 
   def remove_need(need_id)
-    contents.reject { |id| id == need_id.to_s }
+    contents.reject! { |id| id == need_id.to_s }
   end
 
   def update(need_id, qty)
