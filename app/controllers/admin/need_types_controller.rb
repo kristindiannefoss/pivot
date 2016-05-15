@@ -49,6 +49,8 @@ class Admin::NeedTypesController < Admin::BaseController
 private
 
   def needs_params
+    category = params[:need_type][:category]
+    params[:need_type][:category] = Category.find_or_create_by(name: category)
     params.require(:need_type).permit(:name, :description, :cost,  :category, :image_url)
   end
 end
