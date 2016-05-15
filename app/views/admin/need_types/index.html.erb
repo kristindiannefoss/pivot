@@ -1,0 +1,30 @@
+<div class="cart">
+  <div class="container">
+    <div class="cart-top">
+      <h1>All Items</h1>
+    </div>
+    <div class="cart-conclusion">
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Cost</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        <% @need_types.each do |need| %>
+          <tr class="need<%= need.id %>">
+            <td><%= link_to need.name, "needs/:id" %></td>
+            <td><%= need.description %></td>
+            <td><%= number_to_currency(need.cost) %></td>
+            <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get %></td>
+            <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, confirm: "Are you sure?" %></td>
+          </tr>
+        <% end %>
+        <tr>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

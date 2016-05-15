@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_roles_for_dropdown, only: [:edit, :update, :new, :create]
 
   def index
-    @recipients = User.where(role: 1)
+    @recipients = User.where(role: 2)
   end
 
   def new

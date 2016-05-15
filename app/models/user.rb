@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
                               allow_blank: true }
   validates :country,         presence: true
 
-  enum role: %w(donor recipient admin)
+  enum role: %w(donor admin recipient )
 
   def total
     needs.pluck(:cost).sum
