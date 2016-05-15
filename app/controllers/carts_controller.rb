@@ -15,14 +15,14 @@ class CartsController < ApplicationController
   def update
     qty = params[:session][:quantity].to_i
     @cart.update(params[:need_id], qty)
+    flash[:notice] = "Successfully updated cart"
     redirect_to cart_path
   end
 
   def destroy
-    need = NeedType.find(params[:id])
-    @cart.remove_need(need.id)
+    @cart.remove_need(params[:id])
     session[:cart] = @cart.contents
-    flash[:notice] = "Successfully removed #{need.name} from cart"
+    flash.now[:notice] = "Successfully removed #{need.name} from cart"
     redirect_to cart_path
   end
 end
