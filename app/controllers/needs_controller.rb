@@ -6,8 +6,7 @@ class NeedsController < ApplicationController
 
   def index
     @needs = NeedType.all
-    @categories = ["All Categories"]
-    @categories += Category.find(@needs.pluck(:category_id).uniq).map(&:name)
+    @categories = Category.find_from(@needs)
   end
 
   def show
