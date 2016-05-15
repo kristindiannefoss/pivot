@@ -21,7 +21,7 @@ feature "Admin can delete need types" do
     click_link "View All Needs"
 
     click_button "Delete"
-#May add some JS confirmation fucntionality "Are you sure you want to delete?"
+
     expect(page).to_not have_content("Cow")
     expect(page).to_not have_content("Bovine Lactation")
     expect(page).to_not have_content("100")
