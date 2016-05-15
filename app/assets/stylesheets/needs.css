@@ -1,4 +1,17 @@
 /*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+Place all the styles related to the matching controller here.
+They will automatically be included in application.css.
+ */
+.filter {
+  background-color: darken($background-color, 10);
+  padding: 1em;
+  label {
+    font-size: 0.8em;
+    &:after {
+      content: ': ';
+    }
+  }
+  select, input {
+    margin-right: 1em;
+  }
+}

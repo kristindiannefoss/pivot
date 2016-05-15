@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Recipient adds needs to store" do
   scenario "needs are visible in profile" do
-    recipient = create(:user, role: 1)
+    recipient = create(:user, role: 2)
     need = create(:need_type, name: "loom")
 
     ApplicationController.any_instance.stubs(:current_user).returns(recipient)
@@ -28,7 +28,7 @@ feature "Recipient adds needs to store" do
   end
 
   scenario "cannot add item that already exists" do
-    recipient = create(:user, role: 1)
+    recipient = create(:user, role: 2)
     need = create(:need_type, name: "loom")
 
     ApplicationController.any_instance.stubs(:current_user).returns(recipient)

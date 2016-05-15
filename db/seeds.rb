@@ -123,7 +123,7 @@ basic_needs_list.each do |a|
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  category: "basic needs",
+  category_id: Category.find_or_create_by(name: "basic needs").id,
   image_url: a )
 end
 
@@ -132,7 +132,7 @@ animal_needs_list.each do |a|
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  category: "animals",
+  category_id: Category.find_or_create_by(name: "animals").id,
   image_url: a )
 end
 
@@ -141,7 +141,7 @@ farming_needs_list.each do |a|
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  category: "farming",
+  category_id: Category.find_or_create_by(name: "farming").id,
   image_url: a )
 end
 
@@ -150,6 +150,6 @@ health_needs_list.each do |a|
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
   description: Faker::Lorem.sentence,
   cost: Faker::Commerce.price,
-  category: "health",
+  category_id: Category.find_or_create_by(name: "health").id,
   image_url: a )
 end
