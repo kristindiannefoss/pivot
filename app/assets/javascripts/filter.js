@@ -4,6 +4,12 @@ $(document).ready(function () {
 
   $('#need_filter_category').on('change', function () {
     var currentCategory = this.value;
+    if (currentCategory === "All Categories") {
+      console.log("here")
+    // $('.need').css( "display", "block" );
+     $('.need').show();
+    }
+
     $needs.each(function (index, need) {
       $need = $(need);
       if ($need.data('category') === currentCategory) {

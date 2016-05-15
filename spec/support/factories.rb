@@ -28,5 +28,6 @@ FactoryGirl.define do
     sequence(:description) {|n| "Need description #{n}" }
     sequence(:cost) {|n| n + 10 }
     sequence(:image_url) {|n| "image_#{n}.png"}
+    category
   end
 end

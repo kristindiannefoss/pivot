@@ -18,9 +18,9 @@
           <%= render partial: "shared/filter" %>
           <div class="row">
             <% @needs.each do |need| %>
-              <div class="need" data-name="<%= need.name %>" data-category="<%= need.category %>">
-              <div class="col-sm-4 special mine" id="<%= need.name %>" style="height: 400px">
-                <div class="thumbnail kris", style="height: 400px">
+              <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
+                <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
+                  <div class="thumbnail kris", style="height: 400px">
                     <%= image_tag(need.image_url, class: "img-rounded now") %>
                     <h4><%= need.name %></h4>
                     <h5><%= number_to_currency(need.cost) %></h5>
@@ -28,10 +28,10 @@
                       Add to Basket
                     <% end %>
                     <div class="caption">
+                    </div>
                   </div>
                 </div>
-            </div>
-          </div>
+              </div>
             <% end %>
           </div>
         </div>
