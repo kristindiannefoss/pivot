@@ -29,7 +29,6 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
-    # @user = User.find(current_user.id)
     @user = User.find(params[:id])
   end
 
@@ -38,7 +37,6 @@ class Admin::UsersController < Admin::BaseController
 
     if @user.update(user_params)
       flash[:notice] = "User account for #{@user.first_name} #{@user.last_name} has been updated"
-      # binding.pry
       redirect_to admin_users_path
     else
       flash.now[:error] = @user.errors.full_messages.join(", ")
