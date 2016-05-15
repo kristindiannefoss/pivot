@@ -34,7 +34,7 @@ describe Cart do
     expect(cart.count_all).to eq(2)
   end
 
-  xit "can remove need_type from the cart" do
+  it "can remove need_type from the cart" do
     need_type1, need_type2 = create_list(:need_type, 2)
     cart =  Cart.new({})
 
@@ -46,7 +46,7 @@ describe Cart do
     expect(cart.count_all).to eq(2)
 
     cart.remove_need(need_type1.id)
-    expect(cart.count_all).to eq(1)
 
+    expect(cart.count_all).to eq(1)
   end
 end
