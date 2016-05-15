@@ -9,12 +9,8 @@ feature "visitor sees the recipients page" do
 
     expect(page).to have_content(user1.first_name)
     expect(page).to have_content(user1.country)
-    # expect(page).to have_content("$100")
 
     expect(page).to have_content(user2.first_name)
     expect(page).to have_content(user2.country)
-    # expect(page).to have_content("$150")
-
-    # find_id(receiver.id).click
   end
 end
