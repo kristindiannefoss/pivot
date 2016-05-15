@@ -19,9 +19,10 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    need = Need.find(params[:id])
-    @cart.remove_need(params[:id])
-    flash[:notice] = "Successfully removed <a href=\"/needs/#{need.id}\">#{need.name}</a>!"
+    need = NeedType.find(params[:id])
+    @cart.remove_need(need.id)
+    session[:cart] = @cart.contents
+    flash[:notice] = "Successfully removed #{need.name} from cart"
     redirect_to cart_path
   end
 end

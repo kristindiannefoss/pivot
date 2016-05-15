@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
-  resource :cart, only: [:create, :show, :delete, :update]
+  resource :cart, only: [:create, :show, :destroy, :update]
 
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
