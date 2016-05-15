@@ -1,5 +1,6 @@
 class NeedType < ActiveRecord::Base
   before_validation :assign_slug
+  belongs_to :category
 
   validates :name,        presence: true
   validates :description, presence: true
