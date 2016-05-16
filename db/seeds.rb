@@ -210,7 +210,7 @@ recipients_list.each do |a|
   username: Faker::Internet.user_name,
   password: Faker::Internet.password,
   role: 2,
-  description: Faker::Lorem.paragraph(3, false, 1),
+  description: Faker::Lorem.paragraph(6, false, 1),
   image_url: a )
 end
 
@@ -224,7 +224,7 @@ donors_list.each do |a|
   username: Faker::Internet.user_name,
   password: Faker::Internet.password,
   role: 0,
-  description: Faker::Lorem.paragraph(3, false, 1),
+  description: Faker::Lorem.paragraph(6, false, 1),
   image_url: a )
 end
 
@@ -238,6 +238,6 @@ admins_list.each do |a|
   username: Faker::Internet.user_name,
   password: Faker::Internet.password,
   role: 1,
-  description: Faker::Lorem.paragraph(3, false, 1),
+  description: Faker::Lorem.paragraph(6, false, 1),
   image_url: a )
 end
