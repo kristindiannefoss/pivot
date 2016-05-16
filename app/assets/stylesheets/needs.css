@@ -42,3 +42,36 @@ img.now {
 img#roundy {
   border-radius: 6px;
 }
+
+img.needshow-pic {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 5px 5px 30px #888888;
+}
+
+
+.needshow {
+  display: inline;
+  float: right;
+  /*padding: 50px;*/
+}
+
+.description {
+  width: 600px;
+  display: inline;
+  position: absolute;
+  padding-top: 50px;
+  padding-right: 100px;
+}
+
+.profile{
+  margin-top: 50px;
+  margin-left: 100px;
+  display: inline;
+  float: left;
+  width: 400px;
+  height: 400px;
+}
