@@ -1,3 +1,5 @@
+require 'faker'
+
 basic_needs_list = ["auto_maintenance.png",
   "basic_farming_tools.png",
   "bicycle.png",
