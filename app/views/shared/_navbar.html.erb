@@ -38,7 +38,7 @@
     <!-- /.navbar-collapse -->
   </div>
 
-  <% if current_user.admin? %>
+  <% if current_admin? %>
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
       <div class="btn-group" role="group">
         <%= link_to "Admin Home", admin_profile_path, class: "btn btn-default" %>
