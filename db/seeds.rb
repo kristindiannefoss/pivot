@@ -100,7 +100,7 @@ health_needs_list = [
 
 basic_needs_list.each do |a|
   NeedType.create(
-  name: a.sub(/\.\w+\z/, "").gsub("_", " ").split.each do {|name| name.capitalize.join(" ")},
+  name: a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "basic needs").id,
@@ -109,7 +109,7 @@ end
 
 animal_needs_list.each do |a|
   NeedType.create(
-  name: a.sub(/\.\w+\z/, "").gsub("_", " "),
+  name:a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "animals").id,
@@ -118,7 +118,7 @@ end
 
 farming_needs_list.each do |a|
   NeedType.create(
-  name: a.sub(/\.\w+\z/, "").gsub("_", " "),
+  name:a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "farming").id,
@@ -127,7 +127,7 @@ end
 
 health_needs_list.each do |a|
   NeedType.create(
-  name: a.sub(/\.\w+\z/, "").gsub("_", " "),
+  name:a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "health").id,
