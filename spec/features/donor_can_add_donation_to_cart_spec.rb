@@ -25,10 +25,11 @@ feature "Donor can add donation to cart" do
 
     expect(page).to have_content "Donation added to cart"
 
-    click_link "Basket: 1"
+    click_link "Basket: 2"
 
     save_and_open_page
     expect(current_path).to eq cart_path
-    expect(page).to have_content "Donate $10 to #{recipient.full_name} for #{need1.name}"
+    expect(page).to have_content "Donate $10.00 to #{recipient.full_name} for #{need1.name}"
+    expect(page).to have_content "Donate $5.00 to #{recipient.full_name} for #{need2.name}"
   end
 end

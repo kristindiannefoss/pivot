@@ -2,7 +2,7 @@ class Donation < ActiveRecord::Base
   belongs_to :user
   has_many :donation_amounts
   has_many :needs, through: :donation_amounts
-  validates :user_id, presence: true
+# validates :user_id, presence: true
 
   def self.format_time(time)
     time.strftime("%A, %b %d, %Y")

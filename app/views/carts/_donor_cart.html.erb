@@ -10,7 +10,7 @@
           <div class="cart-sec">
             <div class="cart-need-info">
               <% donations.each do |donation| %>
-                <p><%= "Donate #{donation.amount} to #{recipient.full_name} for #{donation.need_slug}" %></p>
+                <p><%= "Donate #{number_to_currency(donation.amount)} to #{recipient.full_name} for #{donation.need_slug}" %></p>
               <% end %>
               <!-- <div class="cart-remove"><%# link_to "Remove", cart_path(id: need.id), method: :delete, data: { confirm: "Are you sure?" } %></div> -->
              <!-- <h4>Price: <%# number_to_currency(need.cost) %></h4>
@@ -30,12 +30,12 @@
       <div class="clearfix"></div>
       <% if current_user %>
         <% if @cart.contents.empty? %>
-          <button  type="button" disabled>Approve Needs</button>
+          <button  type="button" disabled>IMPLEMENT THE DONATE BUTTON</button>
         <% else %>
-          <%= button_to "Approve Needs", needs_path, class: "order" %>
+          <%= button_to "IMPLEMENT THE DONATE BUTTON", needs_path, class: "order" %>
         <% end %>
       <% else %>
-        <%= button_to "Login to Approve Needs", login_path, method: :get, class:"order" %>
+        <%= button_to "Login to Donate", login_path, method: :get, class:"order" %>
       <% end %>
     </div>
   </div>

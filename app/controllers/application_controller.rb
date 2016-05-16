@@ -27,9 +27,9 @@ class ApplicationController < ActionController::Base
     @cart ||= Cart.new(session[:cart])
   end
 
-  def require_user
-    redirect_to "/errors/not_found.html" unless current_user
-  end
+ # def require_user
+ #   redirect_to "/errors/not_found.html" unless current_user
+ # end
 
   def current_admin?
     current_user && current_user.admin?

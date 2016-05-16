@@ -9,15 +9,18 @@ class CartsController < ApplicationController
   end
 
   def show
-    if current_user.recipient?
+    if current_user && current_user.recipient?
       @needs = @cart.create_cart_needs || {}
-      require "pry"; binding.pry
     else
-      recipients = User.find(@cart.contents["donor"].keys)
-      require "pry"; binding.pry
-      @recipients_donations = recipients.inject({}) do |hash, recipient|
-        hash[recipient] = recipient.donations
-        hash
+      if @cart.contents["donor"]
+        recipients = User.find(@cart.contents["donor"].keys)
+        @recipients_donations = recipients.inject({}) do |hash, recipient|
+          hash[recipient] ||= []
+          hash[recipient] = Donation.find(@cart.contents["donor"][recipient.id.to_s])
+          hash
+        end
+      else
+        @recipients_donations = {}
       end
     end
   end
