@@ -52,13 +52,6 @@ img.needshow-pic {
   box-shadow: 5px 5px 30px #888888;
 }
 
-
-.needshow {
-  display: inline;
-  float: right;
-  /*padding: 50px;*/
-}
-
 .description {
   width: 600px;
   display: inline;
@@ -67,11 +60,27 @@ img.needshow-pic {
   padding-right: 100px;
 }
 
-.profile{
+.needshow{
   margin-top: 50px;
   margin-left: 100px;
   display: inline;
-  float: left;
+  float: right;
   width: 400px;
   height: 400px;
+}
+
+
+btn-default.match-logo {
+  background-color: #F18E31 !important;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #F18E31 !important;
+  border-color: #EBEBEB !important;
+}
+.btn-primary {
+  color: #333;
+  background-color: #F18E31 !important;
+  border-color: #EBEBEB !important;
 }

@@ -101,7 +101,7 @@ health_needs_list = [
 basic_needs_list.each do |a|
   NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
-  description: Faker::Lorem.sentence,
+  description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "basic needs").id,
   image_url: a )
@@ -110,7 +110,7 @@ end
 animal_needs_list.each do |a|
   NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
-  description: Faker::Lorem.sentence,
+  description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "animals").id,
   image_url: a )
@@ -119,7 +119,7 @@ end
 farming_needs_list.each do |a|
   NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
-  description: Faker::Lorem.sentence,
+  description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "farming").id,
   image_url: a )
@@ -128,7 +128,7 @@ end
 health_needs_list.each do |a|
   NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " "),
-  description: Faker::Lorem.sentence,
+  description: Faker::Lorem.paragraph(9, false, 2),
   cost: Faker::Commerce.price,
   category_id: Category.find_or_create_by(name: "health").id,
   image_url: a )
@@ -199,6 +199,8 @@ admins_list = [
   "jon.jpeg",
   "kris.jpeg",
 ]
+
+User.create(first_name: "Mike", last_name: "Dao", email: "mike.dao@gmail.com", password: "password", role: 1, username: "MikeDao", country: "US", image_url: "global_admin.png")
 
 recipients_list.each do |a|
   User.create(

@@ -15,7 +15,7 @@
         </tr>
         <% @need_types.each do |need| %>
           <tr class="need<%= need.id %>">
-            <td><%= link_to need.name, "needs/:id" %></td>
+            <td><%= link_to need.name, admin_need_type_path(need) %></td>
             <td><%= need.description %></td>
             <td><%= number_to_currency(need.cost) %></td>
             <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get %></td>
