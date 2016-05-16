@@ -68,19 +68,3 @@ img.needshow-pic {
   width: 400px;
   height: 400px;
 }
-
-
-btn-default.match-logo {
-  background-color: #F18E31 !important;
-}
-
-.btn-default {
-  color: #333;
-  background-color: #F18E31 !important;
-  border-color: #EBEBEB !important;
-}
-.btn-primary {
-  color: #333;
-  background-color: #F18E31 !important;
-  border-color: #EBEBEB !important;
-}

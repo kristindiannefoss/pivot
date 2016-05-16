@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application' %>
 
@@ -18,9 +18,9 @@
   <body>
     <%= render partial: "shared/navbar" %>
     <div id="pagewrap", style="padding-top: 10px;">
-      <div class="flashy">
+      <div>
         <% flash.each do |type, message| %>
-          <%= content_tag :div, message.html_safe, class: type, id: "flash_notice" %>
+          <%= content_tag :div, message.html_safe, class: "#{type} flashy", id: "flash_notice" %>
         <% end %>
       </div>
       <div id="main_body">
