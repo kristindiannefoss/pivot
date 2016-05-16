@@ -5,11 +5,17 @@ class Cart
     @contents = initial_contents || {}
   end
 
-  def mapped_values
+  def create_cart_needs
     contents.map do |id, qty|
-      name = NeedType.find(id.to_i).name
+      name = Need.find(id.to_i).name
       CartNeed.new(name, qty)
     end
+  end
+
+  def add_donation(donation)
+    contents["donor"] ||= {}
+    contents["donor"][donation.user_id] ||= []
+    contents["donor"][donation.user_id] += [donation.id]
   end
 
   def add_need(need_id, need_max)
@@ -22,8 +28,12 @@ class Cart
     end
   end
 
-  def count_all
-    contents.values.sum
+  def count_donations
+    contents["donor"].nil? ? 0 : contents["donor"].values.flatten.count
+  end
+
+  def count_needs
+    contents["recipient"].values.sum
   end
 
   def count_of(need_id)

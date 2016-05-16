@@ -13,7 +13,7 @@ class Donation < ActiveRecord::Base
   end
 
   def total_cost
-    donation_amounts.map{ |oi| oi.subtotal }.sum
+    donation_amounts.map{ |da| da.subtotal }.sum
   end
 
   def donation_confirmed(cart)

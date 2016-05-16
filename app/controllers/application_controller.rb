@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :set_cart
 
-  helper_method :current_user, :set_redirect, :current_admin?
+  helper_method :current_user, :set_redirect, :current_admin?, :current_user_guest
 
   def set_redirect
     if request.referrer == nil
@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_user_guest
+    @current_user.nil?
   end
 
   def set_cart

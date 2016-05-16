@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Admin can edit user" do
+feature "Admin can delete user" do
   scenario "as a global admin" do
     need_url = "https://www.globalgiving.org/pfil/6658/pict_original.jpg"
 
@@ -29,6 +29,6 @@ feature "Admin can edit user" do
     expect(page).to_not have_content("email@email.com")
     expect(page).to_not have_content("ksjdfkjsd")
     expect(page).to_not have_content("Nepal")
-    expect(page).to_not have_content("Recipient")
+    expect(page).to_not have_content("recipient")
   end
 end

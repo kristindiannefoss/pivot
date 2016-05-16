@@ -9,19 +9,21 @@ class DonationsController < ApplicationController
   end
 
   def show
-    @donation_items = DonationItem.where(donation_id: @donation.id) if @donation
+    @donation_amounts = DonationAmount.where(donation_id: @donation.id) if @donation
   end
 
   def create
-    @donation = current_user.donations.new
+    @donation = current_user.donations.new(donation_params)
     if @donation.save
-      @donation.donation_confirmed(@cart)
-      session.delete :cart
-      flash[:notice] = "Donation was successfully pprocessed"
-      redirect_to donations_path
+      @cart.add_donation(@donation)
+     #@donation.donation_confirmed(@cart)
+     #session.delete :cart
+      session[:cart] = @cart.contents
+      flash[:notice] = "Donation added to cart"
+      redirect_to :back
     else
-      flash.now[:error] = "Please log in to place an donation"
-      redirect_to login_path
+      flash.now[:error] = @donation.errors.full_messages.join(", ")
+      redirect_to :back
     end
   end
 
@@ -36,6 +38,10 @@ class DonationsController < ApplicationController
   end
 
   def donation_params
-    params.require(:donation).permit(:user_id)
+    donate_params = {}
+    donate_params["amount"] = params[:need][:raised]
+    donate_params["user_id"] = User.find_by(username: params[:username]).id
+    donate_params["need_slug"] = params[:slug]
+    donate_params
   end
 end
