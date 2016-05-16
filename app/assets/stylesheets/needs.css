@@ -15,3 +15,30 @@ They will automatically be included in application.css.
     margin-right: 1em;
   }
 }
+
+div.kris  {
+  height: 400px;
+  width: 320px;
+}
+img.now {
+  height: 290px !important;
+  width: 290px !important;
+  /*position: absolute !important; */
+  clip: rect(0px,290px,290px,0px) !important;
+  overflow: hidden !important;
+
+}
+
+#flash_notice {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  /*border: 2px solid #00b200;*/
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+img#roundy {
+  border-radius: 6px;
+}

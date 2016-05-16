@@ -14,53 +14,10 @@
  *= require_self
  */
  .navbar.spexial {
-  background-color: #EBEBEB;
+  background-color: #EBEBEB !important;
   border-color: #e7e7e7;
 }
-div.kris  {
-  height: 400px;
-  width: 320px;
+ .navbar {
+  background-color: #EBEBEB !important;
+  border-color: #e7e7e7;
 }
-img.now {
-  height: 290px !important;
-  width: 290px !important;
-  /*position: absolute !important; */
-  clip: rect(0px,290px,290px,0px) !important;
-  overflow: hidden !important;
-
-}
-
-#flash_notice {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
-  /*border: 2px solid #00b200;*/
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 20px;
-  text-align: center;
-}
-
-img#roundy {
-  border-radius: 6px;
-}
-
- /*img.overlayer {
-    position: absolute;
-    top: 200px;
-    left: 0;
-    max-width: 100%;
-    height: auto;
- }
-
- .centered{
-    margin: 0 auto;
-    float: none;
-}
-
-#pagewrap{
-  text-align: center;
-}
-
-.special {
-  height: 400px;
-}*/

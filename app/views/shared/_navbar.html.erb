@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#about">About</a>
+          <a href="http://www.npr.org/sections/goatsandsoda/2014/07/08/329578819/whats-in-our-name-why-goats-why-soda">About</a>
         </li>
         <li>
           <a href="/needs">Giving Catalog</a>
@@ -37,4 +37,22 @@
     </div>
     <!-- /.navbar-collapse -->
   </div>
+
+  <% if current_user.admin? %>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <%= link_to "Admin Home", admin_profile_path, class: "btn btn-default" %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "Add Needs", new_admin_need_type_path, class: "btn btn-default" %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "View All Needs", admin_need_types_path, class: "btn btn-default"  %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "Add New User", new_admin_user_path, class: "btn btn-default"  %>
+      </div>
+    </div>
+  <% else %>
+  <% end %>
 </nav>
