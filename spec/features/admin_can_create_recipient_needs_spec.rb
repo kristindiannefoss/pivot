@@ -2,13 +2,13 @@ require "rails_helper"
 
 feature "Admin can create Recipient needs" do
   scenario "as a global admin" do
-    need_url = "https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg"
+    # admin = User.create(first_name: "Kris", last_name: "Foss", email: "kris.foss@gmail.com", password: "password", role: 1, username: "Kris", country: "US")
+    # recipient = User.create(first_name: "Harry", last_name: "Potter", email: "potter@gmail.com", password: "password", role: 2, username: "HarryP", country: "UK")
+    # category = Category.create(name: "animals")
 
-    admin = User.create(first_name: "Kris", last_name: "Foss", email: "kris.foss@gmail.com", password: "password", role: 1, username: "Kris", country: "US")
-
-    recipient = User.create(first_name: "Harry", last_name: "Potter", email: "potter@gmail.com", password: "password", role: 2, username: "HarryP", country: "UK")
-
-    category = Category.create(name: "animals")
+    admin = create(:user, role: 1)
+    recipient = create(:user, role: 2)
+    category = create(:category, name: "animals")
 
     need = category.needs.create(name: "Cow",
                            description: "Bovine Lactation",
@@ -32,12 +32,13 @@ feature "Admin can create Recipient needs" do
     visit admin_profile_path
     click_link "All Users"
     click_link "#{recipient.first_name}"
-
     save_and_open_page
+
     expect(page).to have_content("Cow")
     expect(page).to_not have_content("Sheep")
 
-    click_link "Add New Needs"
+    click_link "Add Needs"
+    
     within "Sheep" do
       click_link "Add Need To Recipient"
     end

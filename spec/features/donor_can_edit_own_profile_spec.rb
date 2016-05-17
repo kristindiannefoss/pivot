@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "Donor can go to profile page" do
   scenario "and edit own profile successfully" do
+    skip
      donor = create(:user, role: 0)
 
      #sign_in(donor)
@@ -26,5 +27,3 @@ feature "Donor can go to profile page" do
      expect(page).to have_content("user.country")
   end
 end
-
-
