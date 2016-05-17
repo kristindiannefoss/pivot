@@ -36,7 +36,7 @@
         </li>
         <li>
           <% unless current_user %>
-            <a href="/login">Login or Create Acount</a>
+            <a href="/login">Login or Create Account</a>
           <% else %>
             <%= link_to "Logout #{current_user.first_name.capitalize}", logout_path %>
           <% end %>
