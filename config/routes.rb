@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  get "/admin/:username/needs", to: "admin/needs#edit", as: :edit_recipient_needs
   get "/admin/profile", to: "admin/users#show"
   get "/admin/profile/:id", to: "admin/profiles#show", as: "admin/profile/show"
 
