@@ -30,7 +30,7 @@ feature "Admin can edit user" do
     fill_in "E-Mail", with: "email2@email.com"
     fill_in "Username", with: "JonJon"
     fill_in "Country", with: "CowCountry"
-    select "recipient", from: "user[role]"
+    select "donor", from: "user[role]"
     click_button "Update User Account"
 
     expect(page).to_not have_content("Jon Ownsagemandactslikeit")

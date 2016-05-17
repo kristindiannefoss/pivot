@@ -8,17 +8,17 @@
       <table>
         <tr>
           <th>Name</th>
-          <th>Description</th>
           <th>Cost</th>
           <th>Action</th>
         </tr>
-        <% @need_types.each do |need| %>
-          <tr class="need<%= need.id %>">
-            <td><%= link_to need.name, "needs/:id" %></td>
-            <td><%= need.description %></td>
+        <% @needs.each do |need| %>
+        <div>
+          <tr>
+            <td><%= link_to need.name, admin_need_path(need) %></td>
             <td><%= number_to_currency(need.cost) %></td>
-            <td><%= link_to "Edit", edit_admin_need_path(need) %></td>
+            <td><%= link_to "Add Need To Recipient", new_admin_need_path(need), class: "btn btn-primary" %></td>
           </tr>
+        </div>
         <% end %>
         <tr>
         </tr>
