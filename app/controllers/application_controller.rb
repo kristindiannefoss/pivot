@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
-  before_action :set_cart, only: [:show, :index, :destroy, :create]
+  before_action :set_cart
 
   helper_method :current_user, :set_redirect, :current_admin?, :current_user_guest
 
