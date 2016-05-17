@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_guest
-    @current_user.nil?
+    current_user.nil?
   end
 
   def set_cart

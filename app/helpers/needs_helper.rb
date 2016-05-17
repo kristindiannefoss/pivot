@@ -2,7 +2,6 @@ module NeedsHelper
   def populate_needs
     rejected = []
     approved = []
-    require "pry"; binding.pry
     session[:cart]["recipient"].each do |id, qty|
       need_type = NeedType.find(id)
       if current_user.needs.exists?(slug: need_type.slug)

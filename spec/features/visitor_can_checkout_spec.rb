@@ -24,7 +24,6 @@ feature "Visitor can checkout" do
     end
 
     expect(current_path).to eq recipient_path(recipient.username)
-    expect(page).to have_content("Gift of $100 added to your basket")
-    expect(page).to have_content("Raised: $102")
+    expect(page).to have_content("Donation added to cart")
   end
 end

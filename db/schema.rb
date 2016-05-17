@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516194348) do
+ActiveRecord::Schema.define(version: 20160516231116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20160516194348) do
     t.string  "username"
     t.string  "image_url"
     t.text    "description"
+    t.text    "cart"
   end
 
   add_foreign_key "donation_amounts", "donations"

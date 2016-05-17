@@ -34,8 +34,7 @@ class Cart
   end
 
   def count_needs
-    require "pry"; binding.pry
-    contents["recipient"].values.sum
+    contents["recipient"].nil? ? 0 : contents["recipient"].values.sum
   end
 
   def count_of(need_id)
@@ -43,7 +42,7 @@ class Cart
   end
 
   def remove_need(need_id)
-    contents.reject! { |id| id == need_id.to_s }
+    contents["recipient"].reject! { |id| id == need_id.to_s }
   end
 
   def update(need_id, qty)
