@@ -2,8 +2,6 @@ class NeedsController < ApplicationController
   include ActionView::Helpers::TextHelper
   include NeedsHelper
 
-  # before_action :set_need, only: [:donate, :update]
-
   def index
     @needs = NeedType.all
     @categories = Category.filter_categories
@@ -11,13 +9,6 @@ class NeedsController < ApplicationController
 
   def show
     @need = NeedType.find_by(slug: params[:slug])
-  end
-
-  def donate
-    recipient = User.find_by(username: params[:username])
-    @need = recipient.needs.find_by(slug: params[:slug])
-    @need.add_donation(params[:need][:raised])
-    redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
   end
 
   def update
@@ -42,11 +33,6 @@ class NeedsController < ApplicationController
   end
 
 private
-
-  # def set_need
-  #   recipient = User.find_by(username: params[:username])
-  #   @need = recipient.needs.find_by(slug: params[:slug])
-  # end
 
   def needs_params
     params.require(:need).permit(:quantity)
