@@ -1,30 +1,18 @@
-<div class="col-md-9 recip-needs">
-    <h2>Your Needs</h2>
-      <div id="needs">
-        <% @user.needs.each do |need| %>
-          <div id="<%= need.name %>">
-            <div class="need-list">
-              <table>
-                <tr>
-                  <td>
-                      <%= need.name %>: <%= need.quantity %>
-                  </td>
-                  <td>
-                      <%= form_for need, url: edit_need_path(id: need.id), method: :patch do |f| %>
-                      <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", size: 1 %>
-                      <%= f.submit "Update Amount", class: "btn btn-link"%>
-                  </td>
-                  <td>
-                      <%= button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-link", confirm: "Are you sure?" %>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <% end %>
-
-          </div>
-        <% end %>
+<div class="col-md-9 cart-needs">
+  <% @user.needs.each do |need| %>
+    <div class="cart-header">
+      <div class="cart-sec">
+        <div class="cart-need-info">
+          <h3><%= need.name %></h3>
+          <h4>Quantity Requested: <%= need.quantity %></h4>
+          <%= form_for need, url: edit_need_path(id: need.id), method: :patch do |f| %>
+            <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", size: 1 %>
+            <%= f.submit "Update Amount", class: "btn btn-link"%>
+          <% end %>
+          <%= button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-link", confirm: "Are you sure?" %>
+        </div>
+        <div class="clearfix"></div>
       </div>
-    <br>
-    <p><%= link_to "Add Needs", needs_path, class: "btn btn-primary"%></p>
+    </div>
+  <% end %>
 </div>

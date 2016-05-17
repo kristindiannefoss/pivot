@@ -10,6 +10,7 @@ They will automatically be included in application.css.
 
 .recipient-show-chunk {
     margin-top: 50px;
+    margin-left: 200px;
 }
 
 .donor-show-chunk {
