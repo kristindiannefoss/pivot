@@ -12,8 +12,8 @@
     <p>Raised: $<%= need.raised %></p>
     <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>
       <%= f.label :raised, "Amount" %>
-      <%= f.text_field :raised %>
-      <%= f.submit "Donate" %>
+      <%= f.number_field :raised, min: 1, max: need.max_donate_amount %>
+      <%= f.submit "Add donation to cart" %>
     <% end %>
   </div>
 <% end %>

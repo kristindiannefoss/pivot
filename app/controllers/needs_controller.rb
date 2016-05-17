@@ -6,7 +6,7 @@ class NeedsController < ApplicationController
 
   def index
     @needs = NeedType.all
-    @categories = Category.find_from(@needs)
+    @categories = Category.filter_categories
   end
 
   def show

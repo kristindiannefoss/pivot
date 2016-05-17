@@ -31,9 +31,13 @@ ActiveRecord::Schema.define(version: 20160517170028) do
 
   create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "status"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "status",       default: "pending"
+    t.integer  "amount"
+    t.string   "need_slug"
+    t.integer  "recipient_id"
+    t.string   "need_name"
   end
 
   add_index "donations", ["user_id"], name: "index_donations_on_user_id", using: :btree
@@ -81,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160517170028) do
     t.string  "username"
     t.string  "image_url"
     t.text    "description"
+    t.text    "cart"
   end
 
   add_foreign_key "donation_amounts", "donations"

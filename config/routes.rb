@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get "/profile", to: "users#show", as: :user
 
   get "/:username", to: "users#recipient", as: :recipient
-  patch "/:username/needs/:slug", to: "needs#donate", as: :donate_user_need
+  patch "/:username/needs/:slug", to: "donations#update", as: :donate_user_need
 
   # get "/admin/need_types", to: "admin/need_types#index"
   # post "/admin/need_types", to: "admin/need_types#create"

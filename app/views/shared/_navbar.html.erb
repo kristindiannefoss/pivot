@@ -1,7 +1,6 @@
 <!-- Navigation -->
 
 <nav class="navbar navbar-default navbar-fixed-top topnav spexial" role="navigation">
-
   <div class="container topnav">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -21,16 +20,25 @@
           <a href="http://www.npr.org/sections/goatsandsoda/2014/07/08/329578819/whats-in-our-name-why-goats-why-soda">About</a>
         </li>
         <li>
+        <%= link_to "Recipients", users_path %>
+        </li>
+        <li>
           <a href="/needs">Giving Catalog</a>
         </li>
         <li>
-          <%= link_to "Basket: #{@cart.count_all}", cart_path%>
+        <% if current_user_guest || current_user.donor? %>
+          <%= link_to "Basket: #{@cart.count_donations}", cart_path%>
+        <% elsif current_user.recipient? %>
+          <%= link_to "Basket: #{@cart.count_needs}", cart_path%>
+        <% else %>
+          <%= link_to "Basket", cart_path %>
+        <% end %>
         </li>
         <li>
           <% unless current_user %>
-            <a href="/login">Login or Create Acount</a>
+            <a href="/login">Login or Create Account</a>
           <% else %>
-            <%= link_to "Logout #{current_user.first_name}", logout_path %>
+            <%= link_to "Logout #{current_user.first_name.capitalize}", logout_path %>
           <% end %>
         </li>
       </ul>

@@ -9,7 +9,20 @@ class CartsController < ApplicationController
   end
 
   def show
-    @needs = @cart.mapped_values || {}
+    if current_user && current_user.recipient?
+      @needs = @cart.create_cart_needs || {}
+    else
+      if @cart.contents["donor"]
+        recipients = User.find(@cart.contents["donor"].keys)
+        @recipients_donations = recipients.inject({}) do |hash, recipient|
+          hash[recipient] ||= []
+          hash[recipient] = Donation.find(@cart.contents["donor"][recipient.id.to_s])
+          hash
+        end
+      else
+        @recipients_donations = {}
+      end
+    end
   end
 
   def update
