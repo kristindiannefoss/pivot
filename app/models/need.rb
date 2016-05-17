@@ -18,8 +18,4 @@ class Need < ActiveRecord::Base
   def max_donate_amount
     cost - raised
   end
-
-#  def add_donation(num)
-#    update_attributes(raised: num.to_i + raised)
-#  end
 end

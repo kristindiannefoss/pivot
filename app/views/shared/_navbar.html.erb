@@ -1,47 +1,66 @@
 <!-- Navigation -->
 
 <nav class="navbar navbar-default navbar-fixed-top topnav spexial" role="navigation">
+  <div class="container topnav">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%#= image_tag "GoatFace.png", height: "50px" %>
+      <a class="brand" style="margin: 0; float: none;" href="/"><%= image_tag "wholelogo.png", height: "60px" %></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="http://www.npr.org/sections/goatsandsoda/2014/07/08/329578819/whats-in-our-name-why-goats-why-soda">About</a>
+        </li>
+        <li>
+        <%= link_to "Recipients", users_path %>
+        </li>
+        <li>
+          <a href="/needs">Giving Catalog</a>
+        </li>
+        <li>
+        <% if current_user_guest || current_user.donor? %>
+          <%= link_to "Basket: #{@cart.count_donations}", cart_path%>
+        <% elsif current_user.recipient? %>
+          <%= link_to "Basket: #{@cart.count_needs}", cart_path%>
+        <% else %>
+          <%= link_to "Basket", cart_path %>
+        <% end %>
+        </li>
+        <li>
+          <% unless current_user %>
+            <a href="/login">Login or Create Acount</a>
+          <% else %>
+            <%= link_to "Logout #{current_user.first_name.capitalize}", logout_path %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
 
-<div class="container topnav">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="brand" style="margin: 0; float: none;" href="/"><%= image_tag "wholelogo.png", height: "60px" %></a>
-  </div>
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-      <a href="#about">About</a>
-      </li>
-      <li>
-      <a href="/recipients">Recipients</a>
-      </li>
-      <li>
-      <a href="/needs">Giving Catalog</a>
-      </li>
-      <li>
-      <% if current_user_guest || current_user.donor? %>
-        <%= link_to "Basket: #{@cart.count_donations}", cart_path%>
-      <% elsif current_user.recipient? %>
-        <%= link_to "Basket: #{@cart.count_needs}", cart_path%>
-      <% else %>
-        <%= link_to "Basket", cart_path %>
-      <% end %>
-      </li>
-      <li>
-      <% unless current_user %>
-        <a href="/login">Login or Create Acount</a>
-      <% else %>
-        <%= link_to "Logout #{current_user.first_name}", logout_path %>
-      <% end %>
-      </li>
-    </ul>
-  </div>
-</div>
+  <% if current_admin? %>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <%= link_to "Admin Home", admin_profile_path, class: "btn btn-default" %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "Add Needs", new_admin_need_type_path, class: "btn btn-default" %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "View All Needs", admin_need_types_path, class: "btn btn-default"  %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "Add New User", new_admin_user_path, class: "btn btn-default"  %>
+      </div>
+    </div>
+  <% else %>
+  <% end %>
 </nav>

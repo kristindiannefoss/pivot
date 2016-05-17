@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="profile">
+    <%= image_tag @user.image_url, class: "profile-pic" %>
+  </div>
+
+  <div class="description">
+    <div class="user<%= @user.id %>">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <p>Role: <%= @user.role %></p>
+      <p>Username: <%= @user.username %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Location: <%= @user.city %> <%= @user.country %></p>
+      <p><%= @user.description %></p>
+      <div class="btn-group">
+        <%= button_to "Edit", edit_admin_user_path(@user), method: :get, class: "btn-default" %>
+      </div>
+      <div class="btn-group">
+        <%= button_to "Delete", admin_user_delete_path(@user), method: :delete, class: "btn-default", confirm: "Are you sure?" %>
+      </div>
+  </div>
+</div>

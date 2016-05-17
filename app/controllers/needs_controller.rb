@@ -13,11 +13,6 @@ class NeedsController < ApplicationController
     @need = NeedType.find_by(slug: params[:slug])
   end
 
-#  def donate
-#    @need.add_donation(params[:need][:raised])
-#    redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
-#  end
-
   def update
   end
 

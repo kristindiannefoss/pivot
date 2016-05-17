@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   get "/admin/profile", to: "admin/users#show"
+  get "/admin/profile/:id", to: "admin/profiles#show", as: "admin/profile/show"
 
   get "/*page", to: "errors#not_found"
 

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:cart] = JSON.parse(user.cart)
       session[:user_id] = user.id
-      flash[:notice] = "Logged in as #{user.first_name}"
+      flash[:notice] = "Logged in as #{user.first_name.capitalize}"
       if current_admin?
         redirect_to admin_profile_path
       else
