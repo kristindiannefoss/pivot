@@ -21,12 +21,10 @@ class NeedsController < ApplicationController
   end
 
   def update
-    # need = Need.find(params[:id])
-    # update_need(need, params)
-    # cost = NeedType.find_by(slug: need.slug).cost
-    # need.update(:name format_name, :quantity params[:need][:quantity], :cost cost.params[:need][:quantity])
-    #
-    # redirect_to :back, notice: "You are now requesting #{need.quantity} #{need.name}."
+    need = Need.find(params[:id])
+    need.update(needs_params)
+
+    redirect_to :back, notice: "You are now requesting #{need.quantity} #{need.name.pluralize(need.quantity)}."
   end
 
   def destroy
@@ -51,6 +49,6 @@ private
   # end
 
   def needs_params
-    params.require(:need).permit(:name, :quantity)
+    params.require(:need).permit(:quantity)
   end
 end

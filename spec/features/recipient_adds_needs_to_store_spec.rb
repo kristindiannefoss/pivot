@@ -21,8 +21,9 @@ feature "Recipient adds needs to store" do
 
     expect(page).to have_content("The following needs were added to your profile: loom.")
     expect(page).not_to have_content("At least one of each of the following needs has already been requested:")
+
     within("#main_body") do
-      expect(page).to have_content("1 loom")
+      expect(page).to have_content("loom: 1")
     end
 
     expect(page).to have_content("Basket: 0")
