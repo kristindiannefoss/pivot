@@ -21,12 +21,12 @@ class NeedsController < ApplicationController
   end
 
   def update
-    need = Need.find(params[:id])
-    update_need(need, params)
-    cost = NeedType.find_by(slug: need.slug).cost
-    need.update(:name format_name, :quantity params[:need][:quantity], :cost cost.params[:need][:quantity])
-
-    redirect_to :back, notice: "You are now requesting #{need.quantity} #{need.name}."
+    # need = Need.find(params[:id])
+    # update_need(need, params)
+    # cost = NeedType.find_by(slug: need.slug).cost
+    # need.update(:name format_name, :quantity params[:need][:quantity], :cost cost.params[:need][:quantity])
+    #
+    # redirect_to :back, notice: "You are now requesting #{need.quantity} #{need.name}."
   end
 
   def destroy
