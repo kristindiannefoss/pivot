@@ -9,15 +9,16 @@ feature "Admin can create need types" do
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
     visit admin_profile_path
-    click_link "Add Needs"
+
+    click_link "Add New Need Types"
 
     fill_in "Name", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"
     fill_in "Cost", with: "100"
-    fill_in "Category", with: "Animals" #changing this with Category table
+    fill_in "Category", with: 1
     fill_in "Image Url", with: need_url
 
-    click_button "Create Need"
+    click_button "Create Need Type"
 
     expect(page).to have_content("Cow")
     expect(page).to have_content("Bovine Lactation")

@@ -3,6 +3,37 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+ .navbar.spexial {
+  background-color: #EBEBEB !important;
+  border-color: #e7e7e7;
+}
+ .navbar {
+  background-color: #EBEBEB !important;
+  border-color: #e7e7e7;
+}
+
+.pagewrap {
+  padding-top: 10px;
+}
+
+a {
+    color: #F18E31;
+    text-decoration: none;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+.flashy {
+  z-index: -1 !important;
+  margin-top: 30px;
+  height: 47px;
+  border-color: #F18E31 !important;
+  border-style: solid !important;
+  width: 100%;
+  text-align: center;
+}
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
