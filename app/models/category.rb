@@ -3,8 +3,8 @@ class Category < ActiveRecord::Base
   has_many :needs
   has_many :need_types
 
-  def self.find_from(needs)
+  def self.filter_categories
     categories = ["All Categories"]
-    categories += find(needs.pluck(:category_id).uniq).map(&:name)
+    categories += pluck(:name)
   end
 end

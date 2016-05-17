@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
 
   enum role: %w(donor admin recipient )
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def total
     needs.pluck(:cost).sum
   end

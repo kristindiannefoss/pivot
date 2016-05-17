@@ -2,7 +2,7 @@ module NeedsHelper
   def populate_needs
     rejected = []
     approved = []
-    session[:cart].each do |id, qty|
+    session[:cart]["recipient"].each do |id, qty|
       need_type = NeedType.find(id)
       if current_user.needs.exists?(slug: need_type.slug)
         rejected << need_type.name

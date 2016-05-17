@@ -15,7 +15,7 @@ class Need < ActiveRecord::Base
     self.slug ||= name.parameterize if name
   end
 
-  def add_donation(num)
-    update_attributes(raised: num.to_i + raised)
+  def max_donate_amount
+    cost - raised
   end
 end
