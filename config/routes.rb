@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "/needs", to: "needs#index"
   post "/needs", to: "needs#create"
   get "/needs/:slug", to: "needs#show", as: :need
+  delete "/profile", to: "needs#destroy", as: :destroy_need
+  patch "/profile", to: "needs#update", as: :edit_need
 
   get "/recipients", to: "users#index", as: :users
   post "/recipients", to: "users#create"
