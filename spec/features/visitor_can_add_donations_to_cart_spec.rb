@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature "visitor can checkout" do
-  scenario "and charge a card" do
+feature "Visitor can checkout" do
+  scenario "and add donations to their cart" do
     recipient = create(:user, role: 1)
     need = create(:need, cost: 102, raised: 2)
     recipient.needs = [need]
@@ -19,16 +19,11 @@ feature "visitor can checkout" do
       expect(page).to have_content(recipient.needs.first.raised)
       expect(page).to have_content(recipient.needs.first.cost)
 
-      fill_in "amount", with: "100"
-      click_button "add donation to cart"
+      fill_in "Amount", with: "100"
+      click_button "Add donation to cart"
     end
 
     expect(current_path).to eq recipient_path(recipient.username)
-    expect(page).to have_content("donation added to cart")
-
-    click_button "Checkout"
-
-    expect(current_path).to eq checkout_path
-
+    expect(page).to have_content("Donation added to cart")
   end
 end
