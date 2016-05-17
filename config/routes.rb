@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get "/profile", to: "users#show", as: :user
   get "/profile/edit-donor", to: "users#edit_donor", as: :edit_donor
   get "/profile/edit-recipient", to: "users#edit_recipient", as: :edit_recipient
-  patch "/profile", to: "users#update"
+  patch "/edit-profile", to: "users#update"
 
   get "/:username", to: "users#recipient", as: :recipient
   patch "/:username/needs/:slug", to: "donations#update", as: :donate_user_need
