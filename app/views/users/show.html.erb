@@ -1,3 +1,5 @@
+<%= render partial: "shared/profile", locals: {user: @user} %>
+
 <% if current_user.recipient? %>
   <%= render "recipient_show" %>
 <% else %>
