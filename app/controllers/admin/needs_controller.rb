@@ -2,19 +2,36 @@ class Admin::NeedsController < Admin::BaseController
   include ActionView::Helpers::TextHelper
 
   def index
-    @needs = Need.all
+    binding.pry
+    #Background: One admin user, one recipient "Jon" with 2 needs "cow", "sheep"
+    #as an admin
+    #when I visit "/", (where does this recipient list link live?)MANAGE RECIPIENTS link in admin nav
+    #and I click on "Manage Recipients"
+    #I expect to be on admin/recipients
+    #and I click on recipient name
+    #I expect to be on admin/recipients/slug    (admin/recipients/jon)
+    #I would expect to see both "cow : 1", and "sheep : 1"
+    @recipient = User.find(params[:id])
+    @needs = @recipient.needs.all
   end
 
   def show
-    @need = User.needs.find(params[:id])
+    #as an admin, when i view recipient index
+
+    #and I click on a recipient
+
+    #find the recipient I'm looking at and then their need
+
+    #click on their need to view it
+
   end
 
   def edit
-    @need = User.needs.find(params[:id])
+
   end
 
   def update
-    @need = User.needs.find(params[:id])
+
 
     if @need.update(needs_params)
       flash[:notice] = "Need has been updated"
