@@ -20,10 +20,16 @@
           <a href="http://www.npr.org/sections/goatsandsoda/2014/07/08/329578819/whats-in-our-name-why-goats-why-soda">About</a>
         </li>
         <li>
-        <%= link_to "Recipients", users_path %>
+        <% if current_user && current_user.donor? %>
+          <%= link_to "Recipients", users_path %>
+        <% end %>
         </li>
         <li>
-          <a href="/needs">Giving Catalog</a>
+        <% if current_user && current_user.recipient? %>
+          <%= link_to "Needs Catalog", needs_path %>
+        <% elsif current_user %>
+          <%= link_to "Profile", user_path %>
+        <% end %>
         </li>
         <li>
         <% if current_user_guest || current_user.donor? %>
@@ -36,7 +42,7 @@
         </li>
         <li>
           <% unless current_user %>
-            <a href="/login">Login or Create Account</a>
+            <%= link_to "Login or Create Account", login_path %>
           <% else %>
             <%= link_to "Logout #{current_user.first_name.capitalize}", logout_path %>
           <% end %>

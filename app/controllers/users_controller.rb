@@ -22,6 +22,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_donor
+    @user = current_user
+    render :edit_donor
+  end
+
+  def update
+    current_user.update(user_params)
+    redirect_to user_path
+  end
+
   def show
     @user = User.find(current_user.id)
     @donations = @user.donations

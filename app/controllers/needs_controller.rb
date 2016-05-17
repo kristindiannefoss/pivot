@@ -2,8 +2,6 @@ class NeedsController < ApplicationController
   include ActionView::Helpers::TextHelper
   include NeedsHelper
 
-  # before_action :set_need, only: [:donate, :update]
-
   def index
     @needs = NeedType.all
     @categories = Category.filter_categories
@@ -21,14 +19,16 @@ class NeedsController < ApplicationController
   end
 
   def update
-    need = Need.find(params[:id])
+    need = current_user.needs.find(params[:id])
+
     need.update(needs_params)
 
     redirect_to :back, notice: "You are now requesting #{need.quantity} #{need.name.pluralize(need.quantity)}."
   end
 
   def destroy
-    need = Need.find(params[:id])
+    need = current_user.needs.find(params[:id])
+
     need.destroy
     redirect_to :back, notice: "#{need.name} removed from your needs."
   end
@@ -42,11 +42,6 @@ class NeedsController < ApplicationController
   end
 
 private
-
-  # def set_need
-  #   recipient = User.find_by(username: params[:username])
-  #   @need = recipient.needs.find_by(slug: params[:slug])
-  # end
 
   def needs_params
     params.require(:need).permit(:quantity)
