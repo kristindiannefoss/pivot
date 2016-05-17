@@ -15,7 +15,7 @@ feature "Admin can create need types" do
     fill_in "Name", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"
     fill_in "Cost", with: "100"
-    fill_in "Category", with: 1 #changing this with Category table
+    fill_in "Category", with: 1
     fill_in "Image Url", with: need_url
 
     click_button "Create Need Type"
