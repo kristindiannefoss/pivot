@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  protect_from_forgery with: :null_session
+# protect_from_forgery with: :exception
+# protect_from_forgery with: :null_session
   before_action :set_cart
-
   helper_method :current_user, :set_redirect, :current_admin?, :current_user_guest
 
   def set_redirect
@@ -24,12 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
- #   if session[:cart].nil?
- #     raise "EMPTY CART"
- #   else
- #     @cart ||= Cart.new(session[:cart])
- #   end
-     @cart ||= Cart.new(session[:cart])
+    @cart ||= Cart.new(session[:cart])
   end
 
  # def require_user
