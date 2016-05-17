@@ -6,8 +6,8 @@ feature "Admin can create Recipient needs" do
     # recipient = User.create(first_name: "Harry", last_name: "Potter", email: "potter@gmail.com", password: "password", role: 2, username: "HarryP", country: "UK")
     # category = Category.create(name: "animals")
 
-    admin = create(:user, role: 1)
-    recipient = create(:user, role: 2)
+    admin = create(:user, role: 1, )
+    recipient = create(:user, role: 2, username: "HarryP")
     category = create(:category, name: "animals")
 
     need = category.needs.create(name: "Cow",
@@ -15,6 +15,7 @@ feature "Admin can create Recipient needs" do
                            cost: 46,
                            image_url: "auto_maintenance.png",
                            slug: "auto-maintenance",
+                           quantity: 1,
                            category_id: 1)
 
 
@@ -23,6 +24,7 @@ feature "Admin can create Recipient needs" do
                             cost: 46,
                             image_url: "sheep.png",
                             slug: "sheep",
+                            quantity: 1,
                             category_id: 1)
 
                             recipient.needs = [need]
@@ -40,14 +42,17 @@ feature "Admin can create Recipient needs" do
 
     visit root_path
     click_link "Manage Recipients"
-    expect(path).to eq("/admin/recipients")
-    click_link recipient.first_name   #go back and fix the split link on master
+
+    expect(current_path).to eq("/admin/recipients")
+
+    click_link recipient.full_name
 
     expect(page).to have_content("Cow")
     expect(page).to_not have_content("Sheep")
 
-    click_link "Add New Needs"
-    expect(path).to eq("admin/recipients/harryp/needs")
+    click_on "Add New Needs"
+
+    expect(current_path).to eq("admin/recipients/harryp/needs")
 
     within ".sheep" do    #name div after the slug instead of name
       click_on "Add Need To Recipient"
