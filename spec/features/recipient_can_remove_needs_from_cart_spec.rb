@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Recipient can remove needs from cart" do
+feature "Recipient removes needs from cart" do
   scenario "needs are no longer visible in profile" do
     recipient = create(:user, role: 2)
     need1 = create(:need_type, name: "goat")

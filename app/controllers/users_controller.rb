@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     render :edit_donor
   end
 
-  def update_donor
+  def update
     current_user.update(user_params)
     redirect_to user_path
   end

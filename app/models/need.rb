@@ -10,12 +10,17 @@ class Need < ActiveRecord::Base
   validates :raised,      presence: true
   validates :description, presence: true
   validates :image_url,   presence: true
+  validates :quantity,    presence: true
 
   def assign_slug
     self.slug ||= name.parameterize if name
   end
 
   def max_donate_amount
-    cost - raised
+    total - raised
+  end
+
+  def total
+    cost * quantity
   end
 end

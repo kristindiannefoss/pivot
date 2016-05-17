@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
                               allow_blank: true }
   validates :country,         presence: true
 
-  enum role: %w(donor admin recipient )
+  enum role: %w(donor admin recipient)
 
   def full_name
     "#{first_name} #{last_name}"
