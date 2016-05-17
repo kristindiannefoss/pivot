@@ -1,7 +1,9 @@
 <h1>Recipients</h1>
 
 <% @recipients.each do |recipient| %>
-  <%= recipient.first_name %>
-  <%= recipient.last_name %>
-  <%= recipient.country %>
+  <%= link_to recipient.full_name, recipient_path(recipient.username) %>
+  <ul>
+    <li>Country: <%= recipient.country %></li>
+    <li>Total Need: <%= number_to_currency(recipient.total) %></li>
+  </ul>
 <% end %>

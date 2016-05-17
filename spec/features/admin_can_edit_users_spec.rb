@@ -37,7 +37,7 @@ feature "Admin can edit user" do
     expect(page).to_not have_content("email@email.com")
     expect(page).to_not have_content("ksjdfkjsd")
     expect(page).to_not have_content("Nepal")
-    expect(page).to_not have_content("Recipient")
+    expect(page).to_not have_content("recipient")
 
     expect(page).to have_content("email2@email.com")
     expect(page).to have_content("Jonny JonJon")

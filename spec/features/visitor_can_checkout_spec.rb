@@ -20,11 +20,10 @@ feature "Visitor can checkout" do
       expect(page).to have_content(recipient.needs.first.cost)
 
       fill_in "Amount", with: "100"
-      click_button "Donate"
+      click_button "Add donation to cart"
     end
 
     expect(current_path).to eq recipient_path(recipient.username)
-    expect(page).to have_content("Gift of $100 added to your basket")
-    expect(page).to have_content("Raised: $102")
+    expect(page).to have_content("Donation added to cart")
   end
 end

@@ -6,16 +6,11 @@ class NeedsController < ApplicationController
 
   def index
     @needs = NeedType.all
-    @categories = Category.find_from(@needs)
+    @categories = Category.filter_categories
   end
 
   def show
     @need = NeedType.find_by(slug: params[:slug])
-  end
-
-  def donate
-    @need.add_donation(params[:need][:raised])
-    redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
   end
 
   def update
@@ -24,7 +19,7 @@ class NeedsController < ApplicationController
   def create
     results = populate_needs
     flash[:notice] = "The following needs were added to your profile: #{results.first.join(', ')}." unless results.first.nil?
-    flash[:error] = "At least one of each of the following needs has already been requested: #{results.last.join(', ')}. Please modify existing requests from your profile." unless results.last.nil?
+    flash[:error] = "At least one of each of the following needs has already been requested: #{results.last.join(', ')}. Please modify existing requests from your profile." unless results.last.empty?
     session[:cart] = {}
     redirect_to user_path
   end
