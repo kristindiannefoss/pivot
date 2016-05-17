@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      session[:cart] = JSON.parse(user.cart)
+      if user.cart = "{}"
+        session[:cart] = { "donor" => {}, "recipient" => {} }
+      else
+        session[:cart] = JSON.parse(user.cart)
+      end
       session[:user_id] = user.id
       flash[:notice] = "Logged in as #{user.first_name.capitalize}"
       if current_admin?
