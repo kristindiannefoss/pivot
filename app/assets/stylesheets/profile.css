@@ -17,7 +17,7 @@ They will automatically be included in application.css.
 }
 
 .profile{
-  margin-top: 50px;
+  margin-top: 70px;
   margin-left: 100px;
   display: inline;
   float: left;
@@ -55,5 +55,5 @@ btn-default.match-logo {
 }
 
 .greeting {
-  padding: 20px;
+
 }

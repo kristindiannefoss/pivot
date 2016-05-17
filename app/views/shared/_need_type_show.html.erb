@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="needshow">
+    <%= image_tag @need_type.image_url, class: "needshow-pic" %>
+  </div>
+
+  <div class="description">
+    <div class="need_type<%= @need_type.id %>">
+      <h1><%= @need_type.name %></h1>
+      <p><%= @need_type.description %></p>
+      <p>Cost: <%= @need_type.cost %></p>
+      <p>Category: <%= @need_type.category.name %></p>
+
+      <div class="btn-group">
+        <%= button_to "Edit", edit_admin_user_path(@need_type), method: :get %>
+        <%= button_to "Delete", admin_user_delete_path(@need_type), method: :delete, confirm: "Are you sure?" %>
+      </div>
+    </div>
+  </div>
+</div>
