@@ -6,13 +6,13 @@ feature "User can logout " do
 
     sign_in(user)
 
-    expect(page).to have_content("Logged in as #{user.first_name}")
+    expect(page).to have_content("Logged in as #{user.first_name.capitalize}")
 
     click_link "Logout"
 
-    expect(page).to_not have_content("Logged in as #{user.first_name}")
+    expect(page).to_not have_content("Logged in as #{user.first_name.capitalize}")
 
-    within("li:nth-child(4)") do
+    within("li:nth-child(5)") do
       expect(page).to have_content("Login or Create Account")
     end
   end
