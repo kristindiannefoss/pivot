@@ -12,6 +12,7 @@ class NeedsController < ApplicationController
   end
 
   def update
+    require 'pry'; binding.pry
     need = current_user.needs.find(params[:id])
     need.update(needs_params)
 

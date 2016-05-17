@@ -12,7 +12,7 @@
       <p>Location: <%= @user.city %> <%= @user.country %></p>
       <p><%= @user.description %></p>
       <div class="btn-group">
-        <%# button_to "Edit", edit_user_path(@user), method: :get, class: "btn-default" %>
+        <%= button_to "Edit Profile", edit_donor_path(@user), method: :get, class: "btn-default" %>
       </div>
       <div class="btn-group">
         <%# button_to "Delete", delete_user_path(@user), method: :delete, class: "btn-default", confirm: "Are you sure?" %>
