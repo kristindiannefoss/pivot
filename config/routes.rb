@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "/needs", to: "needs#index"
   post "/needs", to: "needs#create"
   get "/needs/:slug", to: "needs#show", as: :need
+  delete "/profile", to: "needs#destroy", as: :destroy_need
+  patch "/profile", to: "needs#update", as: :edit_need
 
   get "/recipients", to: "users#index", as: :users
   post "/recipients", to: "users#create"
@@ -40,7 +42,6 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  get "/admin/:username/needs", to: "admin/needs#edit", as: :edit_recipient_needs
   get "/admin/profile", to: "admin/users#show"
   get "/admin/profile/:id", to: "admin/profiles#show", as: "admin/profile/show"
 

@@ -7,16 +7,19 @@ module NeedsHelper
       if current_user.needs.exists?(slug: need_type.slug)
         rejected << need_type.name
       else
-        current_user.needs.create(name: pluralize(qty, need_type.name),
+        current_user.needs.create(name: need_type.name,
                                   description: need_type.description,
-                                  cost: need_type.cost * qty,
+                                  cost: need_type.cost,
                                   image_url: need_type.image_url,
                                   slug: need_type.slug,
-                                  category: need_type.category
+                                  category: need_type.category,
+                                  quantity: qty
                                   )
         approved << need_type.name
       end
     end
     [approved, rejected]
   end
+
+
 end

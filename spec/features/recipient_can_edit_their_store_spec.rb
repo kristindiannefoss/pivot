@@ -1,24 +1,56 @@
 require "rails_helper"
 
 feature "Recipient edits their store" do
-  scenario "they can remove an item from their store" do
+  scenario "needs are removed from their store" do
     recipient = create(:user, role: 2)
-    recipient.needs.create(name: "loom")
-    recipient.needs.create(name: "chair")
+    need1 = create(:need, name: "loom")
+    need2 = create(:need, name: "chair")
+    recipient.needs = [need1, need2]
 
     ApplicationController.any_instance.stubs(:current_user).returns(recipient)
 
-    visit edit_recipient_needs_path(recipient)
+    visit "/profile"
+
+    within("#needs") do
+      expect(page).to have_content("loom")
+      expect(page).to have_content("chair")
+    end
 
     within("#loom") do
       click_button "Remove Need"
     end
 
-    expect(page).not_to have_content("1 loom")
-    expect(page).to have_content("1 chair")
+    expect(page).to have_content("loom removed from your needs.")
+
+    within("#needs") do
+      expect(page).not_to have_content("loom")
+      expect(page).to have_content("chair")
+    end
   end
 
   scenario "they can change the amount" do
+    recipient = create(:user, role: 2)
+    need1 = create(:need, name: "loom", quantity: 1)
+    need2 = create(:need, name: "chair", quantity: 1)
+    recipient.needs = [need1, need2]
 
+    ApplicationController.any_instance.stubs(:current_user).returns(recipient)
+
+    visit "/profile"
+
+    within("#needs") do
+      expect(page).to have_content("loom")
+      expect(page).to have_content("chair")
+    end
+
+    within("#loom") do
+      fill_in "Quantity", with: 2
+      click_button "Update Amount"
+    end
+
+    within("#needs") do
+      expect(page).to have_content("2 looms")
+      expect(page).to have_content("chair")
+    end
   end
 end
