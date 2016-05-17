@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :save_cart, only: [:destroy]
+ #before_action :save_cart, only: [:destroy]
 
   def new
     set_redirect

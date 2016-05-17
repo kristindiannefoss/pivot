@@ -7,8 +7,8 @@ class Cart
 
   def create_cart_needs
     contents["recipient"].map do |id, qty|
-      name = NeedType.find(id.to_i).name
-      CartNeed.new(name, qty)
+      name = NeedType.find(id.to_i).name if id
+      CartNeed.new(name, qty) if id
     end
   end
 
@@ -46,7 +46,7 @@ class Cart
   end
 
   def update(need_id, qty)
-    contents[need_id.to_s] = qty
+    contents["recipient"][need_id.to_s] = qty
   end
 
   def total_recipient_cost
