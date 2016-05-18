@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   before_action :set_cart
-  helper_method :current_user, :set_redirect, :current_admin?, :current_user_guest
+  helper_method :current_user, :set_redirect, :current_admin?, :current_user_guest, :has_need?
 
   def set_redirect
     if request.referrer == nil
@@ -36,5 +36,9 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def has_need?(recipient)
+    recipient.needs.any?
   end
 end
