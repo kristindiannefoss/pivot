@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "Visitor can checkout" do
   scenario "and add donations to their cart" do
     recipient = create(:user, role: 1)
-    need = create(:need, cost: 102, raised: 2)
+    need = create(:need, cost: 102, raised: 2, quantity: 1)
     recipient.needs = [need]
 
     visit recipient_path(recipient.username)
