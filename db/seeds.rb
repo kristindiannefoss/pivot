@@ -211,7 +211,7 @@ recipients_list.each do |a|
   email: Faker::Internet.safe_email,
   city: Faker::Address.city,
   country: Faker::Address.country,
-  username: "#{Faker::Name.first_name}-#{Faker::Name.last_name}",
+  username: "#{Faker::Name.first_name}-#{Faker::Name.last_name}".downcase,
   password: Faker::Internet.password,
   role: 2,
   description: Faker::Lorem.paragraph(6, false, 1),
