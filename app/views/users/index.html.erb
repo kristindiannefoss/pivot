@@ -18,8 +18,8 @@
                 <h3><%= link_to recipient.full_name, recipient_path(recipient.username) %></h3>
               <ul>
                 <li>Country: <%= recipient.country %></li>
+                <li>About: <%= recipient.description %></li>
                 <li>Total Need: <%= number_to_currency(recipient.total) %></li>
-                <li>Total Need: <%= recipient.description %></li>
               </ul>
             </div>
           </div>
