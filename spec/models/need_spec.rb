@@ -5,6 +5,10 @@ describe Need, type: :model do
     it { is_expected.to callback(:assign_slug).before(:validation) }
   end
 
+  context "after_validation" do
+    it { is_expected.to callback(:assign_total).after(:validation) }
+  end
+
   context "belongs to" do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:category) }
@@ -23,5 +27,10 @@ describe Need, type: :model do
 
     expect(need.slug).to eq("goats-and-soda")
   end
-end
 
+  it "generates the total when it's created" do
+    need = create(:need, cost: 5, quantity: 4)
+
+    expect(need.total).to eq(20)
+  end
+end

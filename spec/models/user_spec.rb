@@ -26,8 +26,8 @@ RSpec.describe User, type: :model do
   end
 
   it "can add total cost" do
-    need1 = create(:need, cost: 10)
-    need2 = create(:need, cost: 10)
+    need1 = create(:need, cost: 10, quantity: 1)
+    need2 = create(:need, cost: 10, quantity: 1)
     user = create(:user)
     user.needs << [need1, need2]
 
@@ -43,4 +43,3 @@ RSpec.describe User, type: :model do
     expect(user.raised).to eq(17)
   end
 end
-

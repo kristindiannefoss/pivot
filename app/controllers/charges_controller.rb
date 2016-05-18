@@ -22,7 +22,11 @@ class ChargesController < ApplicationController
       flash[:error] = e.message
       redirect_to new_charge_path
     else
-      current_user.donations.where(id: @cart.contents["donor"].values.flatten).update_all(status: "completed")
+      if current_user
+        current_user.donations.where(id: @cart.contents["donor"].values.flatten).update_all(status: "completed")
+      else
+        Donation.where(user_id: nil).where(id: @cart.contents["donor"].values.flatten).update_all(status: "completed")
+      end
       @total = @cart.total_donor_cost
       session[:cart] = Cart.new(nil)
       @cart = session[:cart]

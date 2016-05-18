@@ -1,31 +1,32 @@
 <div class="container">
-
   <div class="row">
     <center>
       <div class="centered">
-
-                    <%= image_tag @recipient.image_url, class: "header-pic", width: "700px"%>
-
-          </div>
-          </div>
-<div class="infooo">
-  <h1><%= "#{@recipient.first_name} #{@recipient.last_name}" %></h1>
-    <h4>Country: <%= @recipient.country %></h4>
-    <h4>About: <%= @recipient.description %></h4>
-    <h4>Need Request Amount Total:<%= number_to_currency(@recipient.total) %></h4>
-  </div>
-
-  <% @recipient.needs.each do |need| %>
-  <div id="<%= need.id %>">
-    <p><%= link_to need.name, need_path(need) %></p>
-    <p>Unit Cost: $<%= need.cost %></p>
-    <p>Total Cost: $<%= need.total%></p>
-    <p>Raised: $<%= need.raised %></p>
-    <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>
-    <%= f.label :raised, "Amount" %>
-    <%= f.number_field :raised, min: 1, max: need.max_donate_amount %>
-    <%= f.submit "Add donation to cart", class: "btn btn-default" %>
+        <%= image_tag @recipient.image_url, class: "header-pic", width: "700px"%>
+      </div>
+    </div>
+    <div class="infooo">
+      <h1><%= "#{@recipient.first_name} #{@recipient.last_name}" %></h1>
+      <h4>Country: <%= @recipient.country %></h4>
+      <h4>About: <%= @recipient.description %></h4>
+      <h4>Need Request Amount Total: <b><%= number_to_currency(@recipient.total) %></b></h4>
+    </div>
+    <% @recipient.needs.each do |need| %>
+      <div id="<%= need.id %>">
+        <p><%= link_to need.name, need_path(need) %></p>
+        <p>Unit Cost: $<%= need.cost %></p>
+        <p>Total Cost: $<%= need.total%></p>
+        <p>Raised: $<%= need.raised %></p>
+        <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>
+          <%= f.label :raised, "Amount: $" %>
+          <%= f.number_field :raised, min: 1, max: need.max_donate_amount %>
+          <% if need_has_donation?(need) %>
+            <button class="btn btn-default" disabled>In Basket</button>
+          <% else %>
+            <%= f.submit "Donate", class: "btn btn-default", data: { disable_with: "Submitting..."} %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <% end %>
 </div>

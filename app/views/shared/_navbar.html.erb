@@ -20,7 +20,7 @@
           <a href="http://www.npr.org/sections/goatsandsoda/2014/07/08/329578819/whats-in-our-name-why-goats-why-soda">About</a>
         </li>
         <li>
-        <% if current_user && current_user.donor? %>
+        <% if current_user_guest || current_user.donor? %>
           <%= link_to "Recipients", users_path %>
         <% end %>
         </li>

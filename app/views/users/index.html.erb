@@ -10,21 +10,23 @@
     </div>
     <div class="thumbsize">
         <% @recipients.each do |recipient| %>
-        <div class="another">
-          <div class="boxy">
-            <div class="pictureframe">
-              <%= image_tag recipient.image_url, class: "thumbsize-pic" %>
+          <% if has_need?(recipient) %>
+            <div class="another">
+              <div class="boxy">
+                <div class="pictureframe">
+                  <%= image_tag recipient.image_url, class: "thumbsize-pic" %>
+                </div>
+                <div class="recip-info">
+                  <h3><%= link_to recipient.full_name, recipient_path(recipient.username) %></h3>
+                  <ul>
+                    <li>Country: <%= recipient.country %></li>
+                    <li>About: <%= recipient.description %></li>
+                    <li>Total Need: <%= number_to_currency(recipient.total) %></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="recip-info">
-                <h3><%= link_to recipient.full_name, recipient_path(recipient.username) %></h3>
-              <ul>
-                <li>Country: <%= recipient.country %></li>
-                <li>About: <%= recipient.description %></li>
-                <li>Total Need: <%= number_to_currency(recipient.total) %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
           <% end %>
+        <% end %>
     </div>
 </div>
