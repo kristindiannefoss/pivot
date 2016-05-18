@@ -18,7 +18,7 @@ feature "Admin can delete need types" do
     click_button "Create Need Type"
 
     visit admin_profile_path
-    click_link "All Needs"
+    click_link "All Need Types"
 
     click_button "Delete"
 
