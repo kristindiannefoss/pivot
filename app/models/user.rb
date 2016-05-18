@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def total
-    needs.pluck(:cost).sum
+    needs.pluck(:total).sum
   end
 
   def raised
