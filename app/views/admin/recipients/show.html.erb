@@ -1,21 +1,23 @@
+<%= render partial: "shared/profile", locals: {user: @user} %>
+
 <div class="container">
-  <h1>Your Needs</h1>
+  <h1><%= "#{@user.full_name}'s needs" %></h1>
     <div id="needs">
       <% @user.needs.each do |need| %>
         <div id="<%= need.name %>">
           <p>
             <%= need.name %>: <%= need.quantity %>
-            <div class="btn-group">
-              <%= button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-default", confirm: "Are you sure?" %>
-            </div>
+            <!-- <div class="btn-group"> -->
+              <%# button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-default", confirm: "Are you sure?" %>
+            <!-- </div> -->
             <%= form_for need, url: edit_need_path(id: need.id), method: :patch do |f| %>
               <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", class: "form-control input-small" %>
-              <%= f.submit "Update Amount"%>
+              <%= f.submit "Update Amount" %>
             <% end %>
           </p>
         </div>
       <% end %>
     </div>
   <br>
-  <p><%= link_to "Add Needs", needs_path, class: "btn btn-primary"%></p>
+  <p><%= link_to "Add New Needs", admin_recipient_needs_path, class: "btn btn-primary"%></p>
 </div>

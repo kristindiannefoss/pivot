@@ -20,7 +20,7 @@
         <% @admins.each do |user| %>
           <tr class="user<%= user.id %>">
             <td><%= user.role %></td>
-            <td><%= link_to "#{user.first_name} #{user.last_name}", admin_profile_show_path(user) %></td>
+            <td><%= link_to user.full_name, admin_profile_show_path(user) %></td>
             <td><%= user.email %></td>
             <td><%= user.city %></td>
             <td><%= user.country %></td>
@@ -34,7 +34,7 @@
         <% @recipients.each do |user| %>
           <tr class="user<%= user.id %>">
             <td><%= user.role %></td>
-            <td><%= link_to "#{user.first_name} #{user.last_name}", admin_profile_show_path(user) %></td>
+            <td><%= link_to user.full_name, admin_profile_show_path(user) %></td>
             <td><%= user.email %></td>
             <td><%= user.city %></td>
             <td><%= user.country %></td>
@@ -48,7 +48,7 @@
         <% @donors.each do |user| %>
           <tr class="user<%= user.id %>">
             <td><%= user.role %></td>
-            <td><%= link_to "#{user.first_name} #{user.last_name}", admin_profile_show_path(user) %></td>
+            <td><%= link_to user.full_name, admin_profile_show_path(user) %></td>
             <td><%= user.email %></td>
             <td><%= user.city %></td>
             <td><%= user.country %></td>

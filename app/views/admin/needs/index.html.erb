@@ -1,28 +1,41 @@
-<div class="cart">
-  <div class="container">
-    <div class="cart-top">
-      <h1>All Items</h1>
-    </div>
-    <div class="cart-conclusion">
-
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Cost</th>
-          <th>Action</th>
-        </tr>
-        <% @needs.each do |need| %>
-        <div>
-          <tr>
-            <td><%= link_to need.name, admin_need_path(need) %></td>
-            <td><%= number_to_currency(need.cost) %></td>
-            <td><%= link_to "Add Need To Recipient", new_admin_need_path(need), class: "btn btn-primary" %></td>
-          </tr>
+<div class="container">
+  <div class="row">
+    <center>
+      <div class="centered">
+        <div class="col-md-12">
+          <div class="row carousel-holder">
+            <div class="col-md-12">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <%= image_tag "girl_and_goat.jpg", width: "1000px", padding: "10px", id: "roundy" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <%= render partial: "shared/filter" %>
+          <div class="row">
+            <% @needs.each do |need| %>
+              <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
+                <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
+                  <div class="thumbnail kris", style="height: 400px">
+                    <%= image_tag(need.image_url, class: "img-rounded now") %>
+                    <h4><%= need.name %></h4>
+                    <h5><%= number_to_currency(need.cost) %></h5>
+                    <%= button_to admin_recipient_needs_path(need_id: need.id), class: "btn btn-primary" do %>
+                      Add Need to Recipient
+                    <% end %>
+                    <div class="caption">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <% end %>
-        <tr>
-        </tr>
-      </table>
-    </div>
+      </div>
+    </center>
   </div>
 </div>
