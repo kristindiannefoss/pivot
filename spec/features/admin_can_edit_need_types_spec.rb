@@ -10,7 +10,7 @@ feature "Admin can edit need types" do
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
     visit "/admin/profile"
-    click_link "Add New Need Types"
+    click_link "Add Need to Catalog"
     fill_in "need_type[name]", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"
     fill_in "Cost", with: "100"
@@ -19,7 +19,7 @@ feature "Admin can edit need types" do
     click_button "Create Need Type"
 
     visit admin_profile_path
-    click_link "All Needs"
+    click_link "All Need Types"
 
     click_button "Edit"
 

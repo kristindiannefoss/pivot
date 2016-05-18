@@ -26,22 +26,13 @@
       </div>
       <div class="col-md-3 cart-total">
         <span class="total final"><h4 class="last-price">TOTAL
-            <%# number_to_currency(@cart.total_cost) %></h4></span>
+            <%= number_to_currency(@cart.total_donor_cost) %></h4></span>
         <div class="clearfix"></div>
         <% if current_user %>
           <% if @cart.contents.empty? %>
             <button  type="button" disabled>Checkout</button>
           <% else %>
             <%= button_to "Checkout", new_charge_path, method: :get %>
-
-            <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="A month's subscription"
-              data-amount="500"
-              data-locale="auto"
-              data-label="Checkout"
-              data-allow-remember-me=false
-              ></script> -->
           <% end %>
         <% else %>
           <%= button_to "Login to Donate", login_path, method: :get, class:"order" %>
@@ -49,4 +40,4 @@
       </div>
     </div>
   </div>
-
+</div>

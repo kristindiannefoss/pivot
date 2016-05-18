@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      if user.cart == "{}"
+      if user.cart == "{}" || user.cart == nil
         session[:cart] = { "donor" => {}, "recipient" => {} }
       else
         session[:cart] = JSON.parse(user.cart)

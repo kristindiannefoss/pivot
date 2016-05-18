@@ -5,7 +5,6 @@ They will automatically be included in application.css.
 .profile {
   display: inline;
   float: left;
-  /*padding: 50px;*/
 }
 
 .recipient-show-chunk {
@@ -64,6 +63,7 @@ btn-default.match-logo {
   border-color: #EBEBEB !important;
 }
 
-.greeting {
-
+.recipient-needs {
+  display: inline;
+  text-align: center;
 }

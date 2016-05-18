@@ -18,8 +18,8 @@
             <td><%= link_to need.name, admin_need_type_path(need) %></td>
             <td><%= need.description %></td>
             <td><%= number_to_currency(need.cost) %></td>
-            <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get, class: "btn-default" %></td>
-            <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, class: "btn-default", data: { confirm: "Are you sure?" } %></td>
+            <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get, class: "btn btn-default" %></td>
+            <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" } %></td>
           </tr>
         <% end %>
         <tr>

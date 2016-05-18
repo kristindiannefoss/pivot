@@ -10,5 +10,5 @@
   <% if new %>
     <%= f.collection_select :role, @roles, :last, :first, include_blank: "Choose Account Type" %>
   <% end %>
-  <%= f.submit submit_message, class: "btn btn-primary"%>
+  <%= f.submit submit_message, class: "btn btn-default"%>
 <% end %>
