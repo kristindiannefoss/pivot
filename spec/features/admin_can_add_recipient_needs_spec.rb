@@ -41,7 +41,7 @@ feature "Admin creates Recipient needs" do
     end
 
     expect(current_path).to eq("/admin/recipients/HarryP/needs")
-    expect(page).to have_content("Sheep added to Harry Potter's page.")
+    expect(page).to have_content("Harry Potter updated.")
 
     click_link "View page?"
 

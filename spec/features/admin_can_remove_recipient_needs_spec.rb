@@ -37,7 +37,7 @@ feature "Admin removes Recipient needs" do
       click_on "Remove Need"
     end
 
-    expect(page).to have_content("Sheep removed from Harry Potter's page.")
+    expect(page).to have_content("Harry Potter updated.")
     expect(current_path).to eq("/admin/recipients/HarryP")
 
     within "#needs" do

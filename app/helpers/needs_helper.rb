@@ -34,7 +34,7 @@ module NeedsHelper
                               category: need_type.category,
                               quantity: 1
                               )
-      "#{need_type.name} added to #{@recipient.full_name}'s page. #{link}"
+      "#{@recipient.full_name} updated. #{link}"
     end
   end
 

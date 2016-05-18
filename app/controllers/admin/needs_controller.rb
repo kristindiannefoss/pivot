@@ -19,7 +19,7 @@ class Admin::NeedsController < Admin::BaseController
     need = user.needs.find(params[:id])
     need.destroy
 
-    redirect_to :back, notice: "#{need.name} removed from #{user.full_name}'s page."
+    redirect_to :back, notice: "#{user.full_name} updated."
   end
 
   def update
@@ -27,7 +27,7 @@ class Admin::NeedsController < Admin::BaseController
     need = user.needs.find(params[:id])
     need.update(need_params)
 
-    redirect_to :back, notice: "#{user.full_name} is now requesting #{need.quantity} #{need.name.pluralize(need.quantity)}."
+    redirect_to :back, notice: "Needs updated"
   end
 
   def need_params

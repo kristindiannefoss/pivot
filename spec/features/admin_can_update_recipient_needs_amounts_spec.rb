@@ -31,7 +31,7 @@ feature "Admin updates Recipient needs" do
     end
 
     expect(current_path).to eq("/admin/recipients/HarryP")
-    expect(page).to have_content("Harry Potter is now requesting 2 Cows.")
+    expect(page).to have_content("Needs updated")
     expect(page).to have_content("Cow: 2")
   end
 end
