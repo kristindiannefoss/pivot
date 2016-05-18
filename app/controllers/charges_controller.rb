@@ -3,7 +3,6 @@ class ChargesController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
     begin
       @amount = @cart.total_donor_cost * 100
 
@@ -23,8 +22,10 @@ class ChargesController < ApplicationController
       flash[:error] = e.message
       redirect_to new_charge_path
     else
-      current_user.donations.find(@cart.contents["donor"].values.flatten).update_all(status: "completed")
+      current_user.donations.where(id: @cart.contents["donor"].values.flatten).update_all(status: "completed")
+      @total = @cart.total_donor_cost
+      session[:cart] = Cart.new(nil)
+      @cart = session[:cart]
     end
-    require "pry"; binding.pry
   end
 end

@@ -23,7 +23,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
-    @cart ||= Cart.new(session[:cart])
+    if session[:cart] == {"contents"=>{"donor"=>{}, "recipient"=>{}}}
+      @cart = Cart.new(nil)
+    else
+      @cart ||= Cart.new(session[:cart])
+    end
   end
 
  # def require_user
