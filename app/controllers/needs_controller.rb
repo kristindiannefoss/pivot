@@ -28,7 +28,6 @@ class NeedsController < ApplicationController
   def destroy
     need = current_user.needs.find(params[:id])
     need.destroy
-    
     redirect_to :back, notice: "#{need.name} removed from your needs."
   end
 
@@ -36,7 +35,7 @@ class NeedsController < ApplicationController
     results = populate_needs
     flash[:notice] = "The following needs were added to your profile: #{results.first.join(', ')}." unless results.first.empty?
     flash[:error] = "At least one of each of the following needs has already been requested: #{results.last.join(', ')}. Please modify existing requests from your profile." unless results.last.empty?
-    session[:cart] = {}
+    session[:cart] = { "donor" => {}, "recipient" => {} }
     redirect_to user_path
   end
 

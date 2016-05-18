@@ -7,10 +7,10 @@ feature "visitor sees the recipients page" do
     visit root_path
     click_link "Donate"
 
-    expect(page).to have_content(user1.first_name)
+    expect(page).to have_content(user1.first_name.capitalize)
     expect(page).to have_content(user1.country)
 
-    expect(page).to have_content(user2.first_name)
+    expect(page).to have_content(user2.first_name.capitalize)
     expect(page).to have_content(user2.country)
   end
 end
