@@ -12,18 +12,23 @@
 }
 
 .pictureframe {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   display: inline-block;
 }
 
 .recip-info {
   display: inline-block;
-  padding: 50px
+  padding-left: 50px;
+  width: 800px;
+
 }
 
 .boxy {
   display: inline-block;
   margin: 20px;
-  height: 200px;
+}
+
+.another {
+  margin: auto;
 }
