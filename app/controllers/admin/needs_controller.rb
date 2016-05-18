@@ -14,4 +14,11 @@ class Admin::NeedsController < Admin::BaseController
     redirect_to :back
   end
 
+  def destroy
+    user = User.find_by(username: params[:username])
+    need = user.needs.find(params[:id])
+    need.destroy
+
+    redirect_to :back, notice: "#{need.name} removed from #{user.full_name}'s page."
+  end
 end
