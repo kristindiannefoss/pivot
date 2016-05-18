@@ -8,7 +8,6 @@ class Need < ActiveRecord::Base
   validates :description, presence: true
   validates :cost,        presence: true
   validates :raised,      presence: true
-  validates :description, presence: true
   validates :image_url,   presence: true
   validates :quantity,    presence: true
 

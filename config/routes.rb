@@ -41,6 +41,8 @@ Rails.application.routes.draw do
 
   get "/admin/recipients/:username/needs", to: "admin/needs#index", as: :admin_recipient_needs
   post "/admin/recipients/:username/needs", to: "admin/needs#create"
+  delete "/admin/recipients/:username/needs", to: "admin/needs#destroy"
+  patch "/admin/recipients/:username/needs", to: "admin/needs#update"
 
   namespace "admin" do
     get "/recipients", to: "recipients#index"
