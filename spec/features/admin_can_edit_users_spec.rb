@@ -2,8 +2,6 @@ require "rails_helper"
 
 feature "Admin can edit user" do
   scenario "as a global admin" do
-    need_url = "https://www.globalgiving.org/pfil/6658/pict_original.jpg"
-
     admin = User.create(first_name: "Kris", last_name: "Foss", email: "kris.foss@gmail.com", password: "password", role: 1, username: "Kris", country: "US")
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
@@ -30,14 +28,12 @@ feature "Admin can edit user" do
     fill_in "E-Mail", with: "email2@email.com"
     fill_in "Username", with: "JonJon"
     fill_in "Country", with: "CowCountry"
-    select "donor", from: "user[role]"
     click_button "Update User Account"
 
     expect(page).to_not have_content("Jon Ownsagemandactslikeit")
     expect(page).to_not have_content("email@email.com")
     expect(page).to_not have_content("ksjdfkjsd")
     expect(page).to_not have_content("Nepal")
-    expect(page).to_not have_content("recipient")
 
     expect(page).to have_content("email2@email.com")
     expect(page).to have_content("Jonny JonJon")

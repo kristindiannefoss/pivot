@@ -13,10 +13,9 @@
         <%= f.text_field :city, placeholder: "City (optional)", class:"form-control" %><br>
         <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br>
         <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"form-control" %><br>
-        <%= f.collection_select :role, @roles, :last, :first, include_blank: "Choose Account Type" %>
         <%= f.submit "Update User Account", class: "btn btn-primary"%>
       <% end %>
-      
+
     </div>
   </div>
 </div>
