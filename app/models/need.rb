@@ -1,5 +1,6 @@
 class Need < ActiveRecord::Base
   before_validation :assign_slug
+  after_validation :assign_total
 
   belongs_to :user
   belongs_to :category
@@ -15,11 +16,11 @@ class Need < ActiveRecord::Base
     self.slug ||= name.parameterize if name
   end
 
-  def max_donate_amount
-    total - raised
+  def assign_total
+    self.total ||= cost * quantity if cost && quantity
   end
 
-  def total
-    cost * quantity
+  def max_donate_amount
+    total - raised
   end
 end
