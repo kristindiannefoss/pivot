@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   enum role: %w(donor admin recipient)
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def total

@@ -49,6 +49,16 @@ class Cart
     contents["recipient"][need_id.to_s] = qty
   end
 
+  def total_donor_cost
+    if contents["donor"].empty?
+      0
+    else
+      contents["donor"].values.flatten.map do |val|
+        Donation.find(val).amount
+      end.sum
+    end
+  end
+
   def total_recipient_cost
     if contents["recipient"].empty?
       return 0

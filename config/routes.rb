@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
+  resources :charges
   resource :cart, only: [:create, :show, :destroy, :update]
 
   get "/signup", to: "users#new"

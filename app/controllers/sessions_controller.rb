@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
- #before_action :save_cart, only: [:destroy]
+  before_action :save_cart, only: [:destroy]
 
   def new
     set_redirect
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      if user.cart = "{}"
+      if user.cart == "{}"
         session[:cart] = { "donor" => {}, "recipient" => {} }
       else
         session[:cart] = JSON.parse(user.cart)
