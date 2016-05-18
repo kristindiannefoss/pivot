@@ -41,9 +41,9 @@ feature "Admin creates Recipient needs" do
     end
 
     expect(current_path).to eq("/admin/recipients/HarryP/needs")
-    expect(page).to have_content("Sheep added to Harry Potter's cart.")
+    expect(page).to have_content("Sheep added to Harry Potter's page.")
 
-    visit "/admin/recipients/HarryP"
+    click_link "View page?"
 
     expect(page).to have_content("Sheep")
     expect(page).to have_content("Cow")
@@ -87,9 +87,9 @@ feature "Admin creates Recipient needs" do
     end
 
     expect(current_path).to eq("/admin/recipients/HarryP/needs")
-    expect(page).to have_content("Cow is already in Harry Potter's cart.")
+    expect(page).to have_content("Cow is already on Harry Potter's page.")
 
-    visit "/admin/recipients/HarryP"
+    click_link "View page?"
 
     expect(page).to have_content("Cow")
     expect(page).not_to have_content("Sheep")
