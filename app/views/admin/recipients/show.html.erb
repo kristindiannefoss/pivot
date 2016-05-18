@@ -7,7 +7,7 @@
         <div id="<%= need.name %>">
           <p>
             <%= need.name %>: <%= need.quantity %>
-            <%= form_for need, url: edit_need_path(id: need.id), method: :patch do |f| %>
+            <%= form_for need, url: admin_recipient_needs_path(id: need.id), method: :patch do |f| %>
               <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", class: "form-control input-small" %>
               <%= f.submit "Update Amount" %>
             <% end %>

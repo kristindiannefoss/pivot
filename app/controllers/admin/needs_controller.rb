@@ -21,4 +21,16 @@ class Admin::NeedsController < Admin::BaseController
 
     redirect_to :back, notice: "#{need.name} removed from #{user.full_name}'s page."
   end
+
+  def update
+    user = User.find_by(username: params[:username])
+    need = user.needs.find(params[:id])
+    need.update(need_params)
+
+    redirect_to :back, notice: "#{user.full_name} is now requesting #{need.quantity} #{need.name.pluralize(need.quantity)}."
+  end
+
+  def need_params
+    params.require(:need).permit(:quantity)
+  end
 end
