@@ -1,9 +1,28 @@
-<h1>Recipients</h1>
-
-<% @recipients.each do |recipient| %>
-  <%= link_to recipient.full_name, recipient_path(recipient.username) %>
-  <ul>
-    <li>Country: <%= recipient.country %></li>
-    <li>Total Need: <%= number_to_currency(recipient.total) %></li>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="recip-head span9">
+      <h1>Explore the Possibilities. Create a Spark.<br> Inspire Change. Transform Lives.</h1>
+      <h2>Give a Life-Changing Gift to a Family in Need:</h2>
+      <h4>
+        We know that no single organization and no number of isolated projects can address the systemic causes of poverty and hunger. <br>Our approach involves enhancing the capacity of vulnerable small-scale farmers, especially women, to secure their livelihoods. Multiplied by strong social capital and women’s empowerment, our work results in a sustainable solution to world hunger and poverty.</h4>
+      </div>
+    </div>
+    <div class="thumbsize">
+        <% @recipients.each do |recipient| %>
+        <div class="another">
+          <div class="boxy">
+            <div class="pictureframe">
+              <%= image_tag recipient.image_url, class: "thumbsize-pic" %>
+            </div>
+            <div class="recip-info">
+                <h3><%= link_to recipient.full_name, recipient_path(recipient.username) %></h3>
+              <ul>
+                <li>Country: <%= recipient.country %></li>
+                <li>Total Need: <%= number_to_currency(recipient.total) %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+          <% end %>
+    </div>
+</div>
