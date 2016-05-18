@@ -53,14 +53,16 @@ btn-default.match-logo {
 }
 
 .btn-default {
-  color: #333;
+  color: white;
   background-color: #F18E31 !important;
   border-color: #EBEBEB !important;
+  font-weight: bold;
 }
 .btn-primary {
-  color: #333;
+  color: white;
   background-color: #F18E31 !important;
   border-color: #EBEBEB !important;
+  font-weight: bold;
 }
 
 .recipient-needs {
