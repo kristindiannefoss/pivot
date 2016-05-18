@@ -27,7 +27,8 @@ class ChargesController < ApplicationController
       else
         Donation.where(user_id: nil).where(id: @cart.contents["donor"].values.flatten).update_all(status: "completed")
       end
-      @total = @cart.total_donor_cost
+      current_user ? send_donations(current_user.id) : send_donations(nil)
+      @amount /= 100
       session[:cart] = Cart.new(nil)
       @cart = session[:cart]
     end

@@ -42,12 +42,27 @@ class ApplicationController < ActionController::Base
   def need_has_donation?(need)
     if current_user
       @cart.contents["donor"].values.flatten.any? do |val|
-        current_user.donations.find(val).need_name == need.name
+        donation = current_user.donations.find(val)
+        donation.need_name == need.name && donation.recipient_id == need.user_id
       end
     else
       @cart.contents["donor"].values.flatten.any? do |val|
-        Donation.where(user_id: nil).find(val).need_name == need.name
+        donation = Donation.where(user_id: nil).find(val)
+        donation.need_name == need.name && donation.recipient_id == need.user_id
       end
+    end
+  end
+
+  def send_donations(id)
+    donations = Donation.where(user_id: id)
+    Need.where(
+      name: donations.pluck(:need_name),
+      user_id: donations.pluck(:recipient_id)
+    ).each do |need|
+      need.update(raised: donations.find_by(
+        need_name: need.name,
+        recipient_id: need.user_id
+      ).amount + need.raised)
     end
   end
 
