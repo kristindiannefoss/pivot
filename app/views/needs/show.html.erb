@@ -1,1 +1,21 @@
-<h1>NEED SHOW PAGE</h1>
+<div class="container">
+  <div class="needshow">
+    <%= image_tag @need.image_url, class: "needshow-pic" %>
+  </div>
+
+  <div class="description">
+    <div class="need<%= @need.id %>">
+      <h1><%= @need.name %></h1>
+      <p><%= @need.description %></p>
+      <p>Cost: <%= @need.cost %></p>
+      <p>Category: <%= @need.category.name %></p>
+
+      <div class="btn-group">
+        <%= link_to "Back", needs_path, class: "btn btn-default" %>
+        <% if current_user && current_user.recipient? %>
+          <%= button_to "Add to Basket", cart_path(need_id: need.id), class: "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
