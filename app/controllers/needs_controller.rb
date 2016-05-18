@@ -11,6 +11,13 @@ class NeedsController < ApplicationController
     @need = NeedType.find_by(slug: params[:slug])
   end
 
+  def donate
+    recipient = User.find_by(username: params[:username])
+    @need = recipient.needs.find_by(slug: params[:slug])
+    @need.add_donation(params[:need][:raised])
+    redirect_to :back, notice: "Gift of $#{params[:need][:raised]} added to your basket"
+  end
+
   def update
     need = current_user.needs.find(params[:id])
     need.update(needs_params)
@@ -21,6 +28,7 @@ class NeedsController < ApplicationController
   def destroy
     need = current_user.needs.find(params[:id])
     need.destroy
+    
     redirect_to :back, notice: "#{need.name} removed from your needs."
   end
 

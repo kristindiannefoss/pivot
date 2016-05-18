@@ -10,7 +10,7 @@ feature "Admin can create need types" do
 
     visit admin_profile_path
 
-    click_link "Add New Need Types"
+    click_link "Add Need to Catalog"
 
     fill_in "Name", with: "Cow"
     fill_in "Description", with: "Bovine Lactation"

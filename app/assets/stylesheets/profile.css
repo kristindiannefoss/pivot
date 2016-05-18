@@ -7,6 +7,16 @@ They will automatically be included in application.css.
   float: left;
 }
 
+.recipient-show-chunk {
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.donor-show-chunk {
+    text-align: center;
+    margin-top: 50px;
+}
+
 .description {
   width: 600px;
   display: inline;

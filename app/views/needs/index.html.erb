@@ -24,7 +24,7 @@
                     <%= image_tag(need.image_url, class: "img-rounded now") %>
                     <h4><%= need.name %></h4>
                     <h5><%= number_to_currency(need.cost) %></h5>
-                    <%= button_to cart_path(need_id: need.id), class: "btn btn-primary" do %>
+                    <%= button_to cart_path(need_id: need.id), class: "btn btn-default" do %>
                       Add to Basket
                     <% end %>
                     <div class="caption">

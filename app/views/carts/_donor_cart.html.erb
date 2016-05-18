@@ -30,14 +30,13 @@
       <div class="clearfix"></div>
       <% if current_user %>
         <% if @cart.contents.empty? %>
-          <button  type="button" disabled>IMPLEMENT THE DONATE BUTTON</button>
+          <button type="button" disabled>IMPLEMENT THE DONATE BUTTON</button>
         <% else %>
-          <%= button_to "IMPLEMENT THE DONATE BUTTON", needs_path, class: "order" %>
+          <%= button_to "IMPLEMENT THE DONATE BUTTON", needs_path, class: "order btn btn-default" %>
         <% end %>
       <% else %>
-        <%= button_to "Login to Donate", login_path, method: :get, class:"order" %>
+        <%= button_to "Login to Donate", login_path, method: :get, class: "order btn btn-default" %>
       <% end %>
     </div>
   </div>
 </div>
-

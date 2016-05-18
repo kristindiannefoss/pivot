@@ -8,7 +8,7 @@ feature "Recipient adds needs to store" do
     ApplicationController.any_instance.stubs(:current_user).returns(recipient)
 
     visit user_path(recipient)
-    click_link "Add Needs"
+    click_link "Needs Catalog"
 
     within("#loom") do
       click_button "Add to Basket"
@@ -37,7 +37,7 @@ feature "Recipient adds needs to store" do
 
     2.times do
       visit user_path(recipient)
-      click_link "Add Needs"
+      click_link "Needs Catalog"
 
       within("#loom") do
         click_button "Add to Basket"

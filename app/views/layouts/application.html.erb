@@ -18,11 +18,11 @@
   <body>
     <%= render partial: "shared/navbar" %>
     <div id="pagewrap", style="padding-top: 10px;">
-      <div>
+      
         <% flash.each do |type, message| %>
           <%= content_tag :div, message.html_safe, class: "#{type} flashy", id: "flash_notice" %>
         <% end %>
-      </div>
+
       <div id="main_body">
         <%= yield %>
       </div>
