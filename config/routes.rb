@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-#
-# Module 3 requires you to know URLs, paths and HTTP verbs inside and out. Rewrite the routes file for your Little Shop to use only methods that map directly to HTTP verbs: get, post, put, patch and delete. You will probably need to add to: and as: parameters to make sure your apps continue to work, and tests continue to pass.
-
   root to: "pages#splash"
 
   resource :cart, only: [:create, :show, :destroy, :update]
@@ -40,7 +37,14 @@ Rails.application.routes.draw do
 
   delete "/admin/users/:id", to: "admin/users#destroy", as: "admin/user/delete"
 
+  delete "/admin/needs/:id", to: "admin/need#destroy", as: "admin/need/delete"
+
+  get "/admin/recipients/:username/needs", to: "admin/needs#index", as: :admin_recipient_needs
+  post "/admin/recipients/:username/needs", to: "admin/needs#create"
+
   namespace "admin" do
+    get "/recipients", to: "recipients#index"
+    get "/recipients/:username", to: "recipients#show", as: :recipient
     resources :need_types
     resources :users
   end
