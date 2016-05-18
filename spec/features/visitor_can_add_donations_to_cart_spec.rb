@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "Visitor can checkout" do
-  scenario "without being registered" do
+  scenario "and add donations to their cart" do
     recipient = create(:user, role: 1)
     need = create(:need, cost: 102, raised: 2)
     recipient.needs = [need]

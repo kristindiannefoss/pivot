@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
+  resources :charges
   resource :cart, only: [:create, :show, :destroy, :update]
+
+  delete "/donations/:id", to: "donations#destroy", as: :donations
 
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
@@ -41,6 +44,8 @@ Rails.application.routes.draw do
 
   get "/admin/recipients/:username/needs", to: "admin/needs#index", as: :admin_recipient_needs
   post "/admin/recipients/:username/needs", to: "admin/needs#create"
+  delete "/admin/recipients/:username/needs", to: "admin/needs#destroy"
+  patch "/admin/recipients/:username/needs", to: "admin/needs#update"
 
   namespace "admin" do
     get "/recipients", to: "recipients#index"
