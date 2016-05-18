@@ -1,41 +1,61 @@
-<div class="cart">
-  <div class="container">
-    <div class="cart-top">
-      <%= link_to "<< home", root_path %>
-    </div>
-    <div class="col-md-9 cart-needs">
-      <h2>My Basket (<%= @cart.count_needs %>)</h2>
-      <% @needs.each do |need| %>
-        <div class="cart-header">
-          <div class="cart-sec">
-            <div class="cart-need-info">
-              <h3><%= need.name %></h3>
-              <div class="cart-remove"><%= link_to "Remove", cart_path(id: need.id), method: :delete %></div>
-              <h4>Unit Price: <%= number_to_currency(need.cost) %></h4>
-              <h4>Subtotal: <%= number_to_currency(need.subtotal) %></h4>
-              <%= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
-                <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>
-                <%= f.submit "Update Quantity", class:"btn btn-default cart-update" %>
-              <% end %>
+<div class="container">
+  <table class="table table-striped sized-table">
+    <tr>
+      <th>Request Name</th>
+      <th>Item Price</th>
+      <th>Item Subtotal</th>
+      <th>Action</th>
+    </tr>
+    <% @needs.each do |need| %>
+    <tr>
+      <td>
+        <h4><%= link_to need.name, need_path(need) %></h4>
+      </td>
+      <td><h4><%= number_to_currency(need.cost) %></h4></td>
+      <td><h4><%= number_to_currency(need.subtotal) %></h4></td>
+      <td>
+        <div class="col-xs-3">
+        <%= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
+          <%= f.number_field :quantity, size: 2, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>
+        </div>
+        <%= f.submit "Update Quantity", class:"btn btn-default cart-update" %>
+        <% end %>
+        <div class="cart-remove"><%= link_to "Remove", cart_path(id: need.id), method: :delete, class:"btn btn-default cart-update cart-remove" %></div>
+        <% end %>
+      </td>
+  </table>
+</div>
+<center>
+  <a name="about"></a>
+  <div class="intro-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="splash">
+            <div class="">
+              <h3 class="last-price">TOTAL
+                <%= number_to_currency(@cart.total_recipient_cost) %></h3>
+              <hr class="intro-divider">
+              <ul class="fluff list-inline intro-social-buttons">
+                <li>
+                  <% if current_user %>
+                    <% if @cart.contents["recipient"].empty? %>
+                  <button type="button" disabled, class="btn btn-default btn-lg">Approve Needs</button>
+                  <% else %>
+                    <%= button_to "Approve Needs", needs_path, class: "order btn btn-default btn-lg" %>
+                  <% end %>
+                  <% else %>
+                    <%= button_to "Login to Approve Needs", login_path, method: :get, class: "order btn btn-default btn-lg" %>
+                  <% end %>
+                </li>
+              </ul>
             </div>
-            <div class="clearfix"></div>
           </div>
         </div>
-      <% end %>
-    </div>
-    <div class="col-md-3 cart-total">
-      <span class="total final"><h4 class="last-price">TOTAL
-          <%= number_to_currency(@cart.total_recipient_cost) %></h4></span>
-      <div class="clearfix"></div>
-      <% if current_user %>
-        <% if @cart.contents["recipient"].empty? %>
-          <button  type="button" disabled>Approve Needs</button>
-        <% else %>
-          <%= button_to "Approve Needs", needs_path, class: "order btn btn-default" %>
-        <% end %>
-      <% else %>
-        <%= button_to "Login to Approve Needs", login_path, method: :get, class: "order btn btn-default" %>
-      <% end %>
+
+      </div>
+
     </div>
   </div>
-</div>
+
+  <center>
