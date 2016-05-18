@@ -28,7 +28,7 @@
           <%= number_to_currency(@cart.total_recipient_cost) %></h4></span>
       <div class="clearfix"></div>
       <% if current_user %>
-        <% if @cart.contents.empty? %>
+        <% if @cart.contents["recipient"].empty? %>
           <button  type="button" disabled>Approve Needs</button>
         <% else %>
           <%= button_to "Approve Needs", needs_path, class: "order btn btn-default" %>

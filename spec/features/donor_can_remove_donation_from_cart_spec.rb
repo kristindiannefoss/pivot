@@ -14,7 +14,7 @@ feature "Donor can remove donation from cart" do
 
     within("##{need.id}") do
       fill_in "Amount", with: 10
-      click_button "Add donation to cart"
+      click_button "Donate"
     end
 
     expect(page).to have_content "Donation added to cart"
