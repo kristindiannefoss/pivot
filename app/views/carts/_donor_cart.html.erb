@@ -11,7 +11,7 @@
             <div class="cart-need-info">
               <% donations.each do |donation| %>
                 <p><%= "Donate #{number_to_currency(donation.amount)} to #{recipient.full_name} for #{donation.need_name}" %></p>
-              <div class="cart-remove"><%= button_to "Remove Donation", donations_path(id: donation.id), method: :delete, data: { confirm: "Are you sure?" } %></div>
+                <div class="cart-remove"><%= button_to "Remove Donation", donations_path(id: donation.id), method: :delete, data: { confirm: "Are you sure?" } %></div>
               <% end %>
               <!-- <h4>Price: <%# number_to_currency(need.cost) %></h4>
               <%# form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
@@ -28,15 +28,15 @@
         <span class="total final"><h4 class="last-price">TOTAL
             <%= number_to_currency(@cart.total_donor_cost) %></h4></span>
         <div class="clearfix"></div>
-        <% if current_user %>
-          <% if @cart.contents.empty? %>
+        <%#if current_user %>
+          <% if @cart.contents["donor"].empty? %>
             <button  type="button" disabled>Checkout</button>
           <% else %>
             <%= button_to "Checkout", new_charge_path, method: :get %>
           <% end %>
-        <% else %>
-          <%= button_to "Login to Donate", login_path, method: :get, class:"order" %>
-        <% end %>
+        <%#else %>
+          <%# button_to "Login to Donate", login_path, method: :get, class:"order" %>
+        <%#end %>
       </div>
     </div>
   </div>

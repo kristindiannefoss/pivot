@@ -15,12 +15,12 @@ feature "Donor can add donation to cart" do
 
     within("##{need1.id}") do
       fill_in "Amount", with: 10
-      click_button "Add donation to cart"
+      click_button "Donate"
     end
 
     within("##{need2.id}") do
       fill_in "Amount", with: 5
-      click_button "Add donation to cart"
+      click_button "Donate"
     end
 
     expect(page).to have_content "Donation added to cart"
