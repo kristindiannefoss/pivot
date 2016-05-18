@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
                 :set_redirect,
                 :current_admin?,
                 :current_user_guest,
-                :need_has_donation?
+                :need_has_donation?,
+                :has_need?
 
   def set_redirect
     if request.referrer == nil
@@ -52,5 +53,9 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def has_need?(recipient)
+    recipient.needs.any?
   end
 end

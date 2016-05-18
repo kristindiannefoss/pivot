@@ -14,7 +14,11 @@
               <hr class="intro-divider">
               <ul class="list-inline intro-social-buttons">
                 <li>
-                <%= link_to "Donate", users_path, class: "btn btn-default btn-lg" %>
+                  <% if current_user && current_user.recipient? %>
+                    <%= link_to "Profile", user_path, class: "btn btn-primary" %>
+                  <% else %>
+                    <%= link_to "Donate", users_path, class: "btn btn-primary" %>
+                  <% end %>
                 </li>
               </ul>
             </div>

@@ -1,6 +1,7 @@
 require 'faker'
 
-basic_needs_list = ["auto_maintenance.png",
+basic_needs_list = [
+  "auto_maintenance.png",
   "basic_farming_tools.png",
   "bicycle.png",
   "business_cell_phone.png",
@@ -104,7 +105,7 @@ basic_needs_list.each do |a|
   NeedType.create(
   name: a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
-  cost: Faker::Commerce.price,
+  cost: Faker::Number.number(2),
   category_id: Category.find_or_create_by(name: "basic needs").id,
   image_url: a )
 end
@@ -113,7 +114,7 @@ animal_needs_list.each do |a|
   NeedType.create(
   name:a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
-  cost: Faker::Commerce.price,
+  cost: Faker::Number.number(2),
   category_id: Category.find_or_create_by(name: "animals").id,
   image_url: a )
 end
@@ -122,7 +123,7 @@ farming_needs_list.each do |a|
   NeedType.create(
   name:a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
-  cost: Faker::Commerce.price,
+  cost: Faker::Number.number(2),
   category_id: Category.find_or_create_by(name: "farming").id,
   image_url: a )
 end
@@ -131,7 +132,7 @@ health_needs_list.each do |a|
   NeedType.create(
   name:a.sub(/\.\w+\z/, "").gsub("_", " ").split.map {|name| name.capitalize}.join(" "),
   description: Faker::Lorem.paragraph(9, false, 2),
-  cost: Faker::Commerce.price,
+  cost: Faker::Number.number(2),
   category_id: Category.find_or_create_by(name: "health").id,
   image_url: a )
 end
@@ -203,19 +204,30 @@ admins_list = [
 ]
 
 User.create(first_name: "Mike", last_name: "Dao", email: "mike.dao@gmail.com", password: "password", role: 1, username: "MikeDao", country: "US", image_url: "global_admin.png")
+User.create(first_name: "Josh", last_name: "Mejia", email: "recipient@gmail.com", password: "password", role: 2, username: "JoshMejia", country: "US", image_url: "global_admin.png")
+User.create(first_name: "Nate", last_name: "Allen", email: "donor@gmail.com", password: "password", role: 0, username: "NateAllen", country: "US", image_url: "global_admin.png")
 
-recipients_list.each do |a|
+recipients_list.each_with_index do |a, i|
+  need = NeedType.find(i+1)
   User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.safe_email,
-  city: Faker::Address.city,
-  country: Faker::Address.country,
-  username: "#{Faker::Name.first_name}-#{Faker::Name.last_name}".downcase,
-  password: Faker::Internet.password,
-  role: 2,
-  description: Faker::Lorem.paragraph(6, false, 1),
-  image_url: a )
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.safe_email,
+    city: Faker::Address.city,
+    country: Faker::Address.country,
+    username: "#{Faker::Name.first_name}-#{Faker::Name.last_name}",
+    password: Faker::Internet.password,
+    role: 2,
+    description: Faker::Lorem.paragraph(6, false, 1),
+    image_url: a ).needs.create(
+      name: need.name,
+      description: need.description,
+      cost: need.cost,
+      image_url: need.image_url,
+      slug: need.slug,
+      category: need.category,
+      quantity: 1
+      )
 end
 
 donors_list.each do |a|
