@@ -19,7 +19,7 @@ feature "Recipient adds needs to store" do
     click_button "Approve Needs"
     expect(current_path).to eq "/profile"
 
-    expect(page).to have_content("The following needs were added to your profile: loom.")
+    expect(page).to have_content("Added: loom.")
     expect(page).not_to have_content("At least one of each of the following needs has already been requested:")
 
     within("#main_body") do
@@ -48,7 +48,7 @@ feature "Recipient adds needs to store" do
       click_button "Approve Needs"
     end
 
-    expect(page).to have_content("At least one of each of the following needs has already been requested: loom. Please modify existing requests from your profile.")
+    expect(page).to have_content("loom already in store.")
 
     expect(page).to have_content("Basket: 0")
   end
