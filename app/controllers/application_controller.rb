@@ -39,8 +39,14 @@ class ApplicationController < ActionController::Base
  # end
 
   def need_has_donation?(need)
-    @cart.contents["donor"].values.flatten.any? do |val|
-      current_user.donations.find(val)
+    if current_user
+      @cart.contents["donor"].values.flatten.any? do |val|
+        current_user.donations.find(val).need_name == need.name
+      end
+    else
+      @cart.contents["donor"].values.flatten.any? do |val|
+        Donation.where(user_id: nil).find(val).need_name == need.name
+      end
     end
   end
 

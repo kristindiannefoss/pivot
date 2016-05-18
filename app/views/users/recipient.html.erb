@@ -23,7 +23,7 @@
           <% if need_has_donation?(need) %>
             <button class="btn btn-default" disabled>In Basket</button>
           <% else %>
-            <%= f.submit "Add donation to cart", class: "btn btn-default", data: { disable_with: "Submitting..."} %>
+            <%= f.submit "Donate", class: "btn btn-default", data: { disable_with: "Submitting..."} %>
           <% end %>
         <% end %>
       </div>
