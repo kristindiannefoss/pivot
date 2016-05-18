@@ -9,7 +9,7 @@ feature "Recipient removes needs from cart" do
     ApplicationController.any_instance.stubs(:current_user).returns(recipient)
 
     visit user_path(recipient)
-    click_link "Add Needs"
+    click_link "Needs Catalog"
 
     within("#goat") do
       click_button "Add to Basket"
@@ -31,7 +31,7 @@ feature "Recipient removes needs from cart" do
     expect(page).to have_content("Basket: 1")
 
     visit user_path(recipient)
-    click_link "Add Needs"
+    click_link "Needs Catalog"
 
     within("#goat") do
       click_button "Add to Basket"

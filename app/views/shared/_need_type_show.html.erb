@@ -11,8 +11,8 @@
       <p>Category: <%= @need_type.category.name %></p>
 
       <div class="btn-group">
-        <%= button_to "Edit", edit_admin_user_path(@need_type), method: :get %>
-        <%= button_to "Delete", admin_user_delete_path(@need_type), method: :delete, confirm: "Are you sure?" %>
+        <%= button_to "Edit", edit_admin_user_path(@need_type), method: :get, class: "btn btn-default" %>
+        <%= button_to "Delete", admin_user_delete_path(@need_type), method: :delete, confirm: "Are you sure?", class: "btn btn-default" %>
       </div>
     </div>
   </div>
