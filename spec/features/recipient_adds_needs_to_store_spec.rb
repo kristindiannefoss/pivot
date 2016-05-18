@@ -15,8 +15,8 @@ feature "Recipient adds needs to store" do
     end
 
     click_link "Basket: 1"
-
-    click_button "Approve Needs"
+save_and_open_page
+    click_on "Approve Needs"
     expect(current_path).to eq "/profile"
 
     expect(page).to have_content("Added: loom.")
@@ -45,7 +45,7 @@ feature "Recipient adds needs to store" do
 
       click_link "Basket: 1"
 
-      click_button "Approve Needs"
+      click_on "Approve Needs"
     end
 
     expect(page).to have_content("loom already in store.")

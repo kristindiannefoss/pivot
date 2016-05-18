@@ -24,7 +24,7 @@
         <span class="total final"><h4 class="last-price">TOTAL
             <%= number_to_currency(@cart.total_donor_cost) %></h4></span>
         <div class="clearfix"></div>
-        <%#if current_user %>
+        <%if current_user %>
           <% if @cart.contents["donor"].empty? %>
             <button  type="button" disabled>Checkout</button>
           <% else %>
@@ -33,9 +33,6 @@
         <% else %>
           <%= button_to "Login to Donate", login_path, method: :get, class:"order btn btn-primary" %>
         <% end %>
-        <%#else %>
-          <%# button_to "Login to Donate", login_path, method: :get, class:"order" %>
-        <%#end %>
       </div>
     </div>
   </div>
