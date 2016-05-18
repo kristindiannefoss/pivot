@@ -11,8 +11,8 @@
             <div class="cart-need-info">
               <% donations.each do |donation| %>
                 <p><%= "Donate #{number_to_currency(donation.amount)} to #{recipient.full_name} for #{donation.need_name}" %></p>
+              <div class="cart-remove"><%= button_to "Remove Donation", donations_path(id: donation.id), method: :delete, data: { confirm: "Are you sure?" } %></div>
               <% end %>
-              <!-- <div class="cart-remove"><%# link_to "Remove", cart_path(id: need.id), method: :delete, data: { confirm: "Are you sure?" } %></div> -->
               <!-- <h4>Price: <%# number_to_currency(need.cost) %></h4>
               <%# form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
                 <%# f.number_field :quantity, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>

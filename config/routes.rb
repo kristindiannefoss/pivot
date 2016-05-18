@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :charges
   resource :cart, only: [:create, :show, :destroy, :update]
 
+  delete "/donations/:id", to: "donations#destroy", as: :donations
+
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"

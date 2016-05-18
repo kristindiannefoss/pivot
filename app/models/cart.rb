@@ -18,6 +18,12 @@ class Cart
     contents["donor"][donation.recipient_id.to_s] += [donation.id]
   end
 
+  def remove_donation(id)
+    contents["donor"].map do |key, val|
+      val.delete(id.to_i)
+    end
+  end
+
   def add_need(need_id, need_max)
     contents["recipient"] ||= {}
     contents["recipient"][need_id.to_s] ||= 0
