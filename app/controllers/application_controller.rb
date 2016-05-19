@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
                 :current_user_guest,
                 :need_has_donation?,
                 :has_need?
+  include ApplicationHelper
 
   def set_redirect
     if request.referrer == nil
@@ -50,19 +51,6 @@ class ApplicationController < ActionController::Base
         donation = Donation.where(user_id: nil).find(val)
         donation.need_name == need.name && donation.recipient_id == need.user_id
       end
-    end
-  end
-
-  def send_donations(id)
-    donations = Donation.where(user_id: id)
-    Need.where(
-      name: donations.pluck(:need_name),
-      user_id: donations.pluck(:recipient_id)
-    ).each do |need|
-      need.update(raised: donations.find_by(
-        need_name: need.name,
-        recipient_id: need.user_id
-      ).amount + need.raised)
     end
   end
 
