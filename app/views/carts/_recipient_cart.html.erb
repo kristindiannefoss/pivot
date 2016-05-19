@@ -13,9 +13,9 @@
     </tr>
     <% @needs.each do |need| %>
       <tr>
-        <td><h4><%= link_to need.name, need_path(need) %></h4></td>
-        <td><h4><%= number_to_currency(need.cost) %></h4></td>
-        <td><h4><%= number_to_currency(need.subtotal) %></h4></td>
+        <td><h5><%= link_to need.name, need_path(need) %></h5></td>
+        <td><h5><%= number_to_currency(need.cost) %></h5></td>
+        <td><h5><%= number_to_currency(need.subtotal) %></h5></td>
         <td>
           <div class="col-xs-4">
             <%= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
