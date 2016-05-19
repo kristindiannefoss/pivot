@@ -83,3 +83,7 @@
 .fluff {
   padding-top: 50px;
 }
+
+btn.big {
+  font-size: 19px !important;
+}

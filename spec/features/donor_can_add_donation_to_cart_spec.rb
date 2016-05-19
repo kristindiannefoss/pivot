@@ -28,7 +28,11 @@ feature "Donor can add donation to cart" do
     click_link "Basket: 2"
 
     expect(current_path).to eq cart_path
-    expect(page).to have_content "Donate $10.00 to #{recipient.full_name} for #{need1.name}"
-    expect(page).to have_content "Donate $5.00 to #{recipient.full_name} for #{need2.name}"
+    expect(page).to have_content "$10.00"
+    expect(page).to have_content recipient.full_name
+    expect(page).to have_content need1.name
+    expect(page).to have_content "$5.00"
+    expect(page).to have_content recipient.full_name
+    expect(page).to have_content need2.name
   end
 end
