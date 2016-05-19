@@ -36,5 +36,4 @@ describe Need, type: :model do
 
     expect(need.assign_total).to eq(need.total)
   end
-
 end

@@ -1,5 +1,8 @@
 require 'simplecov'
-SimpleCov.start("rails")
+SimpleCov.start("rails") do
+  add_filter 'charges_controller.rb'
+  add_filter 'errors_controller.rb'
+end
 
 RSpec.configure do |config|
   config.mock_with :mocha
