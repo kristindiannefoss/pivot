@@ -40,7 +40,8 @@ img.now {
 }
 
 img#roundy {
-  border-radius: 6px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 30px #888888;
 }
 
 img.needshow-pic {
