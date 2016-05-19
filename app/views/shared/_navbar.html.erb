@@ -35,7 +35,7 @@
         <% if current_user_guest || current_user.donor? %>
           <%= link_to "Basket: #{@cart.count_donations}", cart_path%>
         <% elsif current_user.recipient? %>
-          <%= link_to "Basket: #{@cart.count_needs}", cart_path%>
+          <%= link_to "Basket: #{@cart.count_needs}", cart_path, class: 'basket-count' %>
         <% else %>
           <%= link_to "Basket", cart_path %>
         <% end %>

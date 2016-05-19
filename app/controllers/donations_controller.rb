@@ -33,7 +33,11 @@ class DonationsController < ApplicationController
   def destroy
     current_user.donations.find(params[:id]).destroy
     @cart.remove_donation(params[:id])
-    redirect_to cart_path
+
+    respond_to do |format|
+      format.html { redirect_to cart_path }
+      format.js { }
+    end
   end
 
   private

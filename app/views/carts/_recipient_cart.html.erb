@@ -10,7 +10,7 @@
           <div class="cart-sec">
             <div class="cart-need-info">
               <h3><%= need.name %></h3>
-              <div class="cart-remove"><%= link_to "Remove", cart_path(id: need.id), method: :delete %></div>
+              <div class="cart-remove"><%= link_to "Remove", cart_path(id: need.id), method: :delete  %></div>
               <h4>Unit Price: <%= number_to_currency(need.cost) %></h4>
               <h4>Subtotal: <%= number_to_currency(need.subtotal) %></h4>
               <%= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>

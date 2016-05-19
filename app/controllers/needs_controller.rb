@@ -36,7 +36,11 @@ class NeedsController < ApplicationController
     flash[:notice] = "Added: #{results.first.join(', ')}." unless results.first.empty?
     flash[:error] = "#{results.last.join(', ')} already in store." unless results.last.empty?
     session[:cart] = { "donor" => {}, "recipient" => {} }
-    redirect_to user_path
+
+    respond_to do |format|
+      format.html { "Added" }
+      format.js   {}
+    end
   end
 
 private
