@@ -31,4 +31,8 @@ class Need < ActiveRecord::Base
   def update_raised(amount)
     update(raised: amount)
   end
+
+  def funded?
+    total >= raised?
+  end
 end
