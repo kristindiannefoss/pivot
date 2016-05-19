@@ -21,7 +21,6 @@ feature "Admin can create need types" do
     click_button "Create Need Type"
 
     expect(page).to have_content("Cow")
-    expect(page).to have_content("Bovine Lactation")
     expect(page).to have_content("100")
   end
 end
