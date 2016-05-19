@@ -208,8 +208,7 @@ User.create(first_name: "Josh", last_name: "Mejia", email: "recipient@gmail.com"
 User.create(first_name: "Nate", last_name: "Allen", email: "donor@gmail.com", password: "password", role: 0, username: "NateAllen", country: "US", image_url: "global_admin.png")
 
 recipients_list.each_with_index do |a, i|
-  need = NeedType.find(i+1)
-  User.create(
+  user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.safe_email,
@@ -219,7 +218,12 @@ recipients_list.each_with_index do |a, i|
     password: Faker::Internet.password,
     role: 2,
     description: Faker::Lorem.paragraph(6, false, 1),
-    image_url: a ).needs.create(
+    image_url: a )
+
+  total = basic_needs_list.count + animal_needs_list.count + farming_needs_list.count + health_needs_list.count
+  1.upto(rand(1..5)) do
+    need = NeedType.find(rand(1..total))
+    user.needs.find_or_create_by(
       name: need.name,
       description: need.description,
       cost: need.cost,
@@ -227,7 +231,9 @@ recipients_list.each_with_index do |a, i|
       slug: need.slug,
       category: need.category,
       quantity: 1
-      )
+    )
+  end
+
 end
 
 donors_list.each do |a|

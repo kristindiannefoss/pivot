@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  protect_from_forgery with: :null_session
+# protect_from_forgery with: :exception
+# protect_from_forgery with: :null_session
   before_action :set_cart
   helper_method :current_user,
                 :set_redirect,
@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
                 :current_user_guest,
                 :need_has_donation?,
                 :has_need?
+  include ApplicationHelper
 
   def set_redirect
     if request.referrer == nil
@@ -42,11 +43,13 @@ class ApplicationController < ActionController::Base
   def need_has_donation?(need)
     if current_user
       @cart.contents["donor"].values.flatten.any? do |val|
-        current_user.donations.find(val).need_name == need.name
+        donation = current_user.donations.find(val)
+        donation.need_name == need.name && donation.recipient_id == need.user_id
       end
     else
       @cart.contents["donor"].values.flatten.any? do |val|
-        Donation.where(user_id: nil).find(val).need_name == need.name
+        donation = Donation.where(user_id: nil).find(val)
+        donation.need_name == need.name && donation.recipient_id == need.user_id
       end
     end
   end
