@@ -1,7 +1,11 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/helpers/application_helper.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/helpers/application_helper.rb": [
+>>>>>>> master
         1,
         1,
         0,
@@ -12,11 +16,19 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/helpers/charges_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jdliss/turing/3module/projects/pivot/app/helpers/needs_helper.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/helpers/charges_helper.rb": [
         1,
         null
       ],
       "/Users/Jared/Turing/3module/projects/pivot/app/helpers/needs_helper.rb": [
+>>>>>>> master
         1,
         1,
         3,
@@ -65,7 +77,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/charges_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/charges_controller.rb": [
+>>>>>>> master
         1,
         1,
         null,
@@ -119,7 +135,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/application_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/application_controller.rb": [
+>>>>>>> master
         1,
         null,
         null,
@@ -133,12 +153,12 @@
         1,
         null,
         1,
-        7,
+        10,
         4,
-        3,
+        6,
         0,
         null,
-        3,
+        6,
         null,
         null,
         null,
@@ -147,14 +167,14 @@
         null,
         null,
         1,
-        200,
+        222,
         null,
         null,
         1,
-        134,
+        150,
         0,
         null,
-        134,
+        150,
         null,
         null,
         null,
@@ -181,7 +201,7 @@
         null,
         null,
         1,
-        164,
+        175,
         null,
         null,
         1,
@@ -189,15 +209,19 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/needs_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/needs_controller.rb": [
+>>>>>>> master
         1,
         1,
         1,
         1,
         null,
         1,
-        3,
-        3,
+        11,
+        11,
         null,
         null,
         1,
@@ -245,18 +269,22 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/cart.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/models/cart.rb": [
+>>>>>>> master
         1,
         1,
         null,
         1,
-        138,
+        154,
         null,
         null,
         1,
-        6,
-        6,
-        6,
+        7,
+        9,
+        9,
         null,
         null,
         null,
@@ -273,11 +301,11 @@
         null,
         null,
         1,
-        11,
-        11,
-        11,
-        10,
-        10,
+        14,
+        14,
+        14,
+        13,
+        13,
         null,
         1,
         null,
@@ -288,11 +316,11 @@
         null,
         null,
         1,
-        25,
+        36,
         null,
         null,
         1,
-        3,
+        9,
         null,
         null,
         1,
@@ -314,29 +342,69 @@
         null,
         null,
         1,
-        6,
+        7,
         0,
         null,
         null,
-        6,
-        6,
+        9,
+        7,
         null,
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/category.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/models/category.rb": [
+>>>>>>> master
         1,
         1,
         1,
         1,
         null,
         1,
-        7,
-        7,
+        15,
+        15,
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/donation.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/need.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/models/need.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -374,7 +442,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/need_type.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/models/need_type.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -387,11 +459,15 @@
         1,
         null,
         1,
-        26,
+        28,
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/user.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/models/user.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -424,7 +500,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/pages_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/pages_controller.rb": [
+>>>>>>> master
         1,
         1,
         null,
@@ -432,7 +512,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/admin/recipients_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/admin/recipients_controller.rb": [
+>>>>>>> master
         1,
         null,
         1,
@@ -444,7 +528,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/admin/base_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/admin/base_controller.rb": [
+>>>>>>> master
         1,
         1,
         null,
@@ -453,7 +541,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/admin/needs_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/admin/needs_controller.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -494,7 +586,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/admin/users_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/admin/users_controller.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -566,7 +662,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/admin/need_types_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/admin/need_types_controller.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -623,6 +723,9 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/admin/profiles_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/admin/profiles_controller.rb": [
         1,
         1,
@@ -635,35 +738,18 @@
         1,
         1,
         1,
+>>>>>>> master
         1,
-        null,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         1,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/users_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/users_controller.rb": [
+>>>>>>> master
         1,
         1,
         null,
@@ -699,8 +785,8 @@
         null,
         null,
         1,
-        12,
-        12,
+        14,
+        14,
         null,
         null,
         1,
@@ -737,7 +823,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/donations_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/donations_controller.rb": [
+>>>>>>> master
         1,
         null,
         1,
@@ -815,25 +905,29 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/carts_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/carts_controller.rb": [
+>>>>>>> master
         1,
         null,
         1,
-        3,
-        3,
-        3,
-        3,
-        null,
-        3,
         6,
-        3,
-        null,
-        null,
-        null,
-        1,
-        10,
+        6,
+        6,
         6,
         null,
+        6,
+        12,
+        6,
+        null,
+        null,
+        null,
+        1,
+        11,
+        7,
+        null,
         4,
         4,
         4,
@@ -851,10 +945,10 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
+        2,
         null,
         null,
         1,
@@ -868,7 +962,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/sessions_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/sessions_controller.rb": [
+>>>>>>> master
         1,
         1,
         null,
@@ -917,21 +1015,28 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/models/cart_need.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/models/cart_need.rb": [
+>>>>>>> master
         1,
         1,
         null,
         1,
-        6,
-        6,
-        6,
+        9,
+        9,
+        9,
         null,
         null,
         1,
-        6,
+        9,
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/jdliss/turing/3module/projects/pivot/app/controllers/errors_controller.rb": [
+=======
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/categories_controller.rb": [
         0,
         0,
@@ -953,6 +1058,7 @@
         0
       ],
       "/Users/Jared/Turing/3module/projects/pivot/app/controllers/errors_controller.rb": [
+>>>>>>> master
         0,
         0,
         0,
@@ -961,6 +1067,10 @@
         0
       ]
     },
+<<<<<<< HEAD
+    "timestamp": 1463683090
+=======
     "timestamp": 1463682088
+>>>>>>> master
   }
 }
