@@ -12,7 +12,7 @@ feature "User can logout " do
 
     expect(page).to_not have_content("Logged in as #{user.first_name.capitalize}")
 
-    within("li:nth-child(5)") do
+    within("li:nth-child(6)") do
       expect(page).to have_content("Login or Create Account")
     end
   end

@@ -25,10 +25,11 @@
         <% end %>
         </li>
         <li>
+          <%= link_to "Needs Catalog", needs_path %>
+        </li>
+        <li>
         <% if current_user_guest || current_user.donor? %>
           <%= link_to "Recipients", users_path %>
-        <% elsif current_user && current_user.recipient? %>
-          <%= link_to "Needs Catalog", needs_path %>
         <% end %>
         </li>
         <li>
