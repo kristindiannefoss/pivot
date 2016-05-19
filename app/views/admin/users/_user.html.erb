@@ -1,0 +1,11 @@
+<tr class="user<%= user.id %>">
+  <td><%= user.role.upcase %></td>
+  <td><div class="teeny">
+      <%= image_tag user.image_url, class: "tiny-pic" %></div></td>
+  <td> <h4><%= link_to user.full_name, admin_profile_show_path(user) %></h4></td>
+  <td><%= user.email %></td>
+  <td><%= user.country %></td>
+  <td><%= user.username %></td>
+  <td><%= button_to "Edit", edit_admin_user_path(user), method: :get, class: "btn btn-default" %></td>
+  <td><%= button_to "Delete", admin_user_delete_path(user), method: :delete,  class: "btn btn-default", confirm: "Are you sure?" %></td>
+</tr>

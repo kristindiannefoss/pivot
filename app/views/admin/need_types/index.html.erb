@@ -2,12 +2,10 @@
   <div class="container">
     <div class="cart-top">
       <div class="recip-head fluff">
-
         <h1>All Need Types</h1>
       </div>
     </div>
     <div class="cart-conclusion">
-
       <table class="table-striped sized-table">
         <tr>
           <th>Image</th>
@@ -20,13 +18,9 @@
           <tr class="need<%= need.id %>">
             <td><div class="teeny">
                 <%= image_tag need.image_url, class: "tiny-pic" %></div></td>
-
             <td><h3><%= link_to need.name, admin_need_type_path(need) %></h3></td>
-
             <td><h3><%= number_to_currency(need.cost) %></h3></td>
-
             <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get, class: "btn btn-default" %></td>
-            
             <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" } %></td>
           </tr>
         <% end %>

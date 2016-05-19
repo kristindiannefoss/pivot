@@ -1,23 +1,24 @@
 <%= render partial: "shared/profile", locals: {user: @user} %>
-
 <div class="container">
   <h1><%= "#{@user.full_name}'s needs" %></h1>
-    <div id="needs">
-      <% @user.needs.each do |need| %>
-        <div id="<%= need.name %>">
-          <p>
-            <%= need.name %>: <%= need.quantity %>
-            <%= form_for need, url: admin_recipient_needs_path(id: need.id), method: :patch do |f| %>
-              <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", class: "form-control input-small" %>
-              <%= f.submit "Update Amount" %>
-            <% end %>
-            <div class="btn-group">
-              <%= button_to "Remove Need", admin_recipient_needs_path(id: need.id), method: :delete, class: "btn btn-default", confirm: "Are you sure?" %>
-            </div>
-          </p>
+  <div id="needs">
+    <% @user.needs.each do |need| %>
+      <div id="<%= need.name %>">
+        <p>
+        <%= need.name %>: <%= need.quantity %>
+        <%= form_for need, url: admin_recipient_needs_path(id: need.id), method: :patch do |f| %>
+          <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", class: "form-control input-small" %>
+          <%= f.submit "Update Amount", class: "btn-sm btn-info" %>
+        <% end %>
+        <div class="btn-group">
+          <%= button_to "Remove Need", admin_recipient_needs_path(id: need.id), method: :delete, class: "btn-sm btn-default", confirm: "Are you sure?" %>
         </div>
-      <% end %>
-    </div>
+        </p>
+      </div>
+    <% end %>
+  </div>
   <br>
-  <p><%= link_to "Add New Needs", admin_recipient_needs_path, class: "btn btn-primary"%></p>
+  <center>
+    <p><%= link_to "Add New Needs", admin_recipient_needs_path, class: "btn-lg btn-primary"%></p>
+  </center>
 </div>

@@ -2,14 +2,12 @@
   <div class="needshow">
     <%= image_tag @need.image_url, class: "needshow-pic" %>
   </div>
-
   <div class="description">
     <div class="need<%= @need.id %>">
       <h1><%= @need.name %></h1>
       <p><%= @need.description %></p>
       <p>Cost: <%= @need.cost %></p>
       <p>Category: <%= @need.category.name %></p>
-
       <div class="btn-group">
         <%= link_to "Back", needs_path, class: "btn btn-default" %>
         <% if current_user && current_user.recipient? %>
