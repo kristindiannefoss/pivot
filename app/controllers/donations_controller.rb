@@ -37,7 +37,11 @@ class DonationsController < ApplicationController
       Donation.where(user_id: nil).find(params[:id]).destroy
     end
     @cart.remove_donation(params[:id])
-    redirect_to cart_path
+
+    respond_to do |format|
+      format.html { redirect_to cart_path }
+      format.js { }
+    end
   end
 
   private
