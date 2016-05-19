@@ -30,7 +30,7 @@ feature "Donor can edit cart" do
   end
   scenario "unsuccessfully" do
     recipient = create(:user, role: 2)
-    need = create(:need, name: "goat", quantity: 1, cost: 12)
+    need = create(:need, name: "goat", quantity: 1, cost: 12, raised: 0)
     recipient.needs = [need]
 
     donor = create(:user, role: 0)

@@ -3,8 +3,8 @@ require "rails_helper"
 feature "Donor can add donation to cart" do
   scenario "successfully" do
     recipient = create(:user, role: 2)
-    need1 = create(:need, name: "goat")
-    need2 = create(:need, name: "soda")
+    need1 = create(:need, name: "goat", total: 14, raised: 0)
+    need2 = create(:need, name: "soda", total: 14, raised: 0)
     recipient.needs = [need1, need2]
 
     donor = create(:user, role: 0)
