@@ -144,4 +144,10 @@ height: 50px;
 }
 
 .recip-table {
+  margin: auto;
+}
+
+ul.none   {
+ list-style-type: none !important;
+
 }

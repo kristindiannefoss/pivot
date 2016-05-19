@@ -14,10 +14,10 @@
               </div>
               <div class="recip-info">
                 <h3><%= link_to recipient.full_name, recipient_path(recipient.username) %></h3>
-                <ul>
-                  <li>Country: <%= recipient.country %></li>
-                  <li>About: <%= recipient.description %></li>
-                  <li>Total Need: <%= number_to_currency(recipient.total) %></li>
+                <ul class="none">
+                  <li><strong>Country:</strong> <%= recipient.country %></li>
+                  <li><strong>About:</strong> <%= recipient.description %></li>
+                  <li><strong>Total Need:</strong> <%= number_to_currency(recipient.total) %></li>
                 </ul>
               </div>
             </div>
