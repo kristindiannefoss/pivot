@@ -54,9 +54,32 @@
                   <li>
                     <div class="clearfix"></div>
                     <% if @cart.contents["donor"].empty? %>
-                      <button  type="button" disabled>Checkout</button>
+                      
                     <% else %>
-                      <%= button_to "Checkout", new_charge_path, method: :get, class:"order btn btn-primary big" %>
+
+                    <%= form_tag charges_path do %>
+                      <article>
+                      <% if flash[:error].present? %>
+                        <div id="error_explanation">
+                          <p><%= flash[:error] %></p>
+                        </div>
+                      <% end %>
+                      <label class="amount">
+
+                      </label>
+                      </article>
+
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-description="Goats and Soda"
+                        data-amount="<%= @cart.total_donor_cost * 100 %>"
+                        data-locale="auto"
+                        data-label="Checkout"
+                        data-allow-remember-me=false
+                        ></script>
+                    <% end %>
+
+
                     <% end %>
                   </li>
                 </ul>
