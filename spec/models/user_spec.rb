@@ -26,12 +26,12 @@ RSpec.describe User, type: :model do
   end
 
   it "can add total cost" do
-    need1 = create(:need, cost: 10, quantity: 1)
-    need2 = create(:need, cost: 10, quantity: 1)
+    need1 = create(:need, total: 10, quantity: 1)
+    need2 = create(:need, total: 10, quantity: 1)
     user = create(:user)
     user.needs << [need1, need2]
 
-    expect(user.total).to eq(20)
+    expect(user.total).to eq(need1.total + need2.total)
   end
 
   it "can add raised amount" do
@@ -41,5 +41,11 @@ RSpec.describe User, type: :model do
     user.needs << [need1, need2]
 
     expect(user.raised).to eq(17)
+  end
+
+  it "can concatenate and capitalize to full name" do
+    user = create(:user, first_name: "linked", last_name: "liss")
+
+    expect(user.full_name).to eq("Linked Liss")
   end
 end
