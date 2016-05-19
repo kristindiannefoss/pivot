@@ -115,3 +115,8 @@ height: 50px;
 .white {
   color: white;
 }
+
+.button-place {
+  margin: auto;
+  text-align: center;
+}

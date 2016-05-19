@@ -1,19 +1,41 @@
-<div class="col-md-9 cart-needs" id="needs">
-  <% @user.needs.each do |need| %>
-    <div class="cart-header">
-      <div class="cart-sec">
-        <div class="cart-need-info" id="<%= need.name %>">
-          <h3><%= need.name %>: <%= need.quantity %></h3>
-          <%= form_for need, url: edit_need_path(id: need.id), method: :patch do |f| %>
-            <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", size: 1 %>
-            <%= f.submit "Update Amount", class: "btn btn-link"%>
-          <% end %>
-          <%= button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-link", confirm: "Are you sure?" %>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  <% end %>
-  <br>
-  <p><%= link_to "Add New Needs", needs_path, class: "btn btn-primary"%></p>
+<div class="button-place">
+
+  <%= link_to "Add New Needs", needs_path, class: "btn btn-primary"%>
 </div>
+
+<div class="container">
+  <div class="row">
+    <center>
+      <div class="">
+        <div class="">
+          <div class="">
+            <% @user.needs.each do |need| %>
+            <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
+              <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
+                <div class="kris", style="height: 350px">
+                  <a href="/needs/<%= need.slug %>"><%= image_tag(need.image_url, class: "img-rounded now") %></a>
+
+                  <div id="<%= need.id %>">
+                    <h4><%= link_to need.name, need_path(need) %> (<%= need.quantity %>)</h4>
+                    <p><%= form_for need, url: edit_need_path(id: need.id), method: :patch do |f| %>
+                      <%= f.submit "Update Amount", class: "btn btn-link"%>
+                      <%= f.number_field :quantity, value: need.quantity, min: 1, max: need.max, placeholder: "Quantity", size: 1 %>
+                      <% end %>
+                      <%= button_to "Remove", destroy_need_path(id: need.id), method: :delete, class: "btn btn-link", confirm: "Are you sure?" %>
+
+                      <% end %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+  </div>
+</div>
+
+
+<br>
+<p><%= link_to "Add New Needs", needs_path, class: "btn btn-primary"%></p>
