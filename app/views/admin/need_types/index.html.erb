@@ -1,23 +1,30 @@
 <div class="cart">
   <div class="container">
     <div class="cart-top">
-      <h1>All Need Types</h1>
+      <div class="recip-head fluff">
+
+        <h1>All Need Types</h1>
+      </div>
     </div>
     <div class="cart-conclusion">
 
-      <table>
+      <table class="table-striped sized-table">
         <tr>
+          <th>Image</th>
           <th>Name</th>
-          <th>Description</th>
           <th>Cost</th>
           <th>Update</th>
           <th>Delete</th>
         </tr>
         <% @need_types.each do |need| %>
           <tr class="need<%= need.id %>">
-            <td><%= link_to need.name, admin_need_type_path(need) %></td>
-            <td><%= need.description %></td>
-            <td><%= number_to_currency(need.cost) %></td>
+            <td>
+              <div class="teeny">
+                <%= image_tag need.image_url, class: "tiny-pic" %></td>
+              </div>
+            <td> <h3><%= link_to need.name, admin_need_type_path(need) %></h3></td>
+            <td><h3>
+              <%= number_to_currency(need.cost) %></h3></td>
             <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get, class: "btn btn-default" %></td>
             <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" } %></td>
           </tr>
