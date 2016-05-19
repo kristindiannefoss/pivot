@@ -49,7 +49,7 @@ class DonationsController < ApplicationController
     @cart.remove_donation(params[:id])
 
     respond_to do |format|
-      format.html {}
+      format.html { redirect_to cart_path }
       format.js {}
    end
   end
