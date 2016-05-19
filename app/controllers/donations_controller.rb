@@ -30,6 +30,15 @@ class DonationsController < ApplicationController
     end
   end
 
+  def change
+    if current_user
+      current_user.donations.find(params[:id]).update(amount: params[:donation][:amount])
+    else
+      Donation.where(user_id: nil).find(params[:id]).update(amount: params[:donation][:amount])
+    end
+    redirect_to cart_path
+  end
+
   def destroy
     current_user.donations.find(params[:id]).destroy
     @cart.remove_donation(params[:id])
@@ -52,6 +61,7 @@ class DonationsController < ApplicationController
     donate_params["recipient_id"] = User.find_by(username: params[:username]).id
     donate_params["need_slug"] = params[:slug]
     donate_params["need_name"] = Need.find_by(slug: params[:slug]).name
+    donate_params["need_id"] = Need.find_by(slug: params[:slug]).id
     donate_params
   end
 end

@@ -1,5 +1,6 @@
 class Donation < ActiveRecord::Base
   belongs_to :user
+  belongs_to :need
   has_many :donation_amounts
   has_many :needs, through: :donation_amounts
 # validates :user_id, presence: true

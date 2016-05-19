@@ -14,7 +14,6 @@
     <% @recipient.needs.each do |need| %>
       <div id="<%= need.id %>">
         <p><%= link_to need.name, need_path(need) %></p>
-        <p>Unit Cost: $<%= need.cost %></p>
         <p>Total Cost: $<%= need.total%></p>
         <p>Raised: $<%= need.raised %></p>
         <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>

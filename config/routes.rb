@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resource :cart, only: [:create, :show, :destroy, :update]
 
   delete "/donations/:id", to: "donations#destroy", as: :donations
+  patch "/donations/:id", to: "donations#change"
 
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"

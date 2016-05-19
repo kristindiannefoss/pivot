@@ -18,32 +18,21 @@
       <div class="cart-sec">
         <div class="cart-need-info">
       <% donations.each do |donation| %>
-    <tr>
-
-      <td>
-        <h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4>
-      </td>
-
-      <td>
-        <h4><%= recipient.full_name %></h4>
-      </td>
-
+    <tr id="<%= donation.need_slug %>">
+      <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
+      <td><h4><%= recipient.full_name %></h4></td>
       <td><h4><%= donation.need_name %></h4></td>
-
-
       <td>
         <div class="col-xs-3">
-        <%#= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
-          <%#= f.number_field :quantity, size: 2, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>
-          <h4>update form</h4>
-          <button type="button" name="button" class="btn btn-default">Update (Broken)</button>
-          <%#= f.submit "Update Quantity", class:"btn btn-default cart-update" %>
+        <%= form_for donation, url: donations_path(donation.id), method: :patch do |f| %>
+          <%= f.number_field :amount, size: 2, value: donation.amount, min: 1, max: donation.need.max_donate_amount, class: "form-control input-small" %>
         </div>
-        <td><h4><div class="cart-remove"><%= button_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %></div></h4></td>
-          <% end %>
+        <%= f.submit "Update Amount", class:"btn btn-default cart-update" %>
+        <% end %>
+        <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %></div>
+        <% end %>
         <% end %>
       </td>
-
     </table>
   </div>
 </div>
@@ -55,33 +44,26 @@
         <div class="col-lg-12">
           <div class="splash">
             <div class="">
-              <h3 class="last-price">TOTAL
-                <%= number_to_currency(@cart.total_donor_cost) %></h3>
+              <h3 class="last-price">TOTAL <%= number_to_currency(@cart.total_donor_cost) %></h3>
               <hr class="intro-divider">
-
-              <ul class="fluff list-inline intro-social-buttons">
-                <li>
-                  <div class="clearfix"></div>
-                  <%if current_user %>
-                    <% if @cart.contents["donor"].empty? %>
-                      <button  type="button" disabled>Checkout</button>
+                <ul class="fluff list-inline intro-social-buttons">
+                  <li>
+                    <div class="clearfix"></div>
+                    <% if current_user %>
+                      <% if @cart.contents["donor"].empty? %>
+                        <button  type="button" disabled>Checkout</button>
+                      <% else %>
+                        <%= button_to "Checkout", new_charge_path, method: :get, class:"order btn btn-primary big" %>
+                      <% end %>
                     <% else %>
-                      <%= button_to "Checkout", new_charge_path, method: :get, class:"order btn btn-primary big" %>
+                      <%= button_to "Login to Donate", login_path, method: :get, class:"btn btn-primary" %>
                     <% end %>
-                  <% else %>
-                    <%= button_to "Login to Donate", login_path, method: :get, class:"btn btn-primary" %>
-                  <% end %>
-                </div>
-
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
-
-  <center>
+</center>
