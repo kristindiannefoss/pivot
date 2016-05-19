@@ -24,8 +24,6 @@
                     <a href="/needs/<%= need.slug %>"><%= image_tag(need.image_url, class: "img-rounded now") %></a>
                     <h4><%= need.name %></h4>
                     <h5><%= number_to_currency(need.cost) %></h5>
-                    <!--<%# button_to cart_path(need_id: need.id), remote: true, id: "need-add-button-#{need.id}", class: "btn btn-default add-to-basket" do %>
-                      Add to Basket-->
                     <% if current_user && current_user.recipient? %>
                       <%= button_to "Add to Basket", cart_path(need_id: need.id), remote: true, id: "need-add-button-#{need.id}", class: "btn btn-default add-to-basket" %>
                     <% end %>

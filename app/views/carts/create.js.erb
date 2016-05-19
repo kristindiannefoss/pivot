@@ -1,2 +1,2 @@
-$('#need-add-button-<%= @need.id %>').removeClass('btn-default').addClass('btn-success').val('Need added');
+$('#need-add-button-<%= @need.id %>').removeClass('btn-default').addClass('btn-success').val('Need added').prop('disabled', true);
 $('.basket-count').text('Basket: <%= @cart.count_needs %>');

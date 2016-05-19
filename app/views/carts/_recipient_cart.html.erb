@@ -40,10 +40,10 @@
                 <li>
                   <% if current_user %>
                     <% if @cart.contents["recipient"].empty? %>
-                  <button type="button" disabled, class="btn btn-default btn-lg">Approve Needs</button>
-                  <% else %>
-                    <%= button_to "Approve Needs", needs_path, class: "order btn btn-default btn-lg" %>
-                  <% end %>
+                      <button type="button" disabled, class="btn btn-default btn-lg">Approve Needs</button>
+                    <% else %>
+                      <%= button_to "Approve Needs", needs_path, class: "order btn btn-default btn-lg" %>
+                    <% end %>
                   <% else %>
                     <%= button_to "Login to Approve Needs", login_path, method: :get, class: "order btn btn-default btn-lg" %>
                   <% end %>
