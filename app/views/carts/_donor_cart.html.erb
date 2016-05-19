@@ -10,7 +10,7 @@
         <th>Amount</th>
         <th>Person in Need</th>
         <th>Need Fulfilled</th>
-        <th>Update</th>
+        <th>Update Amount</th>
         <th>Remove</th>
       </tr>
       <% @recipients_donations.each do |recipient, donations| %>
@@ -19,9 +19,9 @@
             <div class="cart-need-info">
               <% donations.each do |donation| %>
                 <tr id="<%= donation.need_slug %>" class="donation-line-item-<%= donation.id %>">
-                  <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
-                  <td><h4><%= recipient.full_name %></h4></td>
-                  <td><h4><%= donation.need_name %></h4></td>
+                  <td><h5><%= "Donate #{number_to_currency(donation.amount)}" %></h5></td>
+                  <td><h5><%= recipient.full_name %></h5></td>
+                  <td><h5><%= donation.need_name %></h5></td>
                   <td>
                     <div class="col-xs-4">
                       <%= form_for donation, url: donations_path(donation.id), method: :patch do |f| %>
