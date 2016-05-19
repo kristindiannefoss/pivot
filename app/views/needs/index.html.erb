@@ -16,8 +16,9 @@
           </div>
           </div>
           </div>
-          <br>
+          <h1>Needs Catalogue</h1>
           <%= render partial: "shared/filter" %>
+          <br>
           <div class="">
             <% @needs.each do |need| %>
               <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
