@@ -18,7 +18,7 @@
       <div class="cart-sec">
         <div class="cart-need-info">
           <% donations.each do |donation| %>
-          <tr id="<%= donation.need_slug %>">
+            <tr id="<%= donation.need_slug %>" class="donation-line-item-<%= donation.id %>">
             <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
             <td><h4><%= recipient.full_name %></h4></td>
             <td><h4><%= donation.need_name %></h4></td>
@@ -31,7 +31,7 @@
               <% end %>
             </td>
             <td>
-              <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %></div>
+              <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }, remote: true %></div>
               <% end %>
               <% end %>
             </td>
