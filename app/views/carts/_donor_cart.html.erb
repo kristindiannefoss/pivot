@@ -17,22 +17,26 @@
     <div class="cart-header">
       <div class="cart-sec">
         <div class="cart-need-info">
-      <% donations.each do |donation| %>
-    <tr id="<%= donation.need_slug %>">
-      <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
-      <td><h4><%= recipient.full_name %></h4></td>
-      <td><h4><%= donation.need_name %></h4></td>
-      <td>
-        <div class="col-xs-3">
-        <%= form_for donation, url: donations_path(donation.id), method: :patch do |f| %>
-          <%= f.number_field :amount, size: 2, value: donation.amount, min: 1, max: donation.need.max_donate_amount, class: "form-control input-small" %>
+          <% donations.each do |donation| %>
+          <tr id="<%= donation.need_slug %>">
+            <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
+            <td><h4><%= recipient.full_name %></h4></td>
+            <td><h4><%= donation.need_name %></h4></td>
+            <td>
+              <div class="col-xs-4">
+              <%= form_for donation, url: donations_path(donation.id), method: :patch do |f| %>
+                <%= f.number_field :amount, size: 2, value: donation.amount, min: 1, max: donation.need.max_donate_amount, class: "form-control input-small" %>
+              </div>
+              <%= f.submit "Update Amount", class:"btn btn-default cart-update" %>
+              <% end %>
+            </td>
+            <td>
+              <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %></div>
+              <% end %>
+              <% end %>
+            </td>
+          </tr>
         </div>
-        <%= f.submit "Update Amount", class:"btn btn-default cart-update" %>
-        <% end %>
-        <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %></div>
-        <% end %>
-        <% end %>
-      </td>
     </table>
   </div>
 </div>
@@ -49,17 +53,13 @@
                 <ul class="fluff list-inline intro-social-buttons">
                   <li>
                     <div class="clearfix"></div>
-                    <% if current_user %>
-                      <% if @cart.contents["donor"].empty? %>
-                        <button  type="button" disabled>Checkout</button>
-                      <% else %>
-                        <%= button_to "Checkout", new_charge_path, method: :get, class:"order btn btn-primary big" %>
-                      <% end %>
+                    <% if @cart.contents["donor"].empty? %>
+                      <button  type="button" disabled>Checkout</button>
                     <% else %>
-                      <%= button_to "Login to Donate", login_path, method: :get, class:"btn btn-primary" %>
+                      <%= button_to "Checkout", new_charge_path, method: :get, class:"order btn btn-primary big" %>
                     <% end %>
-                </li>
-              </ul>
+                  </li>
+                </ul>
             </div>
           </div>
         </div>

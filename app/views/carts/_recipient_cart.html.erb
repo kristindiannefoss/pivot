@@ -4,22 +4,23 @@
       <th>Request Name</th>
       <th>Item Price</th>
       <th>Item Subtotal</th>
-      <th>Action</th>
+      <th>Update</th>
+      <th>Remove</th>
     </tr>
     <% @needs.each do |need| %>
     <tr>
-      <td>
-        <h4><%= link_to need.name, need_path(need) %></h4>
-      </td>
+      <td><h4><%= link_to need.name, need_path(need) %></h4></td>
       <td><h4><%= number_to_currency(need.cost) %></h4></td>
       <td><h4><%= number_to_currency(need.subtotal) %></h4></td>
       <td>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
         <%= form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
           <%= f.number_field :quantity, size: 2, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>
         </div>
         <%= f.submit "Update Quantity", class:"btn btn-default cart-update" %>
         <% end %>
+      </td>
+      <td>
         <div class="cart-remove"><%= link_to "Remove", cart_path(id: need.id), method: :delete, class:"btn btn-default cart-update cart-remove" %></div>
         <% end %>
       </td>
