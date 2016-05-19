@@ -17,7 +17,7 @@
   </head>
   <body>
     <%= render partial: "shared/navbar" %>
-    <div id="pagewrap", style="padding-top: 10px;">
+    <div id="pagewrap", style="padding-top: 10px; padding-bottom: 100px;">
       <% flash.each do |type, message| %>
         <%= content_tag :div, message.html_safe, class: "#{type} flashy", id: "flash_notice" %>
       <% end %>
