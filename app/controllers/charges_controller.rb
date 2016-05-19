@@ -38,10 +38,10 @@ private
       )
       current_user.donations
     else
-      x = Donation.where(user_id: nil).set_status_complete(
+      Donation.where(user_id: nil).set_status_complete(
         @cart.contents["donor"].values.flatten
       )
-      Donations.where(user_id: nil)
+      Donation.where(user_id: nil)
     end
   end
 

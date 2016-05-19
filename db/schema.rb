@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518214811) do
+ActiveRecord::Schema.define(version: 20160519023334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20160518214811) do
     t.string   "need_slug"
     t.integer  "recipient_id"
     t.string   "need_name"
+    t.integer  "need_id"
   end
 
+  add_index "donations", ["need_id"], name: "index_donations_on_need_id", using: :btree
   add_index "donations", ["user_id"], name: "index_donations_on_user_id", using: :btree
 
   create_table "need_types", force: :cascade do |t|
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160518214811) do
 
   add_foreign_key "donation_amounts", "donations"
   add_foreign_key "donation_amounts", "needs"
+  add_foreign_key "donations", "needs"
   add_foreign_key "donations", "users"
   add_foreign_key "need_types", "categories"
   add_foreign_key "needs", "categories"
