@@ -31,7 +31,11 @@ class DonationsController < ApplicationController
   end
 
   def destroy
-    current_user.donations.find(params[:id]).destroy
+    if current_user
+      current_user.donations.find(params[:id]).destroy
+    else
+      Donation.where(user_id: nil).find(params[:id]).destroy
+    end
     @cart.remove_donation(params[:id])
     redirect_to cart_path
   end

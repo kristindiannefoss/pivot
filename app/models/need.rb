@@ -23,4 +23,12 @@ class Need < ActiveRecord::Base
   def max_donate_amount
     total - raised
   end
+
+  def amount_needed
+    max_donate_amount < 0 ? 0 : max_donate_amount
+  end
+
+  def update_raised(amount)
+    update(raised: amount)
+  end
 end
