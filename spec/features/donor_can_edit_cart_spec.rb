@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Donor can edit cart" do
   xscenario "successfully" do
     recipient = create(:user, role: 2)
-    need = create(:need, name: "goat", quantity: 1, cost: 12)
+    need = create(:need, name: "goat", quantity: 1, cost: 12, raised: 0)
     recipient.needs = [need]
 
     donor = create(:user, role: 0)
@@ -13,26 +13,24 @@ feature "Donor can edit cart" do
     visit recipient_path(recipient.username)
 
     within("##{need.id}") do
-      fill_in "Amount", with: 10
+      fill_in "Amount", with: 5
       click_button "Donate"
     end
 
     click_link "Basket: 1"
 
-    expect(page).to have_content "$10.00"
+    expect(page).to have_content "$5.00"
     expect(page).to have_content recipient.full_name
     expect(page).to have_content need.name
 
-    within("##{need.slug}") do
-      fill_in "donation[amount]", with: 12
-      click_on "Update Amount"
-    end
+    fill_in "donation[amount]", with: 1
+    click_on "Update Amount"
 
-    expect(page).to have_content "$12.00"
+    expect(page).to have_content "$1.00"
   end
   scenario "unsuccessfully" do
     recipient = create(:user, role: 2)
-    need = create(:need, name: "goat", quantity: 1, cost: 12)
+    need = create(:need, name: "goat", quantity: 1, cost: 12, raised: 0)
     recipient.needs = [need]
 
     donor = create(:user, role: 0)
