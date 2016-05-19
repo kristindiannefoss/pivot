@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row">
     <center>
-      <div class="centered">
-        <%= image_tag @recipient.image_url, class: "header-pic", width: "700px"%>
+      <div class="centered", width="700px", height="400px">
+        <%= image_tag @recipient.image_url, class: "header-pic"%>
       </div>
     </div>
-    <div class="infooo">
+    <div class="store-head">
       <h1><%= "#{@recipient.first_name} #{@recipient.last_name}" %></h1>
-      <h4>Country: <%= @recipient.country %></h4>
+      <h3><%= @recipient.country %></h3>
+    </div>
+    <div class="infooo">
       <h4>About: <%= @recipient.description %></h4>
+      <br>
       <h4>Need Request Amount Total: <b><%= number_to_currency(@recipient.total) %></b></h4>
     </div>
     <% @recipient.needs.each do |need| %>
@@ -28,5 +31,26 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <center>
+      <div class="centered">
+        <div class="col-md-12">
+        <div class="row">
+          <% @recipient.needs.each do |need| %>
+            <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
+              <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
+                <div class="kris", style="height: 300px">
+                  <a href="/needs/<%= need.slug %>"><%= image_tag(need.image_url, class: "img-rounded now") %></a>
+                  <h4><%= need.name %></h4>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
