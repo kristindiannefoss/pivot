@@ -11,9 +11,15 @@ feature "Recipient edits their store" do
 
     visit "/profile"
 
-    within("#needs") do
-      expect(page).to have_content("loom: 1")
-      expect(page).to have_content("chair: 1")
+save_and_open_page
+    within("#loom") do
+      expect(page).to have_content("loom")
+      expect(page).to have_content("1")
+    end
+
+    within("#chair") do
+      expect(page).to have_content("chair")
+      expect(page).to have_content("1")
     end
 
     within("#loom") do
@@ -22,9 +28,8 @@ feature "Recipient edits their store" do
 
     expect(page).to have_content("loom removed from your needs.")
 
-    within("#needs") do
-      expect(page).not_to have_content("loom: 1")
-      expect(page).to have_content("chair: 1")
+    within("#chair") do
+      expect(page).to have_content("chair")
     end
   end
 
@@ -38,9 +43,13 @@ feature "Recipient edits their store" do
 
     visit "/profile"
 
-    within("#needs") do
-      expect(page).to have_content("loom: 1")
-      expect(page).to have_content("chair: 1")
+
+    within("#loom") do
+      expect(page).to have_content("1")
+    end
+
+    within("#chair") do
+      expect(page).to have_content("1")
     end
 
     within("#loom") do
@@ -50,9 +59,9 @@ feature "Recipient edits their store" do
 
     expect(page).to have_content("You are now requesting 2 looms.")
 
-    within("#needs") do
-      expect(page).to have_content("loom: 2")
-      expect(page).to have_content("chair: 1")
+
+    within("#loom") do
+      expect(page).to have_content("2")
     end
   end
 end

@@ -23,7 +23,7 @@ feature "Recipient adds needs to store" do
     expect(page).not_to have_content("At least one of each of the following needs has already been requested:")
 
     within("#main_body") do
-      expect(page).to have_content("loom: 1")
+      expect(page).to have_content("loom")
     end
 
     expect(page).to have_content("Basket: 0")

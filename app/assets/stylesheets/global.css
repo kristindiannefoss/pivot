@@ -137,4 +137,11 @@ height: 50px;
   height: 100px;
 }
 
+.middle {
+  margin: auto;
+  display: inline-block;
+  width: 100%
+}
 
+.recip-table {
+}
