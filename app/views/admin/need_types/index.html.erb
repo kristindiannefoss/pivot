@@ -18,7 +18,7 @@
         </tr>
         <% @need_types.each do |need| %>
           <tr class="need<%= need.id %>">
-<<<<<<< HEAD
+
             <td>
               <div class="teeny">
                 <%= image_tag need.image_url, class: "tiny-pic" %></td>
@@ -26,17 +26,9 @@
             <td> <h3><%= link_to need.name, admin_need_type_path(need) %></h3></td>
             <td><h3>
               <%= number_to_currency(need.cost) %></h3></td>
-=======
-            <td><div class="teeny">
-                <%= image_tag need.image_url, class: "tiny-pic" %></div></td>
 
-            <td><h3><%= link_to need.name, admin_need_type_path(need) %></h3></td>
-
-            <td><h3><%= number_to_currency(need.cost) %></h3></td>
-
->>>>>>> 6c8d14abb6564991efd79ec4424f3c9cd95af97d
             <td><%= button_to "Edit", edit_admin_need_type_path(need), method: :get, class: "btn btn-default" %></td>
-            
+
             <td><%= button_to "Delete", admin_need_type_delete_path(need), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" } %></td>
           </tr>
         <% end %>
