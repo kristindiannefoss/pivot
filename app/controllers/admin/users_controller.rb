@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
-
   before_action :set_roles, only: [:edit, :update, :new, :create]
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -29,12 +29,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-
     if @user.update(user_params)
       flash[:notice] = "User account for #{@user.first_name} #{@user.last_name} has been updated"
       redirect_to admin_users_path
@@ -65,5 +62,9 @@ class Admin::UsersController < Admin::BaseController
 
   def set_roles
     @roles = User.roles
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

@@ -4,27 +4,27 @@
       <h1>All Recipients</h1>
     </div>
     <table class="table-striped admin-user-table">
-        <tr>
-          <th>Name</th>
-          <th>Image</th>
-          <th>Email</th>
-          <th>Country</th>
-          <th>Username</th>
-          <th>Update</th>
-          <th>Delete</th>
-        </tr>
-        <% @users.each do |user| %>
-          <tr class="user<%= user.id %>">
-            <td><div class="teeny">
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Username</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr class="user<%= user.id %>">
+          <td><div class="teeny">
               <%= image_tag user.image_url, class: "tiny-pic" %></div></td>
-            <td><%= link_to user.full_name, admin_recipient_path(user.username) %></td>
-            <td><%= user.email %></td>
-            <td><%= user.country %></td>
-            <td><%= user.username %></td>
-            <td><%= button_to "Edit", edit_admin_user_path(user), method: :get, class: "btn btn-default" %></td>
-            <td><%= button_to "Delete", admin_user_delete_path(user), method: :delete,  class: "btn btn-default",confirm: "Are you sure?" %></td>
-          </tr>
-        <% end %>
-      </table>
+          <td><%= link_to user.full_name, admin_recipient_path(user.username) %></td>
+          <td><%= user.email %></td>
+          <td><%= user.country %></td>
+          <td><%= user.username %></td>
+          <td><%= button_to "Edit", edit_admin_user_path(user), method: :get, class: "btn btn-default" %></td>
+          <td><%= button_to "Delete", admin_user_delete_path(user), method: :delete,  class: "btn btn-default",confirm: "Are you sure?" %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>

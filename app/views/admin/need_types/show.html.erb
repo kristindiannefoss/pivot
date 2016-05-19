@@ -1,21 +1,17 @@
-  <%#= render partial: "shared/need_type_show" locals: {need_type = @need_type} %>
-
-  <div class="container">
-    <div class="needshow">
-      <%= image_tag @need_type.image_url, class: "needshow-pic" %>
-    </div>
-
-    <div class="description">
-      <div class="need_type<%= @need_type.id %>">
-        <h1><%= @need_type.name %></h1>
-        <p><%= @need_type.description %></p>
-        <p>Cost: <%= @need_type.cost %></p>
-        <p>Category: <%= @need_type.category.name %></p>
-
-        <div class="btn-group">
-          <%= button_to "Edit", edit_admin_need_type_path(@need_type), method: :get, class: "btn btn-default" %>
-          <%= button_to "Delete", admin_need_type_delete_path(@need_type), method: :delete, class: "btn btn-default", confirm: "Are you sure?" %>
-        </div>
+<div class="container">
+  <div class="needshow">
+    <%= image_tag @need_type.image_url, class: "needshow-pic" %>
+  </div>
+  <div class="description">
+    <div class="need_type<%= @need_type.id %>">
+      <h1><%= @need_type.name %></h1>
+      <p><%= @need_type.description %></p>
+      <p>Cost: <%= @need_type.cost %></p>
+      <p>Category: <%= @need_type.category.name %></p>
+      <div class="btn-group">
+        <%= button_to "Edit", edit_admin_need_type_path(@need_type), method: :get, class: "btn btn-default" %>
+        <%= button_to "Delete", admin_need_type_delete_path(@need_type), method: :delete, class: "btn btn-default", confirm: "Are you sure?" %>
       </div>
     </div>
   </div>
+</div>

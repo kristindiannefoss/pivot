@@ -7,18 +7,18 @@ feature "Admin creates Recipient needs" do
     category = create(:category, name: "animals")
 
     need = category.needs.create(name: "Cow",
-                           description: "Bovine Lactation",
-                           cost: 46,
-                           image_url: "auto_maintenance.png",
-                           quantity: 1)
+                                 description: "Bovine Lactation",
+                                 cost: 46,
+                                 image_url: "auto_maintenance.png",
+                                 quantity: 1)
 
 
     need2 = category.need_types.create(name: "Sheep",
-                            description: "For Wool and Hugs",
-                            cost: 46,
-                            image_url: "sheep.png")
+                                       description: "For Wool and Hugs",
+                                       cost: 46,
+                                       image_url: "sheep.png")
 
-                            recipient.needs = [need]
+    recipient.needs = [need]
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
@@ -54,18 +54,18 @@ feature "Admin creates Recipient needs" do
     category = create(:category, name: "animals")
 
     need = category.needs.create(name: "Cow",
-                           description: "Bovine Lactation",
-                           cost: 46,
-                           image_url: "auto_maintenance.png",
-                           quantity: 1)
+                                 description: "Bovine Lactation",
+                                 cost: 46,
+                                 image_url: "auto_maintenance.png",
+                                 quantity: 1)
 
 
     need2 = category.need_types.create(name: "Cow",
-                           description: "Bovine Lactation",
-                           cost: 46,
-                           image_url: "auto_maintenance.png")
+                                       description: "Bovine Lactation",
+                                       cost: 46,
+                                       image_url: "auto_maintenance.png")
 
-                            recipient.needs = [need]
+    recipient.needs = [need]
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 

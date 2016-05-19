@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
 
     respond_to do |format|
-      format.html {}
+      format.html { redirect_to cart_path }
       format.js   {}
     end
   end
@@ -18,11 +18,7 @@ class CartsController < ApplicationController
     else
       if @cart.contents["donor"]
         recipients = User.find(@cart.contents["donor"].keys)
-        @recipients_donations = recipients.inject({}) do |hash, recipient|
-          hash[recipient] ||= []
-          hash[recipient] = Donation.find(@cart.contents["donor"][recipient.id.to_s])
-          hash
-        end
+        @recipients_donations = find_objects_from_cart_values(recipients)
       else
         @recipients_donations = {}
       end
@@ -41,5 +37,15 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
     flash[:notice] = "Successfully removed from basket"
     redirect_to cart_path
+  end
+
+private
+
+  def find_objects_from_cart_values(recipients)
+    recipients.inject({}) do |hash, recipient|
+      hash[recipient] ||= []
+      hash[recipient] = Donation.find(@cart.contents["donor"][recipient.id.to_s])
+      hash
+    end
   end
 end

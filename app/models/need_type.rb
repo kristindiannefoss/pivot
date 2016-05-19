@@ -6,6 +6,8 @@ class NeedType < ActiveRecord::Base
   validates :description, presence: true
   validates :cost,        presence: true
   validates :image_url,   presence: true
+  validates :slug,        presence: true
+  validates :max,         presence: true
 
   def assign_slug
     self.slug ||= name.parameterize if name

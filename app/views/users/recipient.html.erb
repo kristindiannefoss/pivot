@@ -15,39 +15,40 @@
       <h4>Need Request Amount Total: <b><%= number_to_currency(@recipient.total) %></b></h4>
     </div>
   </div>
-<div class="paddd">
-
-</div>
-<div class="container">
-  <div class="row">
-    <center>
-      <div class="">
+  <div class="paddd">
+  </div>
+  <div class="container">
+    <div class="row">
+      <center>
         <div class="">
-        <div class="">
-          <% @recipient.needs.each do |need| %>
-            <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
-              <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
-                <div class="kris", style="height: 300px">
-                  <a href="/needs/<%= need.slug %>"><%= image_tag(need.image_url, class: "img-rounded now") %></a>
+          <div class="">
+            <div class="">
+              <% @recipient.needs.each do |need| %>
+                <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
+                  <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
+                    <div class="kris", style="height: 300px">
+                      <a href="/needs/<%= need.slug %>"><%= image_tag(need.image_url, class: "img-rounded now") %></a>
 
-                  <div id="<%= need.id %>">
-                    <h4><%= link_to need.name, need_path(need) %> $<%= need.cost %></h4>
-                    <p>(Total Cost $<%= need.total%>) Amount Raised: $<%= need.raised %></p>
-                    <p></p>
-                    <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>
-                      <%= f.label :raised, "Amount: $" %>
-                      <%= f.number_field :raised, min: 1, max: need.max_donate_amount %>
-                      <% if need_has_donation?(need) %>
-                        <button class="btn btn-default" disabled>In Basket</button>
-                      <% else %>
-                        <%= f.submit "Donate", class: "btn btn-default", data: { disable_with: "Submitting..."} %>
-                      <% end %>
-                    <% end %>
-
-                </div>
+                      <div id="<%= need.id %>">
+                        <h4><%= link_to need.name, need_path(need) %> $<%= need.cost %></h4>
+                        <p>(Total Cost $<%= need.total%>) Amount Raised: $<%= need.raised %></p>
+                        <p></p>
+                        <%= form_for(need, url: donate_user_need_path(@recipient.username, need.slug)) do |f| %>
+                          <%= f.label :raised, "Amount: $" %>
+                          <%= f.number_field :raised, min: 1, max: need.max_donate_amount %>
+                          <% if need_has_donation?(need) %>
+                            <button class="btn btn-default" disabled>In Basket</button>
+                          <% else %>
+                            <%= f.submit "Donate", class: "btn btn-default", data: { disable_with: "Submitting..."} %>
+                          <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ feature "Donor can edit cart" do
 
     expect(page).to have_content "$12.00"
   end
-  xscenario "unsuccessfully" do
+  scenario "unsuccessfully" do
     recipient = create(:user, role: 2)
     need = create(:need, name: "goat", quantity: 1, cost: 12)
     recipient.needs = [need]

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: "pages#splash"
 
-  resources :charges
+  resources :charges, only: [:create, :new]
   resource :cart, only: [:create, :show, :destroy, :update]
 
   delete "/donations/:id", to: "donations#destroy", as: :donations

@@ -41,6 +41,7 @@ group :development, :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'rspec-rails'
   gem 'shoulda-callback-matchers', '~> 1.1', '>= 1.1.3'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do

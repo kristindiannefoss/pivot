@@ -45,7 +45,18 @@ private
 
   def user_params
     set_role_to_int(params)
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :image_url, :city, :country, :password_confirmation, :role)
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :username,
+      :email,
+      :password,
+      :image_url,
+      :city,
+      :country,
+      :password_confirmation,
+      :role
+    )
   end
 
   def set_role_to_int(params)

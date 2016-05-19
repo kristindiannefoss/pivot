@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Recipient adds needs to store" do
-  xscenario "needs are visible in profile" do
+  scenario "needs are visible in profile" do
     recipient = create(:user, role: 2)
     need = create(:need_type, name: "loom")
 
@@ -29,7 +29,7 @@ feature "Recipient adds needs to store" do
     expect(page).to have_content("Basket: 0")
   end
 
- xscenario "cannot add item that already exists" do
+ scenario "cannot add item that already exists" do
     recipient = create(:user, role: 2)
     need = create(:need_type, name: "loom")
 

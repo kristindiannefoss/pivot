@@ -3,90 +3,85 @@
     <h4><%= link_to "<< home", root_path %></h4>
   </div>
   <div class="">
-  <h2>My Basket</h2>
-  <h4>Contents: <%= @cart.count_donations %> Items</h4>
-  <table class="table table-striped sized-table">
-    <tr>
-      <th>Amount</th>
-      <th>Person in Need</th>
-      <th>Need Fulfilled</th>
-      <th>Update</th>
-      <th>Remove</th>
-    </tr>
-    <% @recipients_donations.each do |recipient, donations| %>
-    <div class="cart-header">
-      <div class="cart-sec">
-        <div class="cart-need-info">
-          <% donations.each do |donation| %>
-            <tr id="<%= donation.need_slug %>" class="donation-line-item-<%= donation.id %>">
-            <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
-            <td><h4><%= recipient.full_name %></h4></td>
-            <td><h4><%= donation.need_name %></h4></td>
-            <td>
-              <div class="col-xs-4">
-              <%= form_for donation, url: donations_path(donation.id), method: :patch do |f| %>
-                <%= f.number_field :amount, size: 2, value: donation.amount, min: 1, max: donation.need.max_donate_amount, class: "form-control input-small" %>
-              </div>
-              <%= f.submit "Update Amount", class:"btn btn-default cart-update" %>
-              <% end %>
-            </td>
-            <td>
-              <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }, remote: true %></div>
-              <% end %>
-              <% end %>
-            </td>
-          </tr>
-        </div>
-    </table>
-  </div>
-</div>
-<center>
-  <a name="about"></a>
-  <div class="intro-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="splash">
-            <div class="">
-              <h3 class="last-price">TOTAL <%= number_to_currency(@cart.total_donor_cost) %></h3>
-              <hr class="intro-divider">
-                <ul class="fluff list-inline intro-social-buttons">
-                  <li>
+    <h2>My Basket</h2>
+    <h4>Contents: <%= @cart.count_donations %> Items</h4>
+    <table class="table table-striped sized-table">
+      <tr>
+        <th>Amount</th>
+        <th>Person in Need</th>
+        <th>Need Fulfilled</th>
+        <th>Update</th>
+        <th>Remove</th>
+      </tr>
+      <% @recipients_donations.each do |recipient, donations| %>
+        <div class="cart-header">
+          <div class="cart-sec">
+            <div class="cart-need-info">
+              <% donations.each do |donation| %>
+                <tr id="<%= donation.need_slug %>" class="donation-line-item-<%= donation.id %>">
+                  <td><h4><%= "Donate #{number_to_currency(donation.amount)}" %></h4></td>
+                  <td><h4><%= recipient.full_name %></h4></td>
+                  <td><h4><%= donation.need_name %></h4></td>
+                  <td>
+                    <div class="col-xs-4">
+                      <%= form_for donation, url: donations_path(donation.id), method: :patch do |f| %>
+                        <%= f.number_field :amount, size: 2, value: donation.amount, min: 1, max: donation.need.max_donate_amount, class: "form-control input-small" %>
+                      </div>
+                      <%= f.submit "Update Amount", class:"btn btn-default cart-update" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <div class="cart-remove"><%= link_to "Remove Donation", donations_path(id: donation.id),  class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }, remote: true %></div>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          </div>
+        </table>
+      </div>
+    </div>
+    <center>
+      <a name="about"></a>
+      <div class="intro-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="splash">
+                <div class="">
+                  <h3 class="last-price">TOTAL <%= number_to_currency(@cart.total_donor_cost) %></h3>
+                  <hr class="intro-divider">
+                  <ul class="fluff list-inline intro-social-buttons">
+                    <li>
                     <div class="clearfix"></div>
-                    <% if @cart.contents["donor"].empty? %>
-                      
-                    <% else %>
-
-                    <%= form_tag charges_path do %>
-                      <article>
-                      <% if flash[:error].present? %>
-                        <div id="error_explanation">
-                          <p><%= flash[:error] %></p>
-                        </div>
+                    <% unless @cart.contents["donor"].empty? %>
+                      <%= form_tag charges_path do %>
+                        <article>
+                        <% if flash[:error].present? %>
+                          <div id="error_explanation">
+                            <p><%= flash[:error] %></p>
+                          </div>
+                        <% end %>
+                        <label class="amount">
+                        </label>
+                        </article>
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Goats and Soda"
+                          data-amount="<%= @cart.total_donor_cost * 100 %>"
+                          data-locale="auto"
+                          data-label="Checkout"
+                          data-allow-remember-me=false
+                          ></script>
                       <% end %>
-                      <label class="amount">
-
-                      </label>
-                      </article>
-
-                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                        data-description="Goats and Soda"
-                        data-amount="<%= @cart.total_donor_cost * 100 %>"
-                        data-locale="auto"
-                        data-label="Checkout"
-                        data-allow-remember-me=false
-                        ></script>
                     <% end %>
-
-
-                    <% end %>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </center>
   </div>
-</center>
+</div>

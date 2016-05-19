@@ -1,22 +1,20 @@
-
 <div class="container form-spacing">
   <div align="center" class="smoosh">
     <div class="pad">
-    <h1 class="padded"> Log In </h1>
-    <%= form_for(:session, url: login_path) do |f| %>
-    <div class="form-group">
-
-      <%= f.text_field :email, placeholder: "E-Mail", class:"form-control", size: 3 %><br />
-    </div>
-    <div class="form-group">
-    <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br />
-    </div>
-    <div class="form-group">
-    <%= f.submit "Log in", class:"btn btn-primary" %>
-    </div>
-    <% end %>
-    <br />
-    <h3>or <%= link_to "Create Account", signup_path %></h3>
+      <h1 class="padded"> Log In </h1>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :email, placeholder: "E-Mail", class:"form-control", size: 3 %><br />
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br />
+        </div>
+        <div class="form-group">
+          <%= f.submit "Log in", class:"btn btn-primary" %>
+        </div>
+      <% end %>
+      <br />
+      <h3>or <%= link_to "Create Account", signup_path %></h3>
     </div>
   </div>
 </div>

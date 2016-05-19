@@ -1,11 +1,9 @@
 <div class="prof-chunk">
   <%= render partial: "admin/shared/profile" %>
 </div>
-
-  <% if @user.recipient? %>
-
-    <div class="recipient-needs">
-      <% @user.needs.each do |need| %>
+<% if @user.recipient? %>
+  <div class="recipient-needs">
+    <% @user.needs.each do |need| %>
       <p><%= need.name %></p>
       <div class="btn-group">
         <%= button_to "Edit", edit_admin_need_path(need), method: :get, class: "btn-default" %>
@@ -13,21 +11,18 @@
       <div class="btn-group">
         <%= button_to "Delete", admin_need_delete_path(need), method: :delete, class: "btn-default", confirm: "Are you sure?" %>
       </div>
-      <% end %>
-      <br>
-      <p><%= link_to "Add Needs", needs_path, class: "btn btn-primary"%></p>
-    </div>
-
-  <% else %>
-
+    <% end %>
+    <br>
+    <p><%= link_to "Add Needs", needs_path, class: "btn btn-primary"%></p>
+  </div>
+<% else %>
   <div class="donor-donations">
     <% @user.donations.each do |donation| %>
       <% donation.needs.each do |recipient_donation| %>
-      <p><%= User.where(user_id: recipient_donation.needs.user_id) %></p>
-      <p><%= recipient_donation.name %></p>
+        <p><%= User.where(user_id: recipient_donation.needs.user_id) %></p>
+        <p><%= recipient_donation.name %></p>
       <% end %>
     <% end %>
     <br>
   </div>
-
-  <% end %>
+<% end %>
