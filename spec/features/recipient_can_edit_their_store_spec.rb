@@ -11,7 +11,6 @@ feature "Recipient edits their store" do
 
     visit "/profile"
 
-save_and_open_page
     within("#loom") do
       expect(page).to have_content("loom")
       expect(page).to have_content("1")
@@ -43,7 +42,6 @@ save_and_open_page
 
     visit "/profile"
 
-
     within("#loom") do
       expect(page).to have_content("1")
     end
@@ -58,7 +56,6 @@ save_and_open_page
     end
 
     expect(page).to have_content("You are now requesting 2 looms.")
-
 
     within("#loom") do
       expect(page).to have_content("2")
