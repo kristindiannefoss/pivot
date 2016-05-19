@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   before_action :save_cart, only: [:destroy]
 
   def new
+    if current_user
+      redirect_to root_path
+    end
     set_redirect
   end
 
