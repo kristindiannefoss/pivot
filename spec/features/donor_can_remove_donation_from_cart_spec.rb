@@ -22,11 +22,15 @@ feature "Donor can remove donation from cart" do
     click_link "Basket: 1"
 
     expect(current_path).to eq cart_path
-    expect(page).to have_content "Donate $10.00 to #{recipient.full_name} for #{need.name}"
+    expect(page).to have_content "$10.00"
+    expect(page).to have_content recipient.full_name
+    expect(page).to have_content need.name
 
     click_button "Remove Donation"
 
     expect(current_path).to eq cart_path
-    expect(page).to_not have_content "Donate $10.00 to #{recipient.full_name} for #{need.name}"
+    expect(page).to_not have_content "$10.00"
+    expect(page).to_not have_content recipient.full_name
+    expect(page).to_not have_content need.name
   end
 end
