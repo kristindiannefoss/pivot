@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="row">
+  <div class="">
     <center>
-      <div class="centered">
-        <div class="col-md-12">
+      <div class="">
+        <div class="">
           <div class="row carousel-holder">
-            <div class="col-md-12">
+            <div class="">
               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="item active">
@@ -14,9 +14,11 @@
               </div>
             </div>
           </div>
+          </div>
+          </div>
           <br>
           <%= render partial: "shared/filter" %>
-          <div class="row">
+          <div class="">
             <% @needs.each do |need| %>
               <div class="need" data-name="<%= need.name %>" data-category="<%= need.category.name %>">
                 <div class="col-sm-4 special mine" id="<%= need.slug %>" style="height: 400px">
