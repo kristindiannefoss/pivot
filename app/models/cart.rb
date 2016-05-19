@@ -55,6 +55,10 @@ class Cart
     contents["recipient"][need_id.to_s] = qty
   end
 
+  def update_donation()
+    contents["donor"]
+  end
+
   def total_donor_cost
     if contents["donor"].empty?
       0

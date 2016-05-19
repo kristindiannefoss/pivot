@@ -41,6 +41,7 @@ class NeedsController < ApplicationController
       format.html {}
       format.js   {}
     end
+    redirect_to user_path
   end
 
 private
