@@ -21,6 +21,7 @@ feature "Donor can go to profile page" do
     fill_in "E-Mail", with: "email@email.com"
     fill_in "Username", with: "ksjdfkjsd"
     fill_in "Country", with: "Nepal"
+    fill_in "URL to image", with: "girl_and_goat.jpg"
     click_button "Update Account"
 
     expect(current_path).to eq user_path
@@ -28,5 +29,6 @@ feature "Donor can go to profile page" do
     expect(page).to have_content("skdjh")
     expect(page).to have_content("email@email.com")
     expect(page).to have_content("Nepal")
+    expect(page.find('.profile-pic')['alt']).to have_content('Girl and goat')
   end
 end

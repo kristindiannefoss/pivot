@@ -2,10 +2,14 @@ class CartsController < ApplicationController
 
   def create
     set_redirect
-    need = NeedType.find(params[:need_id])
-    flash[:notice] = @cart.add_need(need.id, need.max)
+    @need = NeedType.find(params[:need_id])
+    flash[:notice] = @cart.add_need(@need.id, @need.max)
     session[:cart] = @cart.contents
-    redirect_to session[:redirect]
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
   end
 
   def show
