@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Donor can remove donation from cart" do
   scenario "successfully" do
     recipient = create(:user, role: 2)
-    need = create(:need, name: "goat")
+    need = create(:need, name: "coke")
     recipient.needs = [need]
 
     donor = create(:user, role: 0)

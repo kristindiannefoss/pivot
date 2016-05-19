@@ -22,6 +22,7 @@ FactoryGirl.define do
     sequence(:raised) {|n| n }
     sequence(:image_url) {|n| "image_#{n}.png"}
     sequence(:quantity) {|n| n }
+    sequence(:total) {|n| n }
     category
   end
 

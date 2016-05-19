@@ -20,6 +20,9 @@ describe Need, type: :model do
     it { is_expected.to validate_presence_of(:cost) }
     it { is_expected.to validate_presence_of(:raised) }
     it { is_expected.to validate_presence_of(:image_url) }
+    it { is_expected.to validate_presence_of(:quantity) }
+    it { is_expected.to validate_presence_of(:slug) }
+    it { is_expected.to validate_presence_of(:max) }
   end
 
   it "generates a slug when it's created" do
@@ -28,9 +31,10 @@ describe Need, type: :model do
     expect(need.slug).to eq("goats-and-soda")
   end
 
-  it "generates the total when it's created" do
-    need = create(:need, cost: 5, quantity: 4)
+  it "can calculate total amount" do
+    need = create(:need)
 
-    expect(need.total).to eq(20)
+    expect(need.assign_total).to eq(need.total)
   end
+
 end
