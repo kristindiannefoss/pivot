@@ -1,10 +1,11 @@
 <div class="cart">
   <div class="container">
     <div class="cart-top">
-      <%= link_to "<< home", root_path %>
+      <h4><%= link_to "<< home", root_path %></h4>
     </div>
     <div class="col-md-9 cart-needs">
-      <h2>My Basket (<%= @cart.count_donations %>)</h2>
+      <h2>My Basket</h2>
+      <h4>    Contents: <%= @cart.count_donations %> Items</h4>
       <% @recipients_donations.each do |recipient, donations| %>
         <div class="cart-header">
           <div class="cart-sec">
@@ -13,11 +14,6 @@
                 <p><%= "Donate #{number_to_currency(donation.amount)} to #{recipient.full_name} for #{donation.need_name}" %></p>
                 <div class="cart-remove"><%= button_to "Remove Donation", donations_path(id: donation.id), method: :delete, data: { confirm: "Are you sure?" }, :remote => true, :class => 'remove_donation' %></div>
               <% end %>
-              <!-- <h4>Price: <%# number_to_currency(need.cost) %></h4>
-              <%# form_for :session, url: cart_path(:id, {need_id: need.id}), html: {method: "patch"} do |f| %>
-                <%# f.number_field :quantity, value: need.quantity, min: 1, max: need.max, class: "form-control input-small" %>
-                <%# f.submit "Update Quantity", class:"cart-update" %>
-                <%#end %> -->
               </div>
               <div class="clearfix"></div>
             </div>
@@ -28,15 +24,15 @@
         <span class="total final"><h4 class="last-price">TOTAL
             <%= number_to_currency(@cart.total_donor_cost) %></h4></span>
         <div class="clearfix"></div>
-        <%#if current_user %>
+        <%if current_user %>
           <% if @cart.contents["donor"].empty? %>
             <button  type="button" disabled>Checkout</button>
           <% else %>
-            <%= button_to "Checkout", new_charge_path, method: :get %>
+            <%= button_to "Checkout", new_charge_path, method: :get, class:"order btn btn-primary" %>
           <% end %>
-        <%#else %>
-          <%# button_to "Login to Donate", login_path, method: :get, class:"order" %>
-        <%#end %>
+        <% else %>
+          <%= button_to "Login to Donate", login_path, method: :get, class:"order btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
