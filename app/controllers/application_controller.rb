@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
-# protect_from_forgery with: :exception
-# protect_from_forgery with: :null_session
+  # protect_from_forgery with: :exception
+  # protect_from_forgery with: :null_session
   before_action :set_cart
   helper_method :current_user,
-                :set_redirect,
-                :current_admin?,
-                :current_user_guest,
-                :need_has_donation?,
-                :has_need?
+    :set_redirect,
+    :current_admin?,
+    :current_user_guest,
+    :need_has_donation?,
+    :has_need?
   include ApplicationHelper
 
   def set_redirect
@@ -36,21 +36,25 @@ class ApplicationController < ActionController::Base
     end
   end
 
- # def require_user
- #   redirect_to "/errors/not_found.html" unless current_user
- # end
-
   def need_has_donation?(need)
     if current_user
-      @cart.contents["donor"].values.flatten.any? do |val|
-        donation = current_user.donations.find(val)
-        donation.need_name == need.name && donation.recipient_id == need.user_id
-      end
+      check_user_needs(need)
     else
-      @cart.contents["donor"].values.flatten.any? do |val|
-        donation = Donation.where(user_id: nil).find(val)
-        donation.need_name == need.name && donation.recipient_id == need.user_id
-      end
+      check_guest_needs(need)
+    end
+  end
+
+  def check_user_needs(need)
+    @cart.contents["donor"].values.flatten.any? do |val|
+      donation = current_user.donations.find(val)
+      donation.need_name == need.name && donation.recipient_id == need.user_id
+    end
+  end
+
+  def check_guest_needs(need)
+    @cart.contents["donor"].values.flatten.any? do |val|
+      donation = Donation.where(user_id: nil).find(val)
+      donation.need_name == need.name && donation.recipient_id == need.user_id
     end
   end
 

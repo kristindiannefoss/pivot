@@ -1,21 +1,18 @@
 class Admin::NeedTypesController < Admin::BaseController
   include ActionView::Helpers::TextHelper
+  before_action :set_need_type, only: [:show, :edit, :update, :destroy]
 
   def index
     @need_types = NeedType.all
   end
 
   def show
-    @need_type = NeedType.find(params[:id])
   end
 
   def edit
-    @need_type = NeedType.find(params[:id])
   end
 
   def update
-    @need_type = NeedType.find(params[:id])
-
     if @need_type.update(needs_params)
       flash[:notice] = "Need Type has been updated"
       redirect_to admin_need_types_path
@@ -30,7 +27,6 @@ class Admin::NeedTypesController < Admin::BaseController
 
   def create
     @need_type = NeedType.create(needs_params)
-
     if @need_type.save
       flash[:notice] = "Successfully created a new need"
       redirect_to admin_need_types_path
@@ -41,8 +37,7 @@ class Admin::NeedTypesController < Admin::BaseController
   end
 
   def destroy
-    need_type = NeedType.find(params[:id])
-    need_type.destroy
+    @need_type.destroy
     redirect_to admin_need_types_path
   end
 
@@ -52,5 +47,9 @@ private
     category = params[:need_type][:category]
     params[:need_type][:category] = Category.find_or_create_by(name: category)
     params.require(:need_type).permit(:name, :description, :cost,  :category, :image_url)
+  end
+
+  def set_need_type
+    @need_type = NeedType.find(params[:id])
   end
 end

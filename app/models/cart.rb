@@ -43,10 +43,6 @@ class Cart
     contents["recipient"].nil? ? 0 : contents["recipient"].values.sum
   end
 
-  def count_of(need_id)   #DO WE NEED THIS?????
-    contents[need_id.to_s]
-  end
-
   def remove_need(need_id)
     contents["recipient"].reject! { |id| id == need_id.to_s }
   end
