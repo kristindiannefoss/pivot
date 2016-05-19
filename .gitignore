@@ -20,3 +20,5 @@ Gemfile.lock
 /config/application.yml
 
 /coverage
+coverage
+
