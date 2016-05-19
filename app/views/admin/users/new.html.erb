@@ -1,6 +1,9 @@
 <div class="container form-spacing">
   <div class="vertical-center-row">
-    <div align="center">
+    <div align="center", class="login-squish">
+      <div class="another">
+
+      </div>
       <h1>User Creation Page</h1>
       <h3>Enter New User Information:</h3>
 
@@ -16,6 +19,8 @@
         <%= f.password_field :password, placeholder: "Password", class:"form-control" %><br>
         <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class:"form-control" %><br>
         <%= f.collection_select :role, @roles, :last, :first, include_blank: "Choose Account Type" %>
+        <br>
+        <br>
         <%= f.submit "Create User Account", class: "btn btn-primary"%>
       <% end %>
 
