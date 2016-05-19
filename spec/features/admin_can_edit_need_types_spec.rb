@@ -31,7 +31,6 @@ feature "Admin can edit need types" do
     click_button "Update Need"
 
     expect(page).to have_content("Cows")
-    expect(page).to have_content("Milk")
     expect(page).to have_content("$1,000")
 
   end
