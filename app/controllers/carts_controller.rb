@@ -7,10 +7,9 @@ class CartsController < ApplicationController
     session[:cart] = @cart.contents
 
     respond_to do |format|
-      format.html { }
-      format.js   { }
+      format.html {}
+      format.js   {}
     end
-#    redirect_to session[:redirect]
   end
 
   def show

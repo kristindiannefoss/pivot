@@ -38,7 +38,7 @@ class NeedsController < ApplicationController
     session[:cart] = { "donor" => {}, "recipient" => {} }
 
     respond_to do |format|
-      format.html { "Added" }
+      format.html {}
       format.js   {}
     end
   end
