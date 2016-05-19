@@ -33,6 +33,6 @@ class Need < ActiveRecord::Base
   end
 
   def funded?
-    total >= raised?
+    raised >= total
   end
 end
