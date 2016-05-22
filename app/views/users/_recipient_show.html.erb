@@ -16,7 +16,7 @@
             <th>Delete</th>
           </tr>
           <% @user.needs.each do |need| %>
-          <tr id="<%= need.name.downcase %>">
+            <tr id="<%= need.name.downcase %>" class="need-line-item-<%= need.id %>" >
 
             <td><div class="teeny">
               <%= image_tag need.image_url, class: "tiny-pic" %></div></td>
@@ -37,7 +37,7 @@
                 <% end %>
               </td>
 
-              <td><%= button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-default", confirm: "Are you sure?" %></td>
+              <td><%= button_to "Remove Need", destroy_need_path(id: need.id), method: :delete, class: "btn btn-default", confirm: "Are you sure?", remote: true %></td>
 
             </tr>
             <% end %>

@@ -25,8 +25,13 @@ class NeedsController < ApplicationController
   end
 
   def destroy
+    @need_id = params[:id]
     @need.destroy
-    redirect_to :back, notice: "#{@need.name} removed from your needs."
+
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "#{@need.name} removed from your needs." }
+      format.js { }
+    end
   end
 
   def create
