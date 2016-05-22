@@ -21,12 +21,21 @@ class NeedsController < ApplicationController
 
   def update
     @need.update(needs_params)
-    redirect_to :back, notice: "You are now requesting #{@need.quantity} #{@need.name.pluralize(@need.quantity)}."
+
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "You are now requesting #{@need.quantity} #{@need.name.pluralize(@need.quantity)}." }
+      format.js {}
+    end
   end
 
   def destroy
+    @need_id = params[:id]
     @need.destroy
-    redirect_to :back, notice: "#{@need.name} removed from your needs."
+
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "#{@need.name} removed from your needs." }
+      format.js {}
+    end
   end
 
   def create
@@ -36,10 +45,9 @@ class NeedsController < ApplicationController
     session[:cart] = { "donor" => {}, "recipient" => {} }
 
     respond_to do |format|
-      format.html {}
+      format.html { redirect_to user_path }
       format.js   {}
     end
-    redirect_to user_path
   end
 
 private
